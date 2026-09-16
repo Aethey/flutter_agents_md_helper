@@ -1,0 +1,96 @@
+{
+  "id": "method-channel",
+  "category": "native",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/platform-integration/platform-channels",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Platform channels",
+      "url": "https://docs.flutter.dev/platform-integration/platform-channels"
+    }
+  ],
+  "facts": [
+    "MethodChannel sends asynchronous method calls between Dart and the host platform."
+  ],
+  "copy": {
+    "en": {
+      "label": "Platform channels",
+      "name": "MethodChannel",
+      "summary": "Bridge Dart and the host with the official channel APIs.",
+      "description": "Fine for a few calls. Types are loose; the surface gets messy as APIs grow.",
+      "advantages": [
+        "Official and sufficient",
+        "Fits a handful of calls",
+        "Same model as many plugins"
+      ],
+      "tradeOffs": [
+        "Loose types",
+        "Breaks down as the surface grows"
+      ],
+      "recommendedWhen": [
+        "A few native calls",
+        "You are keeping existing channels"
+      ],
+      "avoidWhen": [
+        "Many typed APIs in both directions"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Pigeon as an alternative"
+      ]
+    },
+    "zh": {
+      "label": "平台通道",
+      "name": "MethodChannel",
+      "summary": "用官方通道 API 连接 Dart 与宿主。",
+      "description": "几次调用够用。类型宽松；API 变多后界面会乱。",
+      "advantages": [
+        "官方且够用",
+        "适合少量调用",
+        "与许多插件同一模型"
+      ],
+      "tradeOffs": [
+        "类型宽松",
+        "调用面变大后会撑不住"
+      ],
+      "recommendedWhen": [
+        "原生调用只有几处",
+        "要维持现有通道"
+      ],
+      "avoidWhen": [
+        "双向都有大量类型化 API"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Pigeon 作为替代"
+      ]
+    },
+    "ja": {
+      "label": "プラットフォームチャネル",
+      "name": "MethodChannel",
+      "summary": "公式チャネルで Dart とホストをつなぎます。",
+      "description": "呼び出しが少なければ十分です。型は緩く、面が増えると破綻します。",
+      "advantages": [
+        "公式で十分",
+        "一点の呼び出しに向く",
+        "既存プラグインと同じモデル"
+      ],
+      "tradeOffs": [
+        "型が緩い",
+        "呼び出し面が増えると破綻する"
+      ],
+      "recommendedWhen": [
+        "ネイティブ呼び出しが数本",
+        "既存チャネルを維持する"
+      ],
+      "avoidWhen": [
+        "多数の型付き API を両方向で持つ"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Pigeon の代替"
+      ]
+    }
+  }
+}

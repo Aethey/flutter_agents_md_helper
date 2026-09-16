@@ -1,0 +1,100 @@
+{
+  "id": "hive",
+  "category": "persistence",
+  "kind": "package",
+  "docsUrl": "https://docs.hivedb.dev/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Hive documentation",
+      "url": "https://docs.hivedb.dev/"
+    }
+  ],
+  "facts": [
+    "Hive is a Dart-first keyed box store; hive_ce is the community-maintained continuation."
+  ],
+  "copy": {
+    "en": {
+      "label": "NoSQL-style local store",
+      "name": "Hive",
+      "summary": "A Dart-first box store for structured objects without SQL.",
+      "description": "Useful when you want local objects without a relational schema. You still design keys and migrations.",
+      "advantages": [
+        "Dart-centric API",
+        "No SQL required",
+        "Good for caches and offline documents"
+      ],
+      "tradeOffs": [
+        "Not relational",
+        "You own migrations"
+      ],
+      "recommendedWhen": [
+        "Document-shaped offline data",
+        "Medium apps without SQL needs"
+      ],
+      "avoidWhen": [
+        "You need joins, migrations as SQL, or reporting queries"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    },
+    "zh": {
+      "label": "文档式本地存储",
+      "name": "Hive",
+      "summary": "面向 Dart 的 box 存储，用结构化对象而不用 SQL。",
+      "description": "想在本地存对象又不想像关系库那样建模时有用。仍需设计键和迁移。",
+      "advantages": [
+        "API 偏 Dart",
+        "不需要 SQL",
+        "适合缓存和离线文档"
+      ],
+      "tradeOffs": [
+        "不是关系型",
+        "迁移要自己做"
+      ],
+      "recommendedWhen": [
+        "文档形态的离线数据",
+        "中型且不需要 SQL"
+      ],
+      "avoidWhen": [
+        "需要 join、SQL 迁移或报表查询"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    },
+    "ja": {
+      "label": "NoSQL 寄りのローカルストア",
+      "name": "Hive",
+      "summary": "SQL なしで構造化オブジェクトを持つ Dart 寄りの box ストアです。",
+      "description": "関係スキーマなしでローカルオブジェクトを持ちたいときに向きます。キーと移行は自分で設計します。",
+      "advantages": [
+        "Dart 寄りの API",
+        "SQL 不要",
+        "キャッシュやオフライン文書に向く"
+      ],
+      "tradeOffs": [
+        "リレーショナルではない",
+        "移行は自前"
+      ],
+      "recommendedWhen": [
+        "文書型のオフラインデータ",
+        "SQL が不要な中規模"
+      ],
+      "avoidWhen": [
+        "結合、SQL 移行、集計クエリが必要"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    }
+  },
+  "packageName": "hive_ce"
+}

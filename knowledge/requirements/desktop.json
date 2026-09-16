@@ -1,0 +1,99 @@
+{
+  "id": "desktop",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/platform-integration/desktop",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter desktop",
+      "url": "https://docs.flutter.dev/platform-integration/desktop"
+    }
+  ],
+  "facts": [
+    "Flutter can build Windows, macOS, and Linux apps from the same Dart codebase with flutter create --platforms and flutter run -d windows|macos|linux."
+  ],
+  "copy": {
+    "en": {
+      "label": "Project target",
+      "name": "Desktop",
+      "summary": "The product must run as a Windows, macOS, or Linux app.",
+      "description": "Desktop is a first-class Flutter target. Window size, menus, and file access become design inputs; mobile-only plugins are a common mismatch.",
+      "advantages": [
+        "Same Dart codebase as mobile and web",
+        "Native installers via flutter build",
+        "Keyboard and windowing can be designed in"
+      ],
+      "tradeOffs": [
+        "Plugin coverage is narrower than mobile",
+        "Each OS still needs its own runner files"
+      ],
+      "recommendedWhen": [
+        "A windowed client is in this milestone",
+        "The same architecture should cover laptops and workstations"
+      ],
+      "avoidWhen": [
+        "The only committed clients are phones or a browser"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "shared_preferences",
+        "Drift"
+      ]
+    },
+    "zh": {
+      "label": "项目目标",
+      "name": "桌面",
+      "summary": "产品需要作为 Windows、macOS 或 Linux 应用运行。",
+      "description": "桌面是 Flutter 的一等目标。窗口尺寸、菜单和文件访问会成为设计输入；仅限移动端的插件常常不匹配。",
+      "advantages": [
+        "与移动端、Web 共用 Dart 代码",
+        "可用 flutter build 打出安装包",
+        "可以把键盘和窗口体验纳入设计"
+      ],
+      "tradeOffs": [
+        "插件覆盖比移动端窄",
+        "每个操作系统仍需自己的 runner 文件"
+      ],
+      "recommendedWhen": [
+        "本里程碑包含窗口客户端",
+        "同一套架构要覆盖笔记本和工作站"
+      ],
+      "avoidWhen": [
+        "已承诺的客户端只有手机或浏览器"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "shared_preferences",
+        "Drift"
+      ]
+    },
+    "ja": {
+      "label": "プロジェクト対象",
+      "name": "デスクトップ",
+      "summary": "Windows / macOS / Linux アプリとして動かす必要があります。",
+      "description": "デスクトップは Flutter の正式ターゲットです。窓サイズ、メニュー、ファイルアクセスが設計入力になり、モバイル専用プラグインは合いにくいです。",
+      "advantages": [
+        "モバイル・Web と同じ Dart コード",
+        "flutter build でインストーラを作れる",
+        "キーボードとウィンドウを設計に含められる"
+      ],
+      "tradeOffs": [
+        "プラグイン対応はモバイルより狭い",
+        "OS ごとに runner ファイルが必要"
+      ],
+      "recommendedWhen": [
+        "このマイルストーンに窓付きクライアントがある",
+        "ノートPCとワークステーションで同じ設計にしたい"
+      ],
+      "avoidWhen": [
+        "約束しているのがスマホかブラウザだけ"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "shared_preferences",
+        "Drift"
+      ]
+    }
+  }
+}

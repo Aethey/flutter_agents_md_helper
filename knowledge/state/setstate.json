@@ -1,0 +1,99 @@
+{
+  "id": "setstate",
+  "category": "state",
+  "kind": "pattern",
+  "docsUrl": "https://api.flutter.dev/flutter/widgets/State/setState.html",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "setState API",
+      "url": "https://api.flutter.dev/flutter/widgets/State/setState.html"
+    }
+  ],
+  "facts": [
+    "setState is the built-in way to rebuild a StatefulWidget after local fields change."
+  ],
+  "copy": {
+    "en": {
+      "label": "Built-in Flutter state",
+      "name": "setState",
+      "summary": "Use StatefulWidget local fields when nothing needs sharing beyond the widget.",
+      "description": "No extra package. Business rules tend to leak into widgets if this is the only tool for app-wide state.",
+      "advantages": [
+        "Zero extra dependencies",
+        "Official docs apply directly",
+        "Lowest learning cost"
+      ],
+      "tradeOffs": [
+        "Does not scale past a screen",
+        "Logic mixes into widgets"
+      ],
+      "recommendedWhen": [
+        "A one-form tool",
+        "Animation and tab state stay local"
+      ],
+      "avoidWhen": [
+        "Auth, cart, or sync state is shared"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "http",
+        "Plain Dart"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 内置状态",
+      "name": "setState",
+      "summary": "状态不必跨组件共享时，用 StatefulWidget 的局部字段即可。",
+      "description": "无需额外包。若把它当作全应用状态的唯一手段，业务规则容易漏进 widget。",
+      "advantages": [
+        "零额外依赖",
+        "官方文档直接可用",
+        "学习成本最低"
+      ],
+      "tradeOffs": [
+        "跨不动一屏之外",
+        "逻辑容易和 widget 混在一起"
+      ],
+      "recommendedWhen": [
+        "单表单工具",
+        "动画、Tab 等局部 UI 状态"
+      ],
+      "avoidWhen": [
+        "存在认证、购物车、同步等共享状态"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "http",
+        "Plain Dart"
+      ]
+    },
+    "ja": {
+      "label": "Flutter 組み込み状態",
+      "name": "setState",
+      "summary": "共有が不要なら StatefulWidget の局所状態で足ります。",
+      "description": "追加パッケージは不要です。アプリ全体の状態に使うと、ビジネスロジックが Widget に混ざりやすいです。",
+      "advantages": [
+        "依存ゼロ",
+        "公式ドキュメントがそのまま使える",
+        "学習コストが最低"
+      ],
+      "tradeOffs": [
+        "画面を超える状態に向かない",
+        "ビジネスロジックが Widget に混ざりやすい"
+      ],
+      "recommendedWhen": [
+        "フォーム1枚のツール",
+        "アニメーションやタブなど局所 UI"
+      ],
+      "avoidWhen": [
+        "認証・カート・同期など共有状態がある"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "http",
+        "Plain Dart"
+      ]
+    }
+  }
+}

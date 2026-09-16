@@ -1,0 +1,100 @@
+{
+  "id": "dio",
+  "category": "networking",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/dio",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Dio on pub.dev",
+      "url": "https://pub.dev/packages/dio"
+    }
+  ],
+  "facts": [
+    "Dio supports interceptors, cancellation, upload progress, FormData, and timeouts."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter HTTP client",
+      "name": "Dio",
+      "summary": "A practical client with interceptors, transforms, and cancellation.",
+      "description": "The usual production HTTP layer in Flutter. Retrofit generates Dio clients. You should pin timeouts and interceptor order as a team.",
+      "advantages": [
+        "Interceptors",
+        "Cancellation and progress",
+        "FormData and timeouts"
+      ],
+      "tradeOffs": [
+        "Heavier than http",
+        "Unconfigured clients diverge across the team"
+      ],
+      "recommendedWhen": [
+        "Auth token refresh exists",
+        "Uploads or retries exist"
+      ],
+      "avoidWhen": [
+        "Only a handful of calls"
+      ],
+      "worksWellWith": [
+        "Retrofit",
+        "Riverpod",
+        "json_serializable"
+      ]
+    },
+    "zh": {
+      "label": "Flutter HTTP 客户端",
+      "name": "Dio",
+      "summary": "带拦截器、转换与取消的实用客户端。",
+      "description": "Flutter 里常见的生产 HTTP 层。Retrofit 会生成 Dio 客户端。团队应约定超时和拦截器顺序。",
+      "advantages": [
+        "拦截器",
+        "取消与进度",
+        "FormData 与超时"
+      ],
+      "tradeOffs": [
+        "比官方 http 更重",
+        "不约定配置时团队实现会分叉"
+      ],
+      "recommendedWhen": [
+        "有认证令牌刷新",
+        "有上传或重试"
+      ],
+      "avoidWhen": [
+        "只有几次调用"
+      ],
+      "worksWellWith": [
+        "Retrofit",
+        "Riverpod",
+        "json_serializable"
+      ]
+    },
+    "ja": {
+      "label": "Flutter HTTP クライアント",
+      "name": "Dio",
+      "summary": "インターセプタ、変換、キャンセルを備えた実用クライアントです。",
+      "description": "Flutter でよく使う実用 HTTP 層です。Retrofit の下地にもなります。タイムアウトとインターセプタ順はチームで決めてください。",
+      "advantages": [
+        "インターセプタ",
+        "キャンセルと進捗",
+        "FormData とタイムアウト"
+      ],
+      "tradeOffs": [
+        "公式 http より重い",
+        "設定を置かないとチーム差が出る"
+      ],
+      "recommendedWhen": [
+        "認証トークンの更新がある",
+        "アップロードやリトライがある"
+      ],
+      "avoidWhen": [
+        "呼び出しが数本だけのアプリ"
+      ],
+      "worksWellWith": [
+        "Retrofit",
+        "Riverpod",
+        "json_serializable"
+      ]
+    }
+  },
+  "packageName": "dio"
+}

@@ -1,0 +1,103 @@
+{
+  "id": "melos",
+  "category": "structure",
+  "kind": "package",
+  "docsUrl": "https://melos.invertase.dev/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Melos documentation",
+      "url": "https://melos.invertase.dev/"
+    }
+  ],
+  "facts": [
+    "Melos is a CLI for managing Dart/Flutter monorepos: bootstrap, filtered scripts, and versioning."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter monorepo tool",
+      "name": "Melos",
+      "summary": "Manage bootstrap, scripts, and versions across a Flutter monorepo.",
+      "description": "Melos is the most common workspace runner in Flutter monorepos. It sits on pub and adds filtering and version automation.",
+      "advantages": [
+        "Bootstrap and filtered execution",
+        "Unified versioning",
+        "Fits CI well"
+      ],
+      "tradeOffs": [
+        "Another tool in the stack",
+        "melos.yaml needs design"
+      ],
+      "recommendedWhen": [
+        "Several packages",
+        "The same command must run across packages"
+      ],
+      "avoidWhen": [
+        "Only one package",
+        "Pub workspaces already cover the need"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Riverpod",
+        "Dio"
+      ]
+    },
+    "zh": {
+      "label": "Flutter monorepo 工具",
+      "name": "Melos",
+      "summary": "在 Flutter monorepo 里统一管理 bootstrap、脚本和版本。",
+      "description": "Melos 是 Flutter monorepo 里最常见的工作区运行器。它建立在 pub 之上，提供过滤执行与版本自动化。",
+      "advantages": [
+        "bootstrap 与过滤执行",
+        "统一版本管理",
+        "和 CI 搭配好"
+      ],
+      "tradeOffs": [
+        "工具链多一层",
+        "需要设计 melos.yaml"
+      ],
+      "recommendedWhen": [
+        "有多个包",
+        "同一命令要在各包执行"
+      ],
+      "avoidWhen": [
+        "只有一个包",
+        "pub workspace 已经够用"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Riverpod",
+        "Dio"
+      ]
+    },
+    "ja": {
+      "label": "Flutter モノレポツール",
+      "name": "Melos",
+      "summary": "モノレポの bootstrap、スクリプト、バージョンを一括管理します。",
+      "description": "Flutter モノレポでよく使われるランナーです。pub の上にフィルタ実行とバージョン自動化を足します。",
+      "advantages": [
+        "bootstrap とフィルタ実行",
+        "一括バージョン管理",
+        "CI と相性がよい"
+      ],
+      "tradeOffs": [
+        "ツールがもう一段増える",
+        "melos.yaml の設計が必要"
+      ],
+      "recommendedWhen": [
+        "packages が複数ある",
+        "同じコマンドを全パッケージに流したい"
+      ],
+      "avoidWhen": [
+        "パッケージが1つだけ",
+        "pub workspace で足りている"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Riverpod",
+        "Dio"
+      ]
+    }
+  },
+  "packageName": "melos"
+}

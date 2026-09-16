@@ -1,0 +1,100 @@
+{
+  "id": "crashlytics",
+  "category": "monitoring",
+  "kind": "package",
+  "docsUrl": "https://firebase.google.com/docs/crashlytics/get-started?platform=flutter",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Firebase Crashlytics for Flutter",
+      "url": "https://firebase.google.com/docs/crashlytics/get-started?platform=flutter"
+    }
+  ],
+  "facts": [
+    "Firebase Crashlytics records crashes and non-fatal errors in Flutter apps that use Firebase."
+  ],
+  "copy": {
+    "en": {
+      "label": "Crash reporting",
+      "name": "Firebase Crashlytics",
+      "summary": "Report crashes in the Firebase family.",
+      "description": "Natural when Analytics and other Firebase products are already in the app. Weaker if you refuse a Google-centric stack or need the same vendor on web.",
+      "advantages": [
+        "Fits Firebase",
+        "Strong mobile track record",
+        "Lots of setup guides"
+      ],
+      "tradeOffs": [
+        "Google account assumed",
+        "Heavy if Firebase is otherwise unused"
+      ],
+      "recommendedWhen": [
+        "Analytics is already Firebase",
+        "The org is Google-centric"
+      ],
+      "avoidWhen": [
+        "You do not want Firebase",
+        "Web should share the same vendor view"
+      ],
+      "worksWellWith": [
+        "Firebase Analytics",
+        "Crashlytics SDK"
+      ]
+    },
+    "zh": {
+      "label": "崩溃监控",
+      "name": "Firebase Crashlytics",
+      "summary": "在 Firebase 家族里报告崩溃。",
+      "description": "当应用里已有 Analytics 等 Firebase 产品时很自然。若拒绝以 Google 为中心的栈，或 Web 也要同一厂商，则更弱。",
+      "advantages": [
+        "融入 Firebase",
+        "移动端案例多",
+        "搭建文章多"
+      ],
+      "tradeOffs": [
+        "默认需要 Google 账号",
+        "若不用 Firebase 会偏重"
+      ],
+      "recommendedWhen": [
+        "分析已在 Firebase",
+        "组织偏 Google"
+      ],
+      "avoidWhen": [
+        "不想引入 Firebase",
+        "Web 也要同一厂商视图"
+      ],
+      "worksWellWith": [
+        "Firebase Analytics",
+        "Crashlytics SDK"
+      ]
+    },
+    "ja": {
+      "label": "クラッシュ監視",
+      "name": "Firebase Crashlytics",
+      "summary": "Firebase 家族でクラッシュを報告します。",
+      "description": "すでに Firebase を使うなら自然です。Google 中心を避けたい、Web も同じベンダーで見たい場合は弱いです。",
+      "advantages": [
+        "Firebase と一体",
+        "モバイルでの実績",
+        "セットアップ記事が多い"
+      ],
+      "tradeOffs": [
+        "Google アカウント前提",
+        "Firebase を使わないなら重い"
+      ],
+      "recommendedWhen": [
+        "Analytics も Firebase",
+        "既存が Google 寄り"
+      ],
+      "avoidWhen": [
+        "Firebase を入れたくない",
+        "Web も同じベンダーで見たい"
+      ],
+      "worksWellWith": [
+        "Firebase Analytics",
+        "Crashlytics SDK"
+      ]
+    }
+  },
+  "packageName": "firebase_crashlytics"
+}

@@ -1,0 +1,1676 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flutter Architect</title>
+  <style>
+    /* ─── tokens ─────────────────────────────────────────────────────────
+       Dark default: Flutter brand charcoal + primary blue.
+       Light: modern-minimal foundation with the same Flutter accent. */
+    :root {
+      --bg:      oklch(16% 0.006 271);
+      --surface: oklch(21% 0.006 271);
+      --fg:      oklch(93% 0.005 258);
+      --muted:   oklch(72% 0.012 262);
+      --border:  oklch(30% 0.008 271);
+      --accent:  oklch(54.91% 0.1475 248.0); /* Flutter primary blue */
+
+      --accent-soft: color-mix(in oklch, var(--accent) 14%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 6%, transparent);
+
+      --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+      --font-body:    -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+      --fs-h1: clamp(28px, 2.6vw, 40px);
+      --fs-h2: clamp(22px, 2vw, 28px);
+      --fs-h3: 17px;
+      --fs-lead: 16px;
+      --fs-body: 15px;
+      --fs-meta: 12px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1120px;
+      --gutter: 32px;
+
+      --radius: 12px;
+      --radius-lg: 20px;
+      --nav-h: 56px;
+    }
+    :root[data-theme="light"] {
+      --bg:      oklch(99% 0.002 240);
+      --surface: oklch(100% 0 0);
+      --fg:      oklch(18% 0.012 250);
+      --muted:   oklch(46% 0.012 250);
+      --border:  oklch(92% 0.005 250);
+      --accent:  oklch(54.91% 0.1475 248.0);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; height: 100%; }
+    body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; color: inherit; background: none; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+    .section { padding-block: clamp(48px, 8vw, var(--gap-2xl)); }
+    .stack { display: flex; flex-direction: column; }
+    .stack > * + * { margin-top: var(--gap-md); }
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: var(--gap-xl); align-items: start; }
+    .grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: var(--gap-xl); align-items: start; }
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+    }
+
+    .h1, h1 { font-family: var(--font-display); font-size: var(--fs-h1); line-height: 1.15; letter-spacing: -0.02em; margin: 0; font-weight: 600; }
+    .h2, h2 { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1.2; letter-spacing: -0.015em; margin: 0; font-weight: 600; }
+    .h3, h3 { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; margin: 0; }
+    .lead   { font-size: var(--fs-lead); line-height: 1.55; color: var(--muted); max-width: 60ch; margin: 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 var(--gap-sm);
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted); }
+    .num  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      height: var(--nav-h);
+      background: color-mix(in oklch, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; height: 100%; gap: var(--gap-md);
+    }
+    .topnav .logo { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
+    .topnav nav { display: flex; gap: 4px; align-items: center; }
+    .topnav nav a { font-size: 13px; color: var(--muted); }
+    .topnav nav a:hover { color: var(--fg); }
+    .pagefoot { padding-block: var(--gap-xl); color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 10px 18px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-size: 14px; font-weight: 550; letter-spacing: -0.005em;
+      transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: color-mix(in oklch, var(--bg) 8%, white);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: color-mix(in oklch, var(--accent) 82%, var(--fg));
+      color: color-mix(in oklch, var(--bg) 8%, white);
+    }
+    .btn-primary:disabled {
+      opacity: 0.38; cursor: not-allowed; transform: none;
+    }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-secondary:hover { background: var(--fg-soft); border-color: color-mix(in oklch, var(--fg) 28%, var(--border)); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 12px; }
+    .btn-ghost:hover { background: var(--fg-soft); }
+    .btn-arrow::after { content: '→'; transition: transform 0.15s ease; }
+    .btn-arrow:hover::after { transform: translateX(2px); }
+    .btn:focus-visible, .icon-btn:focus-visible, a:focus-visible, .option-card:focus-visible, .lang-menu button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+    .card-flat { background: transparent; border: 0; padding: 0; }
+    .card-rule { background: transparent; border: 0; border-top: 1px solid var(--fg); padding: 24px 0 0; border-radius: 0; }
+
+    .feature .feature-mark {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 10px;
+      color: var(--fg); margin-bottom: var(--gap-md);
+    }
+    .feature .feature-mark svg { width: 18px; height: 18px; }
+    .feature h3 { margin-bottom: 6px; }
+    .feature p  { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .stat .stat-num { font-family: var(--font-display); font-size: clamp(56px, 8vw, 96px); line-height: 0.95; letter-spacing: -0.04em; color: var(--accent); font-weight: 600; }
+    .stat .stat-label { color: var(--muted); font-size: 14px; margin-top: 8px; max-width: 24ch; }
+    .stat .stat-unit  { font-size: 0.5em; opacity: 0.7; margin-left: 2px; }
+    .quote { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.32; letter-spacing: -0.01em; max-width: 28ch; }
+    .quote-author { color: var(--muted); font-size: 14px; margin-top: var(--gap-md); }
+    .quote-mark { font-family: var(--font-display); font-size: 140px; line-height: 0.7; color: var(--accent); opacity: 0.18; margin-bottom: -28px; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; background: var(--fg-soft); color: var(--fg);
+      border-radius: 999px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    }
+    .tag {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px; background: transparent; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 999px; font-size: 12px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 13px; color: var(--muted); }
+    .input, .textarea {
+      width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+      border-radius: var(--radius); background: var(--surface); color: var(--fg); font: inherit; font-size: 15px;
+    }
+    .input:focus, .textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+    .textarea { min-height: 96px; resize: vertical; line-height: 1.55; }
+
+    .ds-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .ds-table th, .ds-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+    .ds-table th { color: var(--muted); font-weight: 500; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ds-table tbody tr:hover { background: var(--fg-soft); }
+    .ds-table .num-col { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+
+    .ph-img {
+      background: linear-gradient(135deg, var(--accent-soft), var(--fg-soft)), var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      aspect-ratio: 16 / 10; display: grid; place-items: center;
+      color: var(--muted); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+    }
+    .ph-img.square { aspect-ratio: 1 / 1; }
+    .ph-img.portrait { aspect-ratio: 3 / 4; }
+    .ph-img.wide { aspect-ratio: 16 / 9; }
+    .content-img {
+      display: block; max-width: 100%; max-height: min(70vh, 720px);
+      width: auto; height: auto; object-fit: contain; justify-self: center; border-radius: var(--radius-lg);
+    }
+    .rule  { border: 0; border-top: 1px solid var(--border); margin: 0; }
+    .rule-strong { border: 0; border-top: 1px solid var(--fg); margin: 0; }
+    .hero { padding-block: clamp(80px, 12vw, 160px); }
+    .hero-center { text-align: center; max-width: 32ch; margin-inline: auto; }
+    .hero h1 { margin-bottom: var(--gap-md); }
+    .hero .lead { margin-bottom: var(--gap-lg); }
+    .hero-cta { display: inline-flex; gap: var(--gap-sm); flex-wrap: wrap; }
+    .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-2xl); align-items: center; }
+    .log-row { display: grid; grid-template-columns: 120px 1fr 100px; gap: var(--gap-lg); padding: 22px 0; border-top: 1px solid var(--border); align-items: baseline; }
+    @media (max-width: 920px) { .hero-split { grid-template-columns: 1fr; } }
+
+    /* ─── app shell ─────────────────────────────────────────────────── */
+    .app-shell { display: flex; flex-direction: column; height: 100vh; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid var(--border); border-radius: 8px;
+      display: grid; place-items: center; color: var(--fg);
+    }
+    .brand-copy { display: flex; flex-direction: column; min-width: 0; }
+    .brand-copy .logo-sub {
+      font-size: 11px; color: var(--muted); font-weight: 400;
+      letter-spacing: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 42ch;
+    }
+    .icon-btn {
+      width: 44px; height: 44px; display: grid; place-items: center;
+      border-radius: 10px; border: 1px solid transparent; color: var(--fg);
+    }
+    .icon-btn:hover, .icon-btn.is-active { background: var(--fg-soft); color: var(--fg); }
+    .icon-btn svg { width: 16px; height: 16px; }
+    .nav-divider {
+      width: 1px; height: 16px; margin: 0 6px;
+      background: var(--border); flex-shrink: 0;
+    }
+    .lang-wrap { position: relative; }
+    .lang-menu {
+      position: absolute; right: 0; top: calc(100% + 8px);
+      min-width: 168px; padding: 6px;
+      background: var(--surface); color: var(--fg);
+      border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: 0 12px 32px color-mix(in oklch, var(--bg) 55%, transparent);
+      z-index: 20;
+    }
+    .lang-menu[hidden] { display: none; }
+    .lang-menu button {
+      width: 100%; min-height: 44px; padding: 0 10px;
+      border-radius: 8px; border: 0; background: transparent;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--fg); text-align: left;
+    }
+    .lang-menu button:hover { background: var(--fg-soft); color: var(--fg); }
+    .lang-menu button.is-current { font-weight: 600; }
+
+    .workspace {
+      flex: 1; min-height: 0;
+      display: grid;
+      grid-template-columns: 23% minmax(0, 1fr) 30%;
+    }
+    .panel {
+      min-height: 0; overflow: auto;
+      display: flex; flex-direction: column;
+    }
+    .panel-left { border-right: 1px solid var(--border); background: color-mix(in oklch, var(--bg) 70%, var(--surface)); }
+    .panel-center { padding: 36px 44px 28px; }
+    .panel-right { border-left: 1px solid var(--border); background: color-mix(in oklch, var(--surface) 55%, var(--bg)); }
+    .panel-body { padding: 22px 20px 16px; flex: 1; }
+    .panel-foot { padding: 16px 20px 20px; border-top: 1px solid var(--border); }
+
+    .progress-track {
+      height: 3px; border-radius: 999px; background: var(--fg-soft); overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0; border-radius: inherit;
+      background: var(--fg); transition: width 0.25s ease;
+    }
+
+    .tree { display: flex; flex-direction: column; gap: 2px; }
+    .tree-root {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-weight: 600; font-size: 13px;
+      padding: 6px 0 14px;
+    }
+    .tree-cat {
+      display: grid; grid-template-columns: 28px 1fr 44px; gap: 8px;
+      align-items: start; padding: 10px 8px; border-radius: 12px;
+      opacity: 0.4; transition: opacity 0.15s ease, background 0.15s ease;
+    }
+    .tree-cat.is-done { opacity: 1; }
+    .tree-cat.is-current { opacity: 1; background: var(--fg-soft); }
+    .tree-cat.is-done .tree-tech { background: var(--accent-soft); }
+    .tree-mark {
+      width: 28px; height: 28px; display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 8px; color: var(--fg);
+    }
+    .tree-mark svg { width: 14px; height: 14px; }
+    .tree-label { font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
+    .tree-tech {
+      display: inline-block; margin-top: 3px; padding: 2px 8px;
+      border-radius: 999px; font-size: 13px; font-weight: 550;
+    }
+    .tree-sub {
+      margin: 4px 0 0 8px; padding-left: 10px;
+      border-left: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+    }
+    .tree-edit {
+      width: 44px; height: 44px; margin-top: -6px; border-radius: 8px;
+      display: grid; place-items: center; color: var(--muted); opacity: 0;
+    }
+    .tree-cat:hover .tree-edit, .tree-edit:focus-visible { opacity: 1; color: var(--fg); }
+    .tree-edit:hover { background: var(--fg-soft); }
+
+    .option-list {
+      display: flex; flex-direction: column; gap: 12px; margin-top: 28px;
+    }
+    .option-list.is-multi {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+    .option-list.is-multi[data-count="3"] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .option-card {
+      text-align: left; width: 100%;
+      display: flex; flex-direction: column; align-items: stretch;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 22px 24px;
+      box-shadow: 0 1px 0 color-mix(in oklch, var(--fg) 5%, transparent);
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+    .option-card:hover, .option-card.is-preview {
+      border-color: color-mix(in oklch, var(--fg) 32%, var(--border));
+      background: color-mix(in oklch, var(--fg) 4%, var(--surface));
+    }
+    .option-card.is-selected {
+      border-color: var(--accent);
+      background: color-mix(in oklch, var(--accent) 10%, var(--surface));
+    }
+    .option-card.is-selected:hover, .option-card.is-selected.is-preview {
+      border-color: var(--accent);
+      background: color-mix(in oklch, var(--accent) 14%, var(--surface));
+    }
+    .option-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 10px; margin-bottom: 8px;
+    }
+    .option-head h3 { min-width: 0; overflow-wrap: break-word; }
+    .option-head .tag { flex-shrink: 0; }
+    .option-card p { margin: 0; color: var(--muted); font-size: 14px; max-width: 52ch; }
+    .option-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .option-list.is-multi .option-card { height: 100%; padding: 18px 18px; }
+    .option-list.is-multi .option-card p { max-width: none; flex: 1; }
+    .option-list.is-multi .option-tags { margin-top: auto; padding-top: 12px; }
+    .option-list.is-dense { gap: 10px; margin-top: 20px; }
+    .option-list.is-dense .option-card { padding: 16px 16px; }
+    .option-list.is-dense .option-card p { font-size: 13px; }
+
+    .decision-foot {
+      margin-top: auto; padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .decision-actions { display: flex; align-items: center; gap: 8px; }
+
+    .insight { padding: 28px 24px 32px; }
+    .insight-kicker { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .insight h2 { font-size: 26px; margin: 4px 0 6px; }
+    .insight-docs {
+      display: inline-flex; align-items: center; gap: 6px;
+      min-height: 44px; margin: 0 0 2px; padding: 0 2px;
+      font-size: 13px; color: var(--fg);
+      border-bottom: 1px solid color-mix(in oklch, var(--fg) 28%, var(--border));
+      width: fit-content;
+    }
+    .insight-docs:hover {
+      text-decoration: none;
+      background: var(--fg-soft);
+      border-bottom-color: var(--fg);
+      color: var(--fg);
+    }
+    .insight-docs svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .insight-desc { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
+    .insight h3 { font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 18px 0 10px; }
+    .insight-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    .insight-list li { font-size: 14px; padding-left: 18px; position: relative; }
+    .insight-list.pros li::before { content: '✓'; position: absolute; left: 0; color: var(--fg); font-size: 12px; }
+    .insight-list.cons li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+    .works-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .review-wrap { height: 100%; overflow: auto; padding: 40px 48px 64px; }
+    .review-wrap .lead { margin: 10px 0 32px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review-card h3 { margin-bottom: 10px; }
+    .review-tech { font-size: 14px; font-weight: 550; margin: 0 0 4px; }
+    .review-reason { margin: 0; color: var(--muted); font-size: 13px; }
+    .review-cta { margin-top: 40px; text-align: center; }
+    .review-cta .lead { margin: 0 auto 20px; }
+    .text-action { display: inline-block; margin-top: 16px; font-size: 13px; color: var(--muted); min-height: 44px; padding: 12px; }
+    .text-action:hover { color: var(--fg); }
+
+    .screen { display: none; height: 100%; min-height: 0; }
+    .screen.is-on { display: flex; flex-direction: column; }
+
+    dialog.card {
+      width: min(720px, calc(100vw - 32px));
+      max-height: min(80vh, 840px);
+      padding: 0; border: 1px solid var(--border);
+      background: var(--surface); color: var(--fg);
+    }
+    dialog::backdrop { background: color-mix(in oklch, var(--bg) 72%, black); }
+    .dialog-head { padding: 20px 22px 0; }
+    .dialog-body { padding: 16px 22px 22px; overflow: auto; max-height: 60vh; }
+    .agents-out {
+      margin: 0; padding: 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--fg);
+      font-family: var(--font-mono); font-size: 12px; line-height: 1.6; white-space: pre-wrap;
+    }
+
+    @media (max-width: 1100px) {
+      .workspace { grid-template-columns: 26% minmax(0,1fr) 32%; }
+      .panel-center { padding: 28px 24px; }
+      .brand-copy .logo-sub { display: none; }
+      .review-grid { grid-template-columns: 1fr 1fr; }
+      .option-list.is-multi[data-count="3"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 920px) {
+      body { overflow: auto; }
+      .app-shell { height: auto; min-height: 100vh; }
+      .workspace { display: flex; flex-direction: column; height: auto; }
+      .panel { overflow: visible; }
+      .panel-center { order: -1; }
+      .review-grid { grid-template-columns: 1fr; }
+      .review-wrap { padding: 24px 16px 48px; }
+      .option-list.is-multi { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell" data-od-id="app-shell">
+    <header class="topnav" data-od-id="topnav">
+      <div class="topnav-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <rect x="5" y="5" width="14" height="4" rx="1"/>
+              <rect x="7" y="10.5" width="10" height="4" rx="1"/>
+              <rect x="9" y="16" width="6" height="3.5" rx="1"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <span class="logo">Flutter Architect</span>
+            <span class="logo-sub" data-i18n="subtitle">アプリを書く前に、アーキテクチャを組み立てる。</span>
+          </span>
+        </div>
+        <nav aria-label="メイン" data-i18n-aria="navMain">
+          <button class="icon-btn" id="btn-new" data-od-id="nav-new" type="button" data-i18n-aria="newProject" title="新規プロジェクト">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-review" data-od-id="nav-review" type="button" data-i18n-aria="review" title="レビュー">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+          </button>
+          <span class="nav-divider" aria-hidden="true"></span>
+          <a class="icon-btn" data-od-id="nav-github" href="https://github.com/flutter" target="_blank" rel="noreferrer" data-i18n-aria="github" aria-label="Flutter の GitHub" title="GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.87c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          </a>
+          <button class="icon-btn" id="btn-theme" data-od-id="nav-theme" type="button" data-i18n-aria="theme" aria-label="テーマを切り替える" title="テーマ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          </button>
+          <div class="lang-wrap">
+            <button class="icon-btn" id="btn-lang" data-od-id="nav-lang" type="button" data-i18n-aria="language" aria-label="言語" title="言語" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-menu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 3.8 6 3.8 9S14.5 18 12 21c-2.5-3-3.8-6-3.8-9S9.5 6 12 3z"/></svg>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="menu" hidden>
+              <button type="button" role="menuitem" data-lang="ja">日本語</button>
+              <button type="button" role="menuitem" data-lang="en">English</button>
+              <button type="button" role="menuitem" data-lang="zh">简体中文</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" style="flex:1; min-height:0; display:flex; flex-direction:column;">
+      <section class="screen is-on" id="screen-wizard" data-od-id="wizard">
+        <div class="workspace">
+          <aside class="panel panel-left" data-od-id="panel-architecture">
+            <div class="panel-body">
+              <p class="eyebrow" data-i18n="archEyebrow">選択中の構成</p>
+              <h2 class="h3" data-i18n="yourArchitecture">あなたのアーキテクチャ</h2>
+              <p class="meta" data-i18n="decisionsMade" style="margin: 6px 0 18px;">ここまでの決定</p>
+              <div class="tree" id="arch-tree"></div>
+            </div>
+            <div class="panel-foot" data-od-id="progress">
+              <p class="meta num" id="progress-label" style="margin: 0 0 8px;">0 / 12 件の決定が完了</p>
+              <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="panel panel-center" data-od-id="panel-decision">
+            <p class="eyebrow" id="decision-crumb">アーキテクチャ</p>
+            <h1 id="decision-title">質問</h1>
+            <p class="lead" id="decision-blurb" style="margin-top: 12px;"></p>
+            <div class="option-list" id="option-list" role="listbox" aria-label="選択肢" data-i18n-aria="options"></div>
+            <div class="decision-foot">
+              <span class="meta num" id="decision-index">決定 1 / 12</span>
+              <div class="decision-actions">
+                <button class="btn btn-ghost" id="btn-back" data-od-id="btn-back" type="button" data-i18n="back">戻る</button>
+                <button class="btn btn-secondary" id="btn-skip" data-od-id="btn-skip" type="button" data-i18n="skip">スキップ</button>
+                <button class="btn btn-primary btn-arrow" id="btn-continue" data-od-id="btn-continue" type="button" data-i18n="continue">続ける</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel panel-right" data-od-id="panel-insight">
+            <div class="insight" id="insight"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-review" data-od-id="review">
+        <div class="review-wrap">
+          <p class="eyebrow" data-i18n="reviewEyebrow">最終確認</p>
+          <h1 data-i18n="reviewTitle">あなたの Flutter アーキテクチャ</h1>
+          <p class="lead" data-i18n="reviewLead">プロジェクト指示を生成する前に、決定内容を確認してください。</p>
+          <div class="review-grid" id="review-grid"></div>
+          <div class="review-cta" data-od-id="review-cta">
+            <h2 data-i18n="reviewCtaTitle">この構成で AGENTS.md を書き出します</h2>
+            <p class="lead" data-i18n="reviewCtaLead">決定内容を、実装エージェント向けのプロジェクト指示に変換します。</p>
+            <button class="btn btn-primary" id="btn-generate" data-od-id="btn-generate" type="button" data-i18n="generate">AGENTS.md を生成</button>
+            <div>
+              <button class="btn btn-secondary" id="btn-back-decisions" data-od-id="btn-back-decisions" type="button" style="margin-top: 12px;" data-i18n="backDecisions">決定に戻る</button>
+            </div>
+            <button class="text-action" id="btn-restart" data-od-id="btn-restart" type="button" data-i18n="restart">最初からやり直す</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="card" id="agents-dialog" data-od-id="agents-dialog" aria-labelledby="agents-title">
+    <div class="dialog-head row-between">
+      <h2 id="agents-title">AGENTS.md</h2>
+      <button class="btn btn-secondary" id="btn-copy" type="button" data-i18n="copy">コピー</button>
+    </div>
+    <div class="dialog-body">
+      <pre class="agents-out" id="agents-out"></pre>
+      <div class="row" style="margin-top: 16px; justify-content: flex-end;">
+        <button class="btn btn-ghost" id="btn-close-dialog" type="button" data-i18n="close">閉じる</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const ICONS = {
+      structure: '<path d="M4 7h16M4 12h10M4 17h16"/>',
+      architecture: '<rect x="5" y="5" width="14" height="14" rx="2"/><path d="M5 10h14M10 10v9"/>',
+      state: '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>',
+      routing: '<path d="M5 19V8a3 3 0 0 1 3-3h8"/><circle cx="16" cy="5" r="2"/><circle cx="5" cy="19" r="2"/>',
+      network: '<path d="M5 12h14M12 5v14"/><circle cx="12" cy="12" r="8"/>',
+      models: '<path d="M4 7l8-3 8 3v10l-8 3-8-3V7z"/><path d="M12 10v10M4 7l8 3 8-3"/>',
+      native: '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M10 19h4"/>',
+      monitor: '<path d="M4 12a8 8 0 0 1 16 0"/><path d="M12 12v7M8 19h8"/>'
+    };
+
+    const DECISIONS = [
+      {
+        id: 'project-structure', group: 'structure', icon: 'structure',
+        crumb: 'プロジェクト', category: 'プロジェクト構成',
+        question: 'プロジェクト構成はどうしますか？',
+        blurb: 'アプリの規模とチーム分割に合う、パッケージの切り方を選んでください。',
+        options: [
+          {
+            id: 'single-package', name: 'Single Package',
+            summary: '1つの Dart パッケージでアプリ全体をまとめる、最小構成です。',
+            tags: ['単純', '少人数', '立ち上げ'],
+            reason: '画面数が少なく、分割コストの方が大きいため。',
+            insight: {
+              label: 'Flutter プロジェクト構成',
+              desc: 'lib 配下にすべてを置く標準構成。立ち上げが速く、依存関係も単純です。',
+              pros: ['セットアップが最短', 'IDE とツールの摩擦が少ない', '小規模なら十分に読みやすい'],
+              cons: ['機能が増えると所有境界が曖昧になる', '並列開発でコンフリクトが増えやすい'],
+              when: ['プロトタイプや社内ツール', '1〜3人で短期間に出すアプリ'],
+              avoid: ['複数チームが同じコードベースを触る', '機能を独立リリースしたい'],
+              with: ['Feature-first', 'Provider', 'Navigator']
+            }
+          },
+          {
+            id: 'multi-package', name: 'Multi-package', recommended: true,
+            summary: 'アプリと共有ライブラリをパッケージに分け、境界を明示します。',
+            tags: ['スケール', '所有境界', 'Monorepo'],
+            reason: '機能ごとの所有境界をパッケージとして固定できるため。',
+            implies: 'Melos',
+            insight: {
+              label: 'Flutter プロジェクト構成',
+              desc: 'apps と packages に分け、機能や基盤を独立した Dart パッケージにします。',
+              pros: ['依存方向を強制できる', 'チームごとにパッケージを分担できる', '再利用とテストが切り出しやすい'],
+              cons: ['ワークスペース管理が必要', '初期セットアップに時間がかかる'],
+              when: ['複数機能を並行開発する', 'デザインシステムや API 層を共有する'],
+              avoid: ['まだ画面が数枚しかない', '一人で週末に出す実験'],
+              with: ['Melos', 'Feature-first', 'Riverpod']
+            }
+          }
+        ]
+      },
+      {
+        id: 'workspace', group: 'structure', icon: 'structure',
+        crumb: 'プロジェクト / ワークスペース', category: 'ワークスペース',
+        question: 'マルチパッケージはどう管理しますか？',
+        blurb: 'スクリプト、バージョン、ブートストラップをどのツールに任せるかを決めてください。',
+        options: [
+          {
+            id: 'dart-workspace', name: 'Dart Workspace',
+            summary: 'pub の workspace 機能でリポジトリ内パッケージをまとめます。',
+            tags: ['公式', '軽量', 'pub'],
+            reason: '追加ツールなしで、公式の workspace だけで足りるため。',
+            insight: {
+              label: 'Dart ワークスペース',
+              desc: 'pubspec の workspace キーでローカルパッケージを解決します。Melos より薄い層です。',
+              pros: ['公式サポート', '学習コストが低い', '依存解決が pub に乗る'],
+              cons: ['スクリプトオーケストレーションは自前', '大規模モノレポの慣習がまだ少ない'],
+              when: ['パッケージ数が少ない', 'カスタムスクリプトがほとんどない'],
+              avoid: ['多数のパッケージで bootstrap / version を自動化したい'],
+              with: ['Multi-package', 'Dart 3.6+']
+            }
+          },
+          {
+            id: 'melos', name: 'Melos', recommended: true,
+            summary: 'モノレポ向けに bootstrap、スクリプト、バージョンを一括管理します。',
+            tags: ['Monorepo', 'Scripts', 'Versioning'],
+            reason: 'マルチパッケージのスクリプトとバージョンを一括管理できるため。',
+            insight: {
+              label: 'Flutter モノレポツール',
+              desc: 'Invertase の Melos は、Flutter モノレポで最も使われているワークスペースランナーです。',
+              pros: ['bootstrap とフィルタ実行', '一括バージョン管理', 'CI と相性がよい'],
+              cons: ['ツールがもう一段増える', 'melos.yaml の設計が必要'],
+              when: ['packages が複数ある', '同じコマンドを全パッケージに流したい'],
+              avoid: ['パッケージが1つだけ', 'チームが pub workspace で足りている'],
+              with: ['Multi-package', 'Riverpod', 'Dio']
+            }
+          }
+        ]
+      },
+      {
+        id: 'architecture', group: 'architecture', icon: 'architecture',
+        crumb: 'アーキテクチャ', category: 'アーキテクチャ',
+        question: 'コードはどの単位で切りますか？',
+        blurb: 'フォルダの切り方が、依存の向きとチームの動き方を決めます。',
+        options: [
+          {
+            id: 'simple-layers', name: 'Simple Layers',
+            summary: 'presentation / domain / data の薄い層だけを置く構成です。',
+            tags: ['層', '小規模', '明確'],
+            reason: '層が少なく、まだ機能横断の整理で足りるため。',
+            insight: {
+              label: 'レイヤード構成',
+              desc: '技術層でフォルダを分ける古典的な切り方。小〜中規模で十分機能します。',
+              pros: ['学習しやすい', '依存の向きが説明しやすい', '既存資料が多い'],
+              cons: ['機能追加が複数フォルダに散る', '中規模を超えると所有が曖昧'],
+              when: ['チームが層の話に慣れている', '機能数がまだ少ない'],
+              avoid: ['機能チームが並行で動く', 'モジュール境界を硬くしたい'],
+              with: ['Provider', 'Navigator', 'http']
+            }
+          },
+          {
+            id: 'feature-first', name: 'Feature-first', recommended: true,
+            summary: '機能ごとに UI・状態・データアクセスを同じディレクトリにまとめます。',
+            tags: ['機能単位', 'チーム分割', '拡張'],
+            reason: '機能単位でコードがまとまり、チーム分割と相性がよいため。',
+            insight: {
+              label: 'フィーチャーファースト',
+              desc: 'auth、feed、checkout のように機能で切り、共有基盤だけ core に残します。',
+              pros: ['機能の削除と移動がしやすい', 'PR の範囲が機能に閉じる', 'パッケージ分割へ育てやすい'],
+              cons: ['共有ウィジェットの置き場で迷いやすい', '横断ルールを別途決める必要がある'],
+              when: ['機能が増え続けるアプリ', '複数人が同時に別機能を書く'],
+              avoid: ['画面が数枚のツール', '層で教える方がチームに合う場合'],
+              with: ['Riverpod', 'go_router', 'Melos']
+            }
+          },
+          {
+            id: 'clean', name: 'Clean Architecture',
+            summary: 'ドメインを中心に置き、外側へ向かって依存させます。',
+            tags: ['ドメイン', 'テスト', '厳格'],
+            reason: 'ドメイン規則を UI とインフラから切り離したいため。',
+            insight: {
+              label: 'クリーンアーキテクチャ',
+              desc: 'entities と use cases を独立させ、Flutter とネットワークをアダプタに下げます。',
+              pros: ['ドメインテストが速い', '基盤差し替えに強い', '依存ルールが明確'],
+              cons: ['ボイラープレートが多い', '小規模では過剰'],
+              when: ['複雑な業務ルールがある', '長期保守が前提'],
+              avoid: ['まだ要件が変わっている立ち上げ期'],
+              with: ['BLoC', 'Dio', 'Freezed']
+            }
+          }
+        ]
+      },
+      {
+        id: 'state', group: 'state', icon: 'state',
+        crumb: 'アーキテクチャ / 状態管理', category: '状態管理',
+        question: '状態管理はどうしますか？',
+        blurb: '画面の寿命を超える状態を、どこに置き、どう通知するかを決めてください。',
+        options: [
+          {
+            id: 'setstate', name: 'setState',
+            summary: 'Widget 内の局所状態だけで足りる、公式の最小手段です。',
+            tags: ['公式', '局所', '最小'],
+            reason: '共有状態がほとんどなく、Widget 内で完結するため。',
+            insight: {
+              label: 'Flutter 組み込み状態',
+              desc: 'StatefulWidget と setState。追加パッケージなしで、局所 UI 状態を扱います。',
+              pros: ['依存ゼロ', '公式ドキュメントがそのまま使える', '学習コストが最低'],
+              cons: ['画面を超える状態に向かない', 'ビジネスロジックが Widget に混ざりやすい'],
+              when: ['フォーム1枚のツール', 'アニメーションやタブなど局所 UI'],
+              avoid: ['認証・カート・同期など共有状態がある'],
+              with: ['Navigator', 'http', 'Plain Dart']
+            }
+          },
+          {
+            id: 'provider', name: 'Provider',
+            summary: 'InheritedWidget の薄いラッパで、広く使われてきた状態の受け渡しです。',
+            tags: ['安定', 'DI', '簡潔'],
+            reason: '依存注入が主目的で、複雑なリアクティブ層は不要なため。',
+            insight: {
+              label: 'Flutter 状態パッケージ',
+              desc: 'ChangeNotifier と Provider で依存を配る、長く使われた定番構成です。',
+              pros: ['概念が少ない', '既存記事が豊富', 'DI として明快'],
+              cons: ['再ビルド範囲の制御が粗い', 'コード生成や型安全で Riverpod に劣る'],
+              when: ['既存コードが Provider', 'ChangeNotifier で足りる'],
+              avoid: ['テストとコンパイル時安全を重視する新規'],
+              with: ['Simple Layers', 'Navigator', 'Dio']
+            }
+          },
+          {
+            id: 'riverpod', name: 'Riverpod', recommended: true,
+            summary: 'コンパイル時安全な Provider の後継。生成コードと相性がよいです。',
+            tags: ['型安全', 'テスト', '生成コード'],
+            reason: 'コンパイル時安全とテスト容易性のバランスがよいため。',
+            implies: 'riverpod_generator',
+            insight: {
+              label: 'Flutter 状態パッケージ',
+              desc: 'Widget ツリーに依存しない Provider。生成コードでボイラープレートを削れます。',
+              pros: ['読み取りが型安全', 'Widget 外でテストできる', 'family / codegen が強い'],
+              cons: ['概念が増える', '生成コードのパイプラインが必要'],
+              when: ['新規の中〜大規模', '非同期とキャッシュが多い'],
+              avoid: ['本当に局所状態だけの画面'],
+              with: ['riverpod_generator', 'go_router', 'Freezed']
+            }
+          },
+          {
+            id: 'bloc', name: 'BLoC',
+            summary: 'イベントと状態のストリームで、意図を明示する構成です。',
+            tags: ['イベント', '明示的', '大規模'],
+            reason: '状態遷移をイベントとして残し、監査とテストを厚くしたいため。',
+            implies: 'flutter_bloc',
+            insight: {
+              label: 'Flutter 状態パッケージ',
+              desc: 'event → bloc → state。遷移を追えることが、大規模チームでの強みです。',
+              pros: ['遷移が追跡しやすい', 'チーム規約に落とし込みやすい', 'devtools が充実'],
+              cons: ['ファイル数と儀式が多い', '小さな画面では重い'],
+              when: ['複雑なフローと多くの貢献者', 'イベントログが欲しい'],
+              avoid: ['画面が単純でイベントが形式的になる場合'],
+              with: ['Clean Architecture', 'Freezed', 'go_router']
+            }
+          }
+        ]
+      },
+      {
+        id: 'routing', group: 'routing', icon: 'routing',
+        crumb: 'アーキテクチャ / ルーティング', category: 'ルーティング',
+        question: 'ナビゲーションはどう扱いますか？',
+        blurb: 'アプリの複雑さと要件に合うルーティング戦略を選んでください。',
+        options: [
+          {
+            id: 'navigator', name: 'Navigator',
+            summary: '組み込みのナビゲーション API。抽象を増やさずスタックを操作します。',
+            tags: ['Simple', 'Native', 'Flexible'],
+            reason: '画面遷移が単純で、URL 同期が不要なため。',
+            insight: {
+              label: 'Flutter 組み込みナビゲーション',
+              desc: 'Navigator 2.0 / 1.0 を直接使う構成。小さなアプリではこれが最短です。',
+              pros: ['追加依存がない', 'モバイルのスタック操作が直感的', '公式の基本で十分'],
+              cons: ['Deep Link と Web URL を自前で組む', 'ネストした分岐が増えると破綻しやすい'],
+              when: ['画面数が少ない', 'モバイル専用で URL が不要'],
+              avoid: ['Web 対応や認証リダイレクトがある'],
+              with: ['setState', 'Provider', 'http']
+            }
+          },
+          {
+            id: 'go-router', name: 'go_router', recommended: true,
+            summary: '宣言的ルーティング。Deep Link、Web、リダイレクトを前提に設計されています。',
+            tags: ['Deep Links', 'Web', 'Redirects', 'Nested Routes'],
+            reason: 'Deep Link と Web の URL 同期を、宣言的に扱いたいため。',
+            insight: {
+              label: 'Flutter ルーティングパッケージ',
+              desc: '複雑な遷移、ディープリンク、認証フロー、Web URL を扱うための宣言的ルーティングです。',
+              pros: ['宣言的なルート定義', 'ディープリンクが組み込み', 'Flutter Web の URL 同期', 'リダイレクトと認証フロー', 'ネストしたナビゲーション'],
+              cons: ['抽象層が一段増える', 'StatefulShellRoute が複雑になり得る', 'ごく小さいアプリでは過剰'],
+              when: ['Web 対応が必要', 'ディープリンクを使う', '認証ベースのリダイレクトがある', '複数のナビゲーション分岐がある'],
+              avoid: ['画面が数枚しかない', '遷移要件が極端に単純'],
+              with: ['go_router_builder', 'Riverpod', 'Deep Linking']
+            }
+          }
+        ]
+      },
+      {
+        id: 'typed-routing', group: 'routing', icon: 'routing',
+        crumb: 'アーキテクチャ / 型付きルーティング', category: '型付きルーティング',
+        question: 'ルートの型はどう守りますか？',
+        blurb: 'パス文字列を手で書くか、生成された型でパラメータを固定するかを選んでください。',
+        options: [
+          {
+            id: 'manual-routes', name: 'Manual Routes',
+            summary: 'パス文字列とパラメータ解析を、自分で定義します。',
+            tags: ['明示', '少ない生成', '柔軟'],
+            reason: 'ルート数が少なく、生成パイプラインを増やしたくないため。',
+            insight: {
+              label: '手動ルート定義',
+              desc: 'GoRoute の path を文字列で持ち、パラメータは都度パースします。',
+              pros: ['仕組みが透明', '生成コードが不要', '例外的な URL を書きやすい'],
+              cons: ['タイポが実行時まで残る', 'パラメータ型が散らばる'],
+              when: ['ルートが十本に満たない', '実験中の情報設計'],
+              avoid: ['多数のパスと query を安全に扱いたい'],
+              with: ['go_router', 'Navigator']
+            }
+          },
+          {
+            id: 'go-router-builder', name: 'go_router_builder', recommended: true,
+            summary: 'アノテーションから型付きルートを生成します。',
+            tags: ['型安全', '生成コード', 'パラメータ'],
+            reason: 'パスと引数の取り違えをコンパイル時に潰したいため。',
+            insight: {
+              label: 'go_router コード生成',
+              desc: 'TypedGoRoute から location とパラメータを生成し、文字列結合をやめます。',
+              pros: ['パラメータが型付き', 'リファクタに強い', 'go_router 公式の延長'],
+              cons: ['build_runner が必要', '生成ファイルのレビューが必要'],
+              when: ['ルートとパラメータが多い', 'すでに生成コードを使っている'],
+              avoid: ['ルートがほとんどない'],
+              with: ['go_router', 'Riverpod', 'Freezed']
+            }
+          }
+        ]
+      },
+      {
+        id: 'networking', group: 'network', icon: 'network',
+        crumb: 'データ / 通信', category: '通信',
+        question: 'HTTP クライアントは何を使いますか？',
+        blurb: 'タイムアウト、インターセプタ、ファイル送信の必要度で選んでください。',
+        options: [
+          {
+            id: 'http', name: 'http',
+            summary: 'dart: 公式の薄い HTTP クライアントです。',
+            tags: ['公式', '薄い', '十分'],
+            reason: 'REST 呼び出しが少なく、インターセプタが不要なため。',
+            insight: {
+              label: 'Dart HTTP クライアント',
+              desc: 'dart.dev の http パッケージ。小さい API 面を素直に叩けます。',
+              pros: ['公式で安定', 'API が小さい', '依存が軽い'],
+              cons: ['インターセプタがない', '複雑なクライアントを自前実装しがち'],
+              when: ['エンドポイントが少ない', '認証ヘッダが単純'],
+              avoid: ['トークン更新やログを横断で入れたい'],
+              with: ['Manual client', 'Provider', 'Plain Dart']
+            }
+          },
+          {
+            id: 'dio', name: 'Dio', recommended: true,
+            summary: 'インターセプタ、変換、キャンセルを備えた実用クライアントです。',
+            tags: ['Interceptor', 'Upload', 'Timeout'],
+            reason: '認証、ログ、リトライをインターセプタに寄せたいため。',
+            insight: {
+              label: 'Flutter HTTP クライアント',
+              desc: 'Flutter アプリで最も使われる実用 HTTP 層。Retrofit の下地にもなります。',
+              pros: ['インターセプタ', 'キャンセルと進捗', 'FormData とタイムアウト'],
+              cons: ['公式 http より重い', '設定を置かないとチーム差が出る'],
+              when: ['認証トークンの更新がある', 'アップロードやリトライがある'],
+              avoid: ['呼び出しが数本だけのアプリ'],
+              with: ['Retrofit', 'Riverpod', 'json_serializable']
+            }
+          }
+        ]
+      },
+      {
+        id: 'api-client', group: 'network', icon: 'network',
+        crumb: 'データ / API クライアント', category: 'API クライアント',
+        question: 'API クライアントはどう生成しますか？',
+        blurb: '手書き、アノテーション、OpenAPI のどれでエンドポイントを固定するかを選んでください。',
+        options: [
+          {
+            id: 'manual-api', name: 'Manual',
+            summary: 'Dio や http を直接呼び、応答を自分でマップします。',
+            tags: ['明示', '柔軟', '少エンドポイント'],
+            reason: 'エンドポイントが少なく、生成の方が重いため。',
+            insight: {
+              label: '手動 API 層',
+              desc: 'repository に HTTP 呼び出しを書く構成。例外処理を近くに置けます。',
+              pros: ['流れが追いやすい', '一点だけ変えるのが楽', '生成が不要'],
+              cons: ['エンドポイントが増えると重複する', '仕様との差が気づきにくい'],
+              when: ['API が小さい', '仕様がまだ揺れている'],
+              avoid: ['数十のエンドポイントを型で揃えたい'],
+              with: ['Dio', 'http', 'Freezed']
+            }
+          },
+          {
+            id: 'retrofit', name: 'Retrofit', recommended: true,
+            summary: 'アノテーションから Dio クライアントを生成します。',
+            tags: ['Dio', '生成コード', '宣言的'],
+            reason: 'エンドポイント定義を宣言的に固定し、実装を生成したいため。',
+            insight: {
+              label: 'Dio コード生成',
+              desc: 'retrofit.dart はインターフェースから Dio 呼び出しを生成します。',
+              pros: ['エンドポイントが一覧になる', 'Dio の上に乗る', 'チームで形が揃う'],
+              cons: ['Dio 前提', 'アノテーションと生成の運用が必要'],
+              when: ['REST が中心', 'すでに Dio を選んでいる'],
+              avoid: ['GraphQL 中心', 'HTTP 層を薄くしたい'],
+              with: ['Dio', 'json_serializable', 'Riverpod']
+            }
+          },
+          {
+            id: 'openapi', name: 'OpenAPI Generator',
+            summary: 'OpenAPI 仕様からモデルとクライアントを出します。',
+            tags: ['Spec', '契約', '大規模'],
+            reason: 'バックエンドの OpenAPI を、クライアントの正本にしたいため。',
+            insight: {
+              label: 'OpenAPI コード生成',
+              desc: '仕様ファイルを正として、Dart クライアントを機械生成します。',
+              pros: ['契約が仕様に固定される', 'モデルの手メンテが減る', 'バックエンドと同期しやすい'],
+              cons: ['生成物の差分が大きい', 'Flutter 向け調整が必要になることがある'],
+              when: ['OpenAPI がすでに運用されている', '多数のエンドポイントがある'],
+              avoid: ['仕様ファイルがまだない'],
+              with: ['Dio', 'json_serializable', 'Melos']
+            }
+          }
+        ]
+      },
+      {
+        id: 'models', group: 'models', icon: 'models',
+        crumb: 'データ / モデル', category: 'モデル',
+        question: 'データモデルはどう書きますか？',
+        blurb: 'イミュータブルな生成モデルか、手書きの Dart クラスかを選んでください。',
+        options: [
+          {
+            id: 'plain-dart', name: 'Plain Dart Classes',
+            summary: '手書きのクラスとコンストラクタ。生成コードを増やしません。',
+            tags: ['手書き', '透明', '軽い'],
+            reason: 'モデルが少なく、生成のコストが引き合わないため。',
+            insight: {
+              label: '手書き Dart モデル',
+              desc: '普通のクラスでデータを持ちます。等値と copy は自分で書きます。',
+              pros: ['読み方が素直', '生成が不要', '特殊ケースを書きやすい'],
+              cons: ['copyWith と == が冗長', 'union 型が弱い'],
+              when: ['モデルが十個未満', 'JSON が単純'],
+              avoid: ['union や深いネストが多い'],
+              with: ['Manual JSON', 'Provider', 'http']
+            }
+          },
+          {
+            id: 'freezed', name: 'Freezed', recommended: true,
+            summary: 'イミュータブルな union と copyWith を生成します。',
+            tags: ['Immutable', 'Union', 'code-gen'],
+            reason: 'copyWith、等値、union を生成し、状態の更新を安全にしたいため。',
+            insight: {
+              label: 'Dart イミュータブルモデル',
+              desc: 'Freezed は data class と sealed union を生成し、Riverpod や BLoC と相性がよいです。',
+              pros: ['copyWith と == が自動', 'union で状態を表現できる', 'json_serializable と接続できる'],
+              cons: ['生成パイプライン必須', 'エラーメッセージが長くなることがある'],
+              when: ['状態を union で表したい', 'すでに build_runner がある'],
+              avoid: ['モデルがほとんどない'],
+              with: ['json_serializable', 'Riverpod', 'BLoC']
+            }
+          }
+        ]
+      },
+      {
+        id: 'serialization', group: 'models', icon: 'models',
+        crumb: 'データ / シリアライズ', category: 'シリアライズ',
+        question: 'JSON はどう変換しますか？',
+        blurb: 'fromJson を手で書くか、アノテーションから生成するかを選んでください。',
+        options: [
+          {
+            id: 'manual-json', name: 'Manual',
+            summary: 'fromJson / toJson を自分で実装します。',
+            tags: ['明示', '依存少', '単純 JSON'],
+            reason: 'フィールドが少なく、生成より手元の変換の方が速いため。',
+            insight: {
+              label: '手動 JSON 変換',
+              desc: 'Map からフィールドを取り出す実装。特殊なキー名を細かく制御できます。',
+              pros: ['変換が見える', '生成が不要', '例外を近くに書ける'],
+              cons: ['フィールド追加で忘れやすい', 'ネストで冗長'],
+              when: ['応答が平坦', 'カスタム変換が多い'],
+              avoid: ['モデル数が多い'],
+              with: ['Plain Dart', 'http', 'Manual API']
+            }
+          },
+          {
+            id: 'json-serializable', name: 'json_serializable', recommended: true,
+            summary: 'アノテーションから fromJson / toJson を生成します。',
+            tags: ['生成コード', '一貫', 'Freezed'],
+            reason: 'モデルと JSON の対応を生成し、手メンテをやめたいため。',
+            insight: {
+              label: 'JSON コード生成',
+              desc: '公式系の生成パッケージ。Freezed と組み合わせるのが定番です。',
+              pros: ['フィールド追加に追従しやすい', 'Freezed と公式連携', 'チームで形が揃う'],
+              cons: ['build_runner が必要', 'カスタム変換にアノテーションが増える'],
+              when: ['REST JSON が中心', 'Freezed を選んでいる'],
+              avoid: ['JSON がほとんどない'],
+              with: ['Freezed', 'Retrofit', 'Riverpod']
+            }
+          }
+        ]
+      },
+      {
+        id: 'native', group: 'native', icon: 'native',
+        crumb: 'プラットフォーム', category: 'ネイティブ連携',
+        question: 'ネイティブ API はどう呼びますか？',
+        blurb: 'チャネルを手で書くか、型付きの Pigeon で契約を固定するかを選んでください。',
+        options: [
+          {
+            id: 'method-channel', name: 'MethodChannel',
+            summary: '公式のプラットフォームチャネル。呼び出しを手でつなぎます。',
+            tags: ['公式', '柔軟', '少数 API'],
+            reason: '呼び出すネイティブ API が少なく、契約生成が過剰なため。',
+            insight: {
+              label: 'Flutter プラットフォームチャネル',
+              desc: 'MethodChannel で Dart と iOS / Android を橋渡しします。',
+              pros: ['公式で十分', '一点の呼び出しに向く', '既存プラグインと同じモデル'],
+              cons: ['型が緩い', '呼び出し面が増えると破綻する'],
+              when: ['ネイティブ呼び出しが数本', '既存チャネルを維持する'],
+              avoid: ['多数の型付き API を両方向で持つ'],
+              with: ['Pigeon 以外の薄いプラグイン']
+            }
+          },
+          {
+            id: 'pigeon', name: 'Pigeon', recommended: true,
+            summary: 'Dart の定義から、型付きのホスト API を生成します。',
+            tags: ['型安全', '生成', '契約'],
+            reason: 'ネイティブ境界の型を、生成コードで固定したいため。',
+            insight: {
+              label: 'Flutter コード生成ブリッジ',
+              desc: 'Pigeon は Dart 定義から Kotlin / Swift 側の型付き API を出します。',
+              pros: ['境界が型付き', '破れた契約に気づきやすい', '公式ツール'],
+              cons: ['生成とネイティブ実装の運用が必要', '一点呼び出しには重い'],
+              when: ['複数のネイティブ API がある', 'iOS と Android で契約を揃えたい'],
+              avoid: ['チャネルが1本だけ'],
+              with: ['MethodChannel の代替', 'Feature-first']
+            }
+          }
+        ]
+      },
+      {
+        id: 'monitoring', group: 'monitor', icon: 'monitor',
+        crumb: '運用', category: '監視',
+        question: 'クラッシュ監視はどうしますか？',
+        blurb: '既に Firebase を使うか、ベンダー中立の Sentry にするかを選んでください。',
+        options: [
+          {
+            id: 'crashlytics', name: 'Firebase Crashlytics',
+            summary: 'Firebase 家族と一緒に入れる、クラッシュと非致命エラーの監視です。',
+            tags: ['Firebase', 'Crash', 'Google'],
+            reason: 'すでに Firebase を使う前提で、クラッシュ監視を同じ家族に揃えるため。',
+            insight: {
+              label: 'クラッシュ監視',
+              desc: 'Crashlytics は Firebase コンソールでクラッシュを追う定番です。',
+              pros: ['Firebase と一体', 'モバイルでの実績', 'セットアップ記事が多い'],
+              cons: ['Google アカウント前提', 'Firebase を使わないなら重い'],
+              when: ['Analytics も Firebase', '既存が Google 寄り'],
+              avoid: ['Firebase を入れたくない', 'Web も同じベンダーで見たい'],
+              with: ['Firebase Analytics', 'Crashlytics SDK']
+            }
+          },
+          {
+            id: 'sentry', name: 'Sentry', recommended: true,
+            summary: 'アプリ、ネイティブ、Web を横断してイベントを追えます。',
+            tags: ['横断', 'Release', 'Breadcrumb'],
+            reason: 'モバイル以外も含め、リリース単位でエラーを追いたいため。',
+            insight: {
+              label: 'エラートラッキング',
+              desc: 'Sentry は Flutter 公式サポートがあり、リリース健全性を一つの画面で見られます。',
+              pros: ['パンくずとリリース追跡', 'プラットフォーム横断', 'パフォーマンスも足せる'],
+              cons: ['別ベンダーの契約', 'サンプリング設計が必要'],
+              when: ['Web とモバイルを同じで見る', 'リリース健全性を運用する'],
+              avoid: ['すでに Crashlytics だけで足りている'],
+              with: ['Riverpod', 'Dio', 'go_router']
+            }
+          }
+        ]
+      }
+    ];
+
+    const STORE = 'flutter-architect-v1';
+    const UI = {
+      ja: {
+        navMain: 'メイン', newProject: '新規プロジェクト', review: 'レビュー',
+        github: 'Flutter の GitHub', theme: 'テーマを切り替える', language: '言語',
+        subtitle: 'アプリを書く前に、アーキテクチャを組み立てる。',
+        archEyebrow: '選択中の構成', yourArchitecture: 'あなたのアーキテクチャ',
+        decisionsMade: 'ここまでの決定', progress: '{done} / 12 件の決定が完了',
+        options: '選択肢', decisionIndex: '決定 {n} / 12',
+        back: '戻る', skip: 'スキップ', continue: '続ける',
+        reviewEyebrow: '最終確認', reviewTitle: 'あなたの Flutter アーキテクチャ',
+        reviewLead: 'プロジェクト指示を生成する前に、決定内容を確認してください。',
+        reviewCtaTitle: 'この構成で AGENTS.md を書き出します',
+        reviewCtaLead: '決定内容を、実装エージェント向けのプロジェクト指示に変換します。',
+        generate: 'AGENTS.md を生成', backDecisions: '決定に戻る', restart: '最初からやり直す',
+        copy: 'コピー', copied: 'コピーしました', copySelect: '選択してコピー', close: '閉じる',
+        undecided: '未決定', recommended: '推奨', preview: 'プレビュー',
+        pros: '利点', cons: 'トレードオフ', when: '向いている場合',
+        avoid: '避けた方がよい場合', with: '相性のよい組み合わせ',
+        docs: '公式ドキュメント', docsAria: '{name}の公式ページを開く',
+        edit: '編集', editNamed: '{name}を編集',
+        reviewPending: 'この項目はまだ選ばれていません。',
+        'group-structure': 'プロジェクト', 'group-architecture': 'アーキテクチャ',
+        'group-state': '状態', 'group-routing': 'ルーティング',
+        'group-network': '通信', 'group-models': 'モデル',
+        'group-native': 'ネイティブ連携', 'group-monitor': '監視',
+        agentsIntro: 'このリポジトリの Flutter アーキテクチャは、Flutter Architect の決定に従います。',
+        agentsReason: '理由', agentsWith: '併用', agentsRules: '実装時の約束',
+        agentsRule1: '新しい機能は、選んだ構成の境界を壊さない。',
+        agentsRule2: '依存の向きは内側（ドメイン / 機能）から外側（UI / インフラ）へ。',
+        agentsRule3: '生成コードは手で編集しない。'
+      },
+      en: {
+        navMain: 'Main', newProject: 'New project', review: 'Review',
+        github: 'Flutter on GitHub', theme: 'Toggle theme', language: 'Language',
+        subtitle: 'Build your Flutter architecture before you build your app.',
+        archEyebrow: 'Selected architecture', yourArchitecture: 'Your architecture',
+        decisionsMade: 'Decisions you have made', progress: '{done} of 12 decisions completed',
+        options: 'Options', decisionIndex: 'Decision {n} of 12',
+        back: 'Back', skip: 'Skip', continue: 'Continue',
+        reviewEyebrow: 'Final review', reviewTitle: 'Your Flutter architecture',
+        reviewLead: 'Review your decisions before generating project instructions.',
+        reviewCtaTitle: 'Write AGENTS.md from this architecture',
+        reviewCtaLead: 'Convert the decisions into project instructions for an implementation agent.',
+        generate: 'Generate AGENTS.md', backDecisions: 'Back to decisions', restart: 'Start over',
+        copy: 'Copy', copied: 'Copied', copySelect: 'Select and copy', close: 'Close',
+        undecided: 'Undecided', recommended: 'Recommended', preview: 'Preview',
+        pros: 'Advantages', cons: 'Trade-offs', when: 'Recommended when',
+        avoid: 'Avoid when', with: 'Works well with',
+        docs: 'Official docs', docsAria: 'Open the official {name} page',
+        edit: 'Edit', editNamed: 'Edit {name}',
+        reviewPending: 'This item has not been chosen yet.',
+        'group-structure': 'Project', 'group-architecture': 'Architecture',
+        'group-state': 'State', 'group-routing': 'Routing',
+        'group-network': 'Networking', 'group-models': 'Models',
+        'group-native': 'Native', 'group-monitor': 'Monitoring',
+        agentsIntro: 'This repository follows the Flutter architecture decided in Flutter Architect.',
+        agentsReason: 'Why', agentsWith: 'Pairs with', agentsRules: 'Implementation rules',
+        agentsRule1: 'New features must not break the chosen boundaries.',
+        agentsRule2: 'Dependencies point inward (domain / feature) from UI and infrastructure.',
+        agentsRule3: 'Do not hand-edit generated code.'
+      },
+      zh: {
+        navMain: '主导航', newProject: '新建项目', review: '审查',
+        github: 'Flutter 的 GitHub', theme: '切换主题', language: '语言',
+        subtitle: '先搭好 Flutter 架构，再开始写应用。',
+        archEyebrow: '当前架构', yourArchitecture: '你的架构',
+        decisionsMade: '已做出的决定', progress: '已完成 {done} / 12 项决定',
+        options: '选项', decisionIndex: '第 {n} / 12 项决定',
+        back: '返回', skip: '跳过', continue: '继续',
+        reviewEyebrow: '最终确认', reviewTitle: '你的 Flutter 架构',
+        reviewLead: '生成项目说明前，请先核对全部决定。',
+        reviewCtaTitle: '按此架构写出 AGENTS.md',
+        reviewCtaLead: '把决定转换成给实现代理用的项目说明。',
+        generate: '生成 AGENTS.md', backDecisions: '返回决定', restart: '从头开始',
+        copy: '复制', copied: '已复制', copySelect: '请选择后复制', close: '关闭',
+        undecided: '未决定', recommended: '推荐', preview: '预览',
+        pros: '优点', cons: '取舍', when: '适合的情况',
+        avoid: '应避免的情况', with: '搭配良好',
+        docs: '官方文档', docsAria: '打开 {name} 的官方页面',
+        edit: '编辑', editNamed: '编辑{name}',
+        reviewPending: '这一项还没有选择。',
+        'group-structure': '项目', 'group-architecture': '架构',
+        'group-state': '状态', 'group-routing': '路由',
+        'group-network': '网络', 'group-models': '模型',
+        'group-native': '原生通信', 'group-monitor': '监控',
+        agentsIntro: '本仓库的 Flutter 架构遵循 Flutter Architect 中的决定。',
+        agentsReason: '原因', agentsWith: '搭配', agentsRules: '实现约定',
+        agentsRule1: '新功能不得破坏已选边界。',
+        agentsRule2: '依赖方向由外（UI / 基础设施）指向内（领域 / 功能）。',
+        agentsRule3: '不要手改生成代码。'
+      }
+    };
+    const LANG_ATTR = { ja: 'ja', en: 'en', zh: 'zh-CN' };
+    const GROUPS = [
+      { id: 'structure', title: 'プロジェクト', icon: 'structure', decisionIds: ['project-structure', 'workspace'] },
+      { id: 'architecture', title: 'アーキテクチャ', icon: 'architecture', decisionIds: ['architecture'] },
+      { id: 'state', title: '状態', icon: 'state', decisionIds: ['state'] },
+      { id: 'routing', title: 'ルーティング', icon: 'routing', decisionIds: ['routing', 'typed-routing'] },
+      { id: 'network', title: '通信', icon: 'network', decisionIds: ['networking', 'api-client'] },
+      { id: 'models', title: 'モデル', icon: 'models', decisionIds: ['models', 'serialization'] },
+      { id: 'native', title: 'ネイティブ連携', icon: 'native', decisionIds: ['native'] },
+      { id: 'monitor', title: '監視', icon: 'monitor', decisionIds: ['monitoring'] }
+    ];
+
+    const OFFICIAL_DOCS = {
+      'single-package': 'https://docs.flutter.dev/resources/architectural-overview',
+      'multi-package': 'https://dart.dev/tools/pub/create-packages',
+      'dart-workspace': 'https://dart.dev/tools/pub/workspaces',
+      'melos': 'https://melos.invertase.dev/',
+      'simple-layers': 'https://docs.flutter.dev/app-architecture',
+      'feature-first': 'https://docs.flutter.dev/app-architecture/recommendations',
+      'clean': 'https://docs.flutter.dev/app-architecture/guide',
+      'setstate': 'https://api.flutter.dev/flutter/widgets/State/setState.html',
+      'provider': 'https://pub.dev/packages/provider',
+      'riverpod': 'https://riverpod.dev/',
+      'bloc': 'https://bloclibrary.dev/',
+      'navigator': 'https://docs.flutter.dev/ui/navigation',
+      'go-router': 'https://pub.dev/packages/go_router',
+      'manual-routes': 'https://docs.flutter.dev/ui/navigation',
+      'go-router-builder': 'https://pub.dev/packages/go_router_builder',
+      'http': 'https://pub.dev/packages/http',
+      'dio': 'https://pub.dev/packages/dio',
+      'manual-api': 'https://docs.flutter.dev/cookbook/networking/fetch-data',
+      'retrofit': 'https://pub.dev/packages/retrofit',
+      'openapi': 'https://openapi-generator.tech/docs/generators/dart-dio/',
+      'plain-dart': 'https://dart.dev/language/classes',
+      'freezed': 'https://pub.dev/packages/freezed',
+      'manual-json': 'https://docs.flutter.dev/data-and-backend/serialization/json',
+      'json-serializable': 'https://pub.dev/packages/json_serializable',
+      'method-channel': 'https://docs.flutter.dev/platform-integration/platform-channels',
+      'pigeon': 'https://pub.dev/packages/pigeon',
+      'crashlytics': 'https://firebase.google.com/docs/crashlytics/get-started?platform=flutter',
+      'sentry': 'https://docs.sentry.io/platforms/flutter/'
+    };
+
+    const state = {
+      step: 4,
+      answers: {
+        'project-structure': 'multi-package',
+        workspace: 'melos',
+        architecture: 'feature-first',
+        state: 'riverpod'
+      },
+      selected: null,
+      preview: null,
+      view: 'wizard',
+      locale: 'ja'
+    };
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(STORE);
+        if (!raw) return;
+        const saved = JSON.parse(raw);
+        if (saved.answers) state.answers = saved.answers;
+        if (typeof saved.step === 'number') state.step = saved.step;
+        if (saved.view) state.view = saved.view;
+        if (saved.locale && UI[saved.locale]) state.locale = saved.locale;
+        if (saved.theme) document.documentElement.setAttribute('data-theme', saved.theme);
+      } catch (err) { /* ignore broken local state */ }
+    }
+
+    function persist() {
+      localStorage.setItem(STORE, JSON.stringify({
+        answers: state.answers,
+        step: state.step,
+        view: state.view,
+        locale: state.locale,
+        theme: document.documentElement.getAttribute('data-theme') || 'dark'
+      }));
+    }
+
+    function decision() { return DECISIONS[state.step]; }
+    function optionById(dec, id) { return dec.options.find((o) => o.id === id); }
+    function currentOption() {
+      const dec = decision();
+      const id = state.preview || state.selected || state.answers[dec.id];
+      return optionById(dec, id) || dec.options[0];
+    }
+
+    function iconSvg(name) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">' + (ICONS[name] || ICONS.structure) + '</svg>';
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function t(key, vars) {
+      const table = UI[state.locale] || UI.ja;
+      let s = table[key] || UI.ja[key] || key;
+      if (vars) Object.keys(vars).forEach((k) => { s = s.replace('{' + k + '}', vars[k]); });
+      return s;
+    }
+
+    function groupTitle(group) { return t('group-' + group.id); }
+
+    function setLangMenu(open) {
+      const menu = document.getElementById('lang-menu');
+      const btn = document.getElementById('btn-lang');
+      menu.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.classList.toggle('is-active', open);
+    }
+
+    function applyChrome() {
+      document.documentElement.lang = LANG_ATTR[state.locale] || 'ja';
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+        const label = t(el.getAttribute('data-i18n-aria'));
+        el.setAttribute('aria-label', label);
+        if (el.classList.contains('icon-btn')) el.setAttribute('title', label);
+      });
+      document.querySelectorAll('[data-lang]').forEach((btn) => {
+        btn.classList.toggle('is-current', btn.getAttribute('data-lang') === state.locale);
+      });
+    }
+
+    function renderTree() {
+      const root = document.getElementById('arch-tree');
+      const current = decision();
+      let html = '<div class="tree-root"><span class="tree-mark">' + iconSvg('architecture') + '</span>Flutter</div>';
+      GROUPS.forEach((group) => {
+        const parts = group.decisionIds.map((id) => {
+          const dec = DECISIONS.find((d) => d.id === id);
+          const opt = optionById(dec, state.answers[id]);
+          return { dec, opt };
+        });
+        const done = parts.some((p) => p.opt);
+        const isCurrent = group.decisionIds.includes(current.id);
+        const primary = parts[0].opt;
+        const secondary = parts.slice(1).map((p) => p.opt).filter(Boolean);
+        const implied = primary && primary.implies && !secondary.length ? primary.implies : null;
+        const jumpId = parts.find((p) => p.opt)?.dec.id || group.decisionIds[0];
+        html += '<div class="tree-cat' + (done ? ' is-done' : '') + (isCurrent ? ' is-current' : '') + '">';
+        html += '<span class="tree-mark">' + iconSvg(group.icon) + '</span>';
+        html += '<div><div class="tree-label">' + escapeHtml(groupTitle(group)) + '</div>';
+        html += '<div class="tree-tech">' + escapeHtml(primary ? primary.name : t('undecided')) + '</div>';
+        secondary.forEach((opt) => { html += '<div class="tree-sub">' + escapeHtml(opt.name) + '</div>'; });
+        if (implied) html += '<div class="tree-sub">' + escapeHtml(implied) + '</div>';
+        html += '</div>';
+        html += '<button class="tree-edit" type="button" data-jump="' + jumpId + '" aria-label="' + escapeHtml(t('editNamed', { name: groupTitle(group) })) + '">';
+        html += '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg></button></div>';
+      });
+      root.innerHTML = html;
+      root.querySelectorAll('[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => jumpTo(btn.getAttribute('data-jump')));
+      });
+    }
+
+    function renderProgress() {
+      const done = Object.keys(state.answers).length;
+      document.getElementById('progress-label').textContent = t('progress', { done: done });
+      document.getElementById('progress-bar').setAttribute('aria-valuenow', String(done));
+      document.getElementById('progress-fill').style.width = (done / 12 * 100) + '%';
+    }
+
+    function renderDecision() {
+      const dec = decision();
+      state.selected = state.answers[dec.id] || null;
+      const recommended = dec.options.find((o) => o.recommended);
+      state.preview = state.selected || (recommended && recommended.id) || dec.options[0].id;
+      document.getElementById('decision-crumb').textContent = dec.crumb;
+      document.getElementById('decision-title').textContent = dec.question;
+      document.getElementById('decision-blurb').textContent = dec.blurb;
+      document.getElementById('decision-index').textContent = t('decisionIndex', { n: state.step + 1 });
+      document.getElementById('btn-back').disabled = state.step === 0;
+      renderOptions();
+      renderInsight();
+      document.getElementById('btn-continue').disabled = !state.selected;
+    }
+
+    function optionColumns(count) {
+      if (count <= 2) return 1;
+      if (window.matchMedia('(max-width: 920px)').matches) return 1;
+      if (count === 3 && window.matchMedia('(min-width: 1101px)').matches) return 3;
+      return 2;
+    }
+
+    function moveOptionIndex(ids, idx, cols, dir) {
+      const n = ids.length;
+      const col = idx % cols;
+      if (dir === 'right') return (idx + 1 < n && col + 1 < cols) ? idx + 1 : idx;
+      if (dir === 'left') return col > 0 ? idx - 1 : idx;
+      if (dir === 'down') {
+        const target = idx + cols;
+        if (target < n) return target;
+        return idx < n - 1 ? n - 1 : idx;
+      }
+      if (dir === 'up') {
+        const target = idx - cols;
+        return target >= 0 ? target : idx;
+      }
+      return idx;
+    }
+
+    function renderOptions() {
+      const dec = decision();
+      const list = document.getElementById('option-list');
+      const count = dec.options.length;
+      list.dataset.count = String(count);
+      list.classList.toggle('is-multi', count > 2);
+      list.classList.toggle('is-dense', count >= 3);
+      list.innerHTML = dec.options.map((opt) => {
+        const selected = state.selected === opt.id;
+        const preview = state.preview === opt.id;
+        return '<button class="option-card' + (selected ? ' is-selected' : '') + (preview ? ' is-preview' : '') + '" role="option" aria-selected="' + selected + '" data-opt="' + opt.id + '" data-od-id="option-' + opt.id + '" type="button">' +
+          '<div class="option-head"><h3>' + escapeHtml(opt.name) + '</h3>' +
+          (opt.recommended ? '<span class="tag">' + escapeHtml(t('recommended')) + '</span>' : '') + '</div>' +
+          '<p>' + escapeHtml(opt.summary) + '</p>' +
+          '<div class="option-tags">' + opt.tags.map((t) => '<span class="tag">' + escapeHtml(t) + '</span>').join('') + '</div></button>';
+      }).join('');
+      list.querySelectorAll('.option-card').forEach((card) => {
+        const id = card.getAttribute('data-opt');
+        card.addEventListener('mouseenter', () => { state.preview = id; syncPreview(); });
+        card.addEventListener('focus', () => { state.preview = id; syncPreview(); });
+        card.addEventListener('click', () => selectOption(id));
+      });
+    }
+
+    function syncPreview() {
+      document.querySelectorAll('.option-card').forEach((card) => {
+        card.classList.toggle('is-preview', card.getAttribute('data-opt') === state.preview);
+      });
+      renderInsight();
+    }
+
+    function selectOption(id) {
+      state.selected = id;
+      state.preview = id;
+      document.querySelectorAll('.option-card').forEach((card) => {
+        const on = card.getAttribute('data-opt') === id;
+        card.classList.toggle('is-selected', on);
+        card.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.getElementById('btn-continue').disabled = false;
+      renderInsight();
+    }
+
+    function renderInsight() {
+      const opt = currentOption();
+      const ins = opt.insight;
+      const previewing = state.preview && state.preview !== state.selected;
+      const docsUrl = OFFICIAL_DOCS[opt.id];
+      const docsLink = docsUrl
+        ? '<a class="insight-docs" data-od-id="insight-docs" href="' + escapeHtml(docsUrl) + '" target="_blank" rel="noreferrer" aria-label="' + escapeHtml(t('docsAria', { name: opt.name })) + '">' +
+          escapeHtml(t('docs')) +
+          '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3.5h6.5V10M12.5 3.5 6 10"/><path d="M9 3.5H4.2A1.2 1.2 0 0 0 3 4.7v7.1A1.2 1.2 0 0 0 4.2 13h7.1A1.2 1.2 0 0 0 12.5 11.8V8"/></svg></a>'
+        : '';
+      document.getElementById('insight').innerHTML =
+        '<div class="insight-kicker"><p class="eyebrow" style="margin:0">' + escapeHtml(ins.label) + '</p>' +
+        (previewing ? '<span class="pill">' + escapeHtml(t('preview')) + '</span>' : '') + '</div>' +
+        '<h2>' + escapeHtml(opt.name) + '</h2>' +
+        docsLink +
+        '<p class="insight-desc">' + escapeHtml(ins.desc) + '</p>' +
+        '<hr class="rule"/>' +
+        '<h3>' + escapeHtml(t('pros')) + '</h3><ul class="insight-list pros">' + ins.pros.map((x) => '<li>' + escapeHtml(x) + '</li>').join('') + '</ul>' +
+        '<h3>' + escapeHtml(t('cons')) + '</h3><ul class="insight-list cons">' + ins.cons.map((x) => '<li>' + escapeHtml(x) + '</li>').join('') + '</ul>' +
+        '<h3>' + escapeHtml(t('when')) + '</h3><ul class="insight-list pros">' + ins.when.map((x) => '<li>' + escapeHtml(x) + '</li>').join('') + '</ul>' +
+        '<h3>' + escapeHtml(t('avoid')) + '</h3><ul class="insight-list cons">' + ins.avoid.map((x) => '<li>' + escapeHtml(x) + '</li>').join('') + '</ul>' +
+        '<h3>' + escapeHtml(t('with')) + '</h3><div class="works-tags">' + ins.with.map((x) => '<span class="tag">' + escapeHtml(x) + '</span>').join('') + '</div>';
+    }
+
+    function commitAndNext() {
+      if (!state.selected) return;
+      state.answers[decision().id] = state.selected;
+      persist();
+      if (state.step >= DECISIONS.length - 1) { showReview(); return; }
+      state.step += 1;
+      persist();
+      renderAll();
+    }
+
+    function skip() {
+      state.step = Math.min(state.step + 1, DECISIONS.length - 1);
+      persist();
+      renderAll();
+    }
+
+    function back() {
+      if (state.step === 0) return;
+      state.step -= 1;
+      persist();
+      renderAll();
+    }
+
+    function jumpTo(id) {
+      const idx = DECISIONS.findIndex((d) => d.id === id);
+      if (idx < 0) return;
+      state.step = idx;
+      state.view = 'wizard';
+      persist();
+      showWizard();
+    }
+
+    function showWizard() {
+      state.view = 'wizard';
+      document.getElementById('screen-wizard').classList.add('is-on');
+      document.getElementById('screen-review').classList.remove('is-on');
+      document.getElementById('btn-review').classList.remove('is-active');
+      persist();
+      renderAll();
+    }
+
+    function showReview() {
+      state.view = 'review';
+      document.getElementById('screen-wizard').classList.remove('is-on');
+      document.getElementById('screen-review').classList.add('is-on');
+      document.getElementById('btn-review').classList.add('is-active');
+      persist();
+      renderReview();
+    }
+
+    function renderReview() {
+      const grid = document.getElementById('review-grid');
+      grid.innerHTML = GROUPS.map((group) => {
+        const lines = group.decisionIds.map((id) => {
+          const dec = DECISIONS.find((d) => d.id === id);
+          const opt = optionById(dec, state.answers[id]);
+          if (!opt) return '<p class="review-tech">' + escapeHtml(t('undecided')) + '</p><p class="review-reason">' + escapeHtml(t('reviewPending')) + '</p>';
+          const extra = opt.implies ? '<p class="review-tech">' + escapeHtml(opt.implies) + '</p>' : '';
+          return '<p class="review-tech">' + escapeHtml(opt.name) + '</p>' + extra +
+            '<p class="review-reason">' + escapeHtml(opt.reason) + '</p>';
+        }).join('');
+        return '<article class="card review-card" data-od-id="review-' + group.id + '">' +
+          '<div class="row-between"><h3>' + escapeHtml(groupTitle(group)) + '</h3>' +
+          '<button class="btn btn-ghost" type="button" data-jump="' + group.decisionIds[0] + '">' + escapeHtml(t('edit')) + '</button></div>' +
+          lines + '</article>';
+      }).join('');
+      grid.querySelectorAll('[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => jumpTo(btn.getAttribute('data-jump')));
+      });
+    }
+
+    function buildAgents() {
+      const lines = ['# AGENTS.md', '', t('agentsIntro'), ''];
+      GROUPS.forEach((group) => {
+        lines.push('## ' + groupTitle(group));
+        group.decisionIds.forEach((id) => {
+          const dec = DECISIONS.find((d) => d.id === id);
+          const opt = optionById(dec, state.answers[id]);
+          if (!opt) {
+            lines.push('- ' + dec.category + ': ' + t('undecided'));
+            return;
+          }
+          lines.push('- ' + dec.category + ': **' + opt.name + '**');
+          lines.push('  - ' + t('agentsReason') + ': ' + opt.reason);
+          if (opt.implies) lines.push('  - ' + t('agentsWith') + ': ' + opt.implies);
+        });
+        lines.push('');
+      });
+      lines.push('## ' + t('agentsRules'));
+      lines.push('- ' + t('agentsRule1'));
+      lines.push('- ' + t('agentsRule2'));
+      lines.push('- ' + t('agentsRule3'));
+      return lines.join('\n');
+    }
+
+    function resetProject() {
+      state.step = 0;
+      state.answers = {};
+      state.selected = null;
+      state.preview = null;
+      persist();
+      showWizard();
+    }
+
+    function renderAll() {
+      renderTree();
+      renderProgress();
+      renderDecision();
+    }
+
+    document.getElementById('option-list').addEventListener('mouseleave', () => {
+      const dec = decision();
+      const recommended = dec.options.find((o) => o.recommended);
+      state.preview = state.selected || (recommended && recommended.id) || dec.options[0].id;
+      syncPreview();
+    });
+    document.getElementById('btn-continue').addEventListener('click', commitAndNext);
+    document.getElementById('btn-skip').addEventListener('click', skip);
+    document.getElementById('btn-back').addEventListener('click', back);
+    document.getElementById('btn-new').addEventListener('click', resetProject);
+    document.getElementById('btn-review').addEventListener('click', showReview);
+    document.getElementById('btn-back-decisions').addEventListener('click', showWizard);
+    document.getElementById('btn-restart').addEventListener('click', resetProject);
+    document.getElementById('btn-generate').addEventListener('click', () => {
+      document.getElementById('agents-out').textContent = buildAgents();
+      document.getElementById('agents-dialog').showModal();
+    });
+    document.getElementById('btn-close-dialog').addEventListener('click', () => {
+      document.getElementById('agents-dialog').close();
+    });
+    document.getElementById('btn-copy').addEventListener('click', async () => {
+      const text = document.getElementById('agents-out').textContent;
+      try { await navigator.clipboard.writeText(text); document.getElementById('btn-copy').textContent = t('copied'); }
+      catch (err) { document.getElementById('btn-copy').textContent = t('copySelect'); }
+      setTimeout(() => { document.getElementById('btn-copy').textContent = t('copy'); }, 1600);
+    });
+    document.getElementById('btn-theme').addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      if (next === 'dark') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', 'light');
+      persist();
+    });
+    document.getElementById('btn-lang').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const menu = document.getElementById('lang-menu');
+      setLangMenu(menu.hidden);
+    });
+    document.getElementById('lang-menu').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-lang]');
+      if (!btn) return;
+      state.locale = btn.getAttribute('data-lang');
+      persist();
+      setLangMenu(false);
+      applyChrome();
+      if (state.view === 'review') renderReview();
+      else renderAll();
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.lang-wrap')) setLangMenu(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setLangMenu(false);
+      if (state.view !== 'wizard') return;
+      if (!document.getElementById('lang-menu').hidden) return;
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+      const dec = decision();
+      const ids = dec.options.map((o) => o.id);
+      const current = state.preview || state.selected || ids[0];
+      const idx = Math.max(0, ids.indexOf(current));
+      const cols = optionColumns(ids.length);
+      let move = null;
+      if (e.key === 'ArrowDown' || e.key === 'j') move = 'down';
+      else if (e.key === 'ArrowUp' || e.key === 'k') move = 'up';
+      else if (e.key === 'ArrowRight' || e.key === 'l') move = 'right';
+      else if (e.key === 'ArrowLeft' || e.key === 'h') move = 'left';
+      if (move) {
+        e.preventDefault();
+        const next = ids[moveOptionIndex(ids, idx, cols, move)];
+        state.preview = next;
+        syncPreview();
+        const card = document.querySelector('[data-opt="' + next + '"]');
+        if (card) card.focus();
+      } else if (e.key === 'Enter' && !e.metaKey && !e.ctrlKey) {
+        if (document.activeElement && document.activeElement.classList.contains('option-card')) {
+          e.preventDefault();
+          selectOption(document.activeElement.getAttribute('data-opt'));
+        }
+      } else if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        e.preventDefault();
+        commitAndNext();
+      }
+    });
+
+    load();
+    applyChrome();
+    if (state.view === 'review') showReview();
+    else renderAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "id": "need-native",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/platform-integration/platform-channels",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Platform channels",
+      "url": "https://docs.flutter.dev/platform-integration/platform-channels"
+    }
+  ],
+  "facts": [
+    "Dart talks to host platforms through platform channels; Pigeon can generate typed APIs."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Native integration",
+      "summary": "The app must call iOS or Android APIs that no plugin already wraps well.",
+      "description": "Selecting this reveals MethodChannel versus Pigeon. Skip it if you only use existing plugins.",
+      "advantages": [
+        "The native boundary is designed instead of improvised"
+      ],
+      "tradeOffs": [
+        "You own Kotlin/Swift code and CI for that surface"
+      ],
+      "recommendedWhen": [
+        "A host API is unique to this product"
+      ],
+      "avoidWhen": [
+        "pub.dev already has a maintained plugin"
+      ],
+      "worksWellWith": [
+        "MethodChannel",
+        "Pigeon"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "原生集成",
+      "summary": "应用必须调用尚无合适插件封装的 iOS 或 Android API。",
+      "description": "选中后会进入 MethodChannel 与 Pigeon 的选择。若只用现成插件，请不要选。",
+      "advantages": [
+        "原生边界会被设计，而不是临时拼"
+      ],
+      "tradeOffs": [
+        "需要自己维护 Kotlin/Swift 以及对应 CI"
+      ],
+      "recommendedWhen": [
+        "存在本产品特有的宿主 API"
+      ],
+      "avoidWhen": [
+        "pub.dev 上已有在维护的插件"
+      ],
+      "worksWellWith": [
+        "MethodChannel",
+        "Pigeon"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "ネイティブ連携",
+      "summary": "既存プラグインでは足りない iOS / Android API を呼びます。",
+      "description": "選ぶと MethodChannel と Pigeon の選択が出ます。既存プラグインだけで足りるなら選ばないでください。",
+      "advantages": [
+        "ネイティブ境界を設計できる"
+      ],
+      "tradeOffs": [
+        "Kotlin/Swift とその CI を持つ"
+      ],
+      "recommendedWhen": [
+        "この製品固有のホスト API がある"
+      ],
+      "avoidWhen": [
+        "pub.dev にメンテされたプラグインがある"
+      ],
+      "worksWellWith": [
+        "MethodChannel",
+        "Pigeon"
+      ]
+    }
+  }
+}

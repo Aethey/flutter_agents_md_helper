@@ -1,0 +1,122 @@
+{
+  "id": "go-router",
+  "category": "routing",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/go_router",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "go_router on pub.dev",
+      "url": "https://pub.dev/packages/go_router"
+    },
+    {
+      "title": "Flutter navigation with go_router",
+      "url": "https://docs.flutter.dev/ui/navigation"
+    }
+  ],
+  "facts": [
+    "go_router is a declarative router with deep linking, redirects, and Flutter web URL sync."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter routing package",
+      "name": "go_router",
+      "summary": "Declarative routes with deep links, web URLs, and redirects.",
+      "description": "Designed for complex graphs, auth gates, and address-bar sync. Small apps can find it heavier than Navigator.",
+      "advantages": [
+        "Declarative route tables",
+        "Built-in deep linking",
+        "Flutter web URL sync",
+        "Redirects for auth",
+        "Nested navigation"
+      ],
+      "tradeOffs": [
+        "An extra abstraction",
+        "StatefulShellRoute can get complex",
+        "Overkill for tiny apps"
+      ],
+      "recommendedWhen": [
+        "Web is required",
+        "Deep links are used",
+        "Auth-based redirects exist",
+        "Multiple navigation branches"
+      ],
+      "avoidWhen": [
+        "Only a few screens",
+        "Transitions are extremely simple"
+      ],
+      "worksWellWith": [
+        "go_router_builder",
+        "Riverpod",
+        "Deep linking"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 路由包",
+      "name": "go_router",
+      "summary": "声明式路由，支持深链、Web URL 与重定向。",
+      "description": "面向复杂图、认证门闸和地址栏同步。小应用可能觉得比 Navigator 重。",
+      "advantages": [
+        "声明式路由表",
+        "内置深链",
+        "Flutter Web URL 同步",
+        "认证重定向",
+        "嵌套导航"
+      ],
+      "tradeOffs": [
+        "多一层抽象",
+        "StatefulShellRoute 可能变复杂",
+        "极小应用会过重"
+      ],
+      "recommendedWhen": [
+        "需要 Web",
+        "使用深链",
+        "有基于认证的重定向",
+        "有多个导航分支"
+      ],
+      "avoidWhen": [
+        "只有几屏",
+        "跳转需求极度简单"
+      ],
+      "worksWellWith": [
+        "go_router_builder",
+        "Riverpod",
+        "Deep linking"
+      ]
+    },
+    "ja": {
+      "label": "Flutter ルーティングパッケージ",
+      "name": "go_router",
+      "summary": "ディープリンク、Web、リダイレクト向けの宣言的ルーティングです。",
+      "description": "複雑な遷移、認証、Web URL 向けです。ごく小さいアプリでは Navigator より重いことがあります。",
+      "advantages": [
+        "宣言的なルート定義",
+        "ディープリンクが組み込み",
+        "Flutter Web の URL 同期",
+        "リダイレクトと認証フロー",
+        "ネストしたナビゲーション"
+      ],
+      "tradeOffs": [
+        "抽象層が一段増える",
+        "StatefulShellRoute が複雑になり得る",
+        "ごく小さいアプリでは過剰"
+      ],
+      "recommendedWhen": [
+        "Web 対応が必要",
+        "ディープリンクを使う",
+        "認証ベースのリダイレクトがある",
+        "複数のナビゲーション分岐がある"
+      ],
+      "avoidWhen": [
+        "画面が数枚しかない",
+        "遷移要件が極端に単純"
+      ],
+      "worksWellWith": [
+        "go_router_builder",
+        "Riverpod",
+        "Deep Linking"
+      ]
+    }
+  },
+  "packageName": "go_router"
+}

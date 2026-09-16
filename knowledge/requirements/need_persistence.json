@@ -1,0 +1,87 @@
+{
+  "id": "need-persistence",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/cookbook/persistence",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Persistence cookbook",
+      "url": "https://docs.flutter.dev/cookbook/persistence"
+    }
+  ],
+  "facts": [
+    "Flutter offers key-value, file, and SQL persistence options on supported platforms."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Local persistence",
+      "summary": "The app must keep data on device across launches.",
+      "description": "Selecting this reveals a persistence decision (key-value, NoSQL-style, or SQL). Skip it for fully ephemeral apps.",
+      "advantages": [
+        "Offline-friendly product options become visible"
+      ],
+      "tradeOffs": [
+        "Schema and migration become part of the architecture"
+      ],
+      "recommendedWhen": [
+        "User data or session state must survive a kill"
+      ],
+      "avoidWhen": [
+        "Everything can be refetched and nothing is cached on disk"
+      ],
+      "worksWellWith": [
+        "shared_preferences",
+        "Drift",
+        "Hive"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "本地持久化",
+      "summary": "应用必须在重启后仍保留设备上的数据。",
+      "description": "选中后会进入持久化决策（键值、文档式或 SQL）。纯临时应用请不要选。",
+      "advantages": [
+        "才会出现对离线友好的产品选项"
+      ],
+      "tradeOffs": [
+        "架构里需要包含 schema 与迁移"
+      ],
+      "recommendedWhen": [
+        "用户数据或会话必须在进程被杀后仍在"
+      ],
+      "avoidWhen": [
+        "一切都可重新拉取，磁盘上不缓存"
+      ],
+      "worksWellWith": [
+        "shared_preferences",
+        "Drift",
+        "Hive"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "ローカル永続化",
+      "summary": "起動をまたいで端末内にデータを残す必要があります。",
+      "description": "選ぶと永続化の決定が出ます。完全に揮発的なアプリなら選ばないでください。",
+      "advantages": [
+        "オフライン向けの選択肢が見える"
+      ],
+      "tradeOffs": [
+        "スキーマと移行が設計に入る"
+      ],
+      "recommendedWhen": [
+        "ユーザーデータやセッションをプロセスキル後も残す"
+      ],
+      "avoidWhen": [
+        "再取得でき、ディスクキャッシュが不要"
+      ],
+      "worksWellWith": [
+        "shared_preferences",
+        "Drift",
+        "Hive"
+      ]
+    }
+  }
+}

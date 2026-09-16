@@ -1,0 +1,105 @@
+{
+  "id": "multi-package",
+  "category": "structure",
+  "kind": "pattern",
+  "docsUrl": "https://dart.dev/tools/pub/create-packages",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Creating packages",
+      "url": "https://dart.dev/tools/pub/create-packages"
+    }
+  ],
+  "facts": [
+    "Dart packages can depend on other path packages; pub workspaces resolve them together."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter project layout",
+      "name": "Multi-package",
+      "summary": "Split the app and shared libraries into packages with explicit dependency direction.",
+      "description": "apps/ and packages/ keep features and foundations in separate Dart packages. You need a workspace tool to bootstrap and test them together.",
+      "advantages": [
+        "Dependency direction can be enforced",
+        "Teams can own packages",
+        "Reuse and tests extract cleanly"
+      ],
+      "tradeOffs": [
+        "Workspace tooling is required",
+        "Initial setup takes longer"
+      ],
+      "recommendedWhen": [
+        "Features are developed in parallel",
+        "A design system or API layer is shared"
+      ],
+      "avoidWhen": [
+        "Only a handful of screens exist",
+        "A one-person weekend experiment"
+      ],
+      "worksWellWith": [
+        "Melos",
+        "Feature-first",
+        "Riverpod"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 项目结构",
+      "name": "多包",
+      "summary": "把应用和共享库拆成多个包，并明确依赖方向。",
+      "description": "apps/ 与 packages/ 把功能和基础放进独立 Dart 包。需要工作区工具来一起 bootstrap 和测试。",
+      "advantages": [
+        "可以强制依赖方向",
+        "团队可按包分工",
+        "复用与测试更容易切出去"
+      ],
+      "tradeOffs": [
+        "必须有工作区工具",
+        "初期搭建更久"
+      ],
+      "recommendedWhen": [
+        "功能并行开发",
+        "要共享设计系统或 API 层"
+      ],
+      "avoidWhen": [
+        "只有几屏",
+        "一个人的周末实验"
+      ],
+      "worksWellWith": [
+        "Melos",
+        "Feature-first",
+        "Riverpod"
+      ]
+    },
+    "ja": {
+      "label": "Flutter プロジェクト構成",
+      "name": "マルチパッケージ",
+      "summary": "アプリと共有ライブラリをパッケージに分け、依存の向きを明示します。",
+      "description": "apps と packages に分け、機能や基盤を独立パッケージにします。まとめて bootstrap / テストするツールが必要です。",
+      "advantages": [
+        "依存方向を強制できる",
+        "チームごとに所有できる",
+        "再利用とテストが切り出しやすい"
+      ],
+      "tradeOffs": [
+        "ワークスペース管理が必要",
+        "初期セットアップに時間がかかる"
+      ],
+      "recommendedWhen": [
+        "複数機能を並行開発する",
+        "デザインシステムや API 層を共有する"
+      ],
+      "avoidWhen": [
+        "画面が数枚しかない",
+        "一人の週末実験"
+      ],
+      "worksWellWith": [
+        "Melos",
+        "Feature-first",
+        "Riverpod"
+      ]
+    }
+  },
+  "impliedPackages": [
+    "melos"
+  ]
+}

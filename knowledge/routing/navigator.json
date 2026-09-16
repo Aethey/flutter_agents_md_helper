@@ -1,0 +1,99 @@
+{
+  "id": "navigator",
+  "category": "routing",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/ui/navigation",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter navigation",
+      "url": "https://docs.flutter.dev/ui/navigation"
+    }
+  ],
+  "facts": [
+    "Navigator manages a stack of routes; deep linking and web URLs need extra work if used directly."
+  ],
+  "copy": {
+    "en": {
+      "label": "Built-in navigation",
+      "name": "Navigator",
+      "summary": "Use Flutter's built-in stack APIs without a routing package.",
+      "description": "Shortest path for small mobile apps. Web URL sync and auth redirects are on you.",
+      "advantages": [
+        "No extra dependency",
+        "Stack operations feel native on mobile",
+        "Official basics are enough"
+      ],
+      "tradeOffs": [
+        "Deep links and web URLs are manual",
+        "Nested branches get messy"
+      ],
+      "recommendedWhen": [
+        "Few screens",
+        "Mobile-only with no URL requirement"
+      ],
+      "avoidWhen": [
+        "Web or auth redirects exist"
+      ],
+      "worksWellWith": [
+        "setState",
+        "Provider",
+        "http"
+      ]
+    },
+    "zh": {
+      "label": "内置导航",
+      "name": "Navigator",
+      "summary": "不引入路由包，直接用 Flutter 内置堆栈 API。",
+      "description": "小型移动应用的最短路径。Web URL 同步和认证跳转需要自己做。",
+      "advantages": [
+        "无额外依赖",
+        "移动端堆栈操作直观",
+        "官方基础已够用"
+      ],
+      "tradeOffs": [
+        "深链和 Web URL 要手写",
+        "嵌套分支容易乱"
+      ],
+      "recommendedWhen": [
+        "页面很少",
+        "仅移动且不需要 URL"
+      ],
+      "avoidWhen": [
+        "需要 Web 或基于认证的跳转"
+      ],
+      "worksWellWith": [
+        "setState",
+        "Provider",
+        "http"
+      ]
+    },
+    "ja": {
+      "label": "組み込みナビゲーション",
+      "name": "Navigator",
+      "summary": "追加パッケージなしで組み込みのスタック API を使います。",
+      "description": "小さなモバイルアプリでは最短です。Web の URL 同期と認証リダイレクトは自前です。",
+      "advantages": [
+        "追加依存がない",
+        "モバイルのスタック操作が直感的",
+        "公式の基本で十分"
+      ],
+      "tradeOffs": [
+        "Deep Link と Web URL を自前で組む",
+        "ネストした分岐が増えると破綻しやすい"
+      ],
+      "recommendedWhen": [
+        "画面数が少ない",
+        "モバイル専用で URL が不要"
+      ],
+      "avoidWhen": [
+        "Web 対応や認証リダイレクトがある"
+      ],
+      "worksWellWith": [
+        "setState",
+        "Provider",
+        "http"
+      ]
+    }
+  }
+}

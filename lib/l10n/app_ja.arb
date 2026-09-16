@@ -1,0 +1,82 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Flutter Architect",
+  "subtitle": "アプリを書く前に、アーキテクチャを組み立てる。",
+  "navMain": "メイン",
+  "newProject": "新規プロジェクト",
+  "review": "レビュー",
+  "github": "プロジェクトの GitHub",
+  "theme": "テーマを切り替える",
+  "language": "言語",
+  "archEyebrow": "選択中の構成",
+  "yourArchitecture": "あなたのアーキテクチャ",
+  "decisionsMade": "ここまでの決定",
+  "progress": "{done} / {total} 件の決定が完了",
+  "@progress": {
+    "placeholders": {
+      "done": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "options": "選択肢",
+  "decisionIndex": "決定 {n} / {total}",
+  "@decisionIndex": {
+    "placeholders": {
+      "n": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "back": "戻る",
+  "skip": "スキップ",
+  "continueLabel": "続ける",
+  "selectSingle": "1つだけ選べます。",
+  "selectMultiple": "複数選べます。もう一度押すと外れます。",
+  "reviewEyebrow": "最終確認",
+  "reviewTitle": "あなたの Flutter アーキテクチャ",
+  "reviewLead": "プロジェクト指示を生成する前に、決定内容を確認してください。",
+  "reviewCtaTitle": "この構成で FLUTTER_ARCHITECTURE.md を書き出します",
+  "reviewCtaLead": "決定内容を、実装エージェント向けのプロジェクト指示に変換します。",
+  "generate": "FLUTTER_ARCHITECTURE.md を生成",
+  "backDecisions": "決定に戻る",
+  "restart": "最初からやり直す",
+  "copy": "コピー",
+  "copied": "コピーしました",
+  "close": "閉じる",
+  "undecided": "未決定",
+  "recommended": "推奨",
+  "preview": "プレビュー",
+  "pros": "利点",
+  "cons": "トレードオフ",
+  "when": "向いている場合",
+  "avoid": "避けた方がよい場合",
+  "withLabel": "相性のよい組み合わせ",
+  "sources": "出典",
+  "whyRecommended": "推奨する理由",
+  "whyShown": "この選択肢を出す理由",
+  "docs": "公式ドキュメント",
+  "docsAria": "{name}の公式ページを開く",
+  "@docsAria": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "edit": "編集",
+  "editNamed": "{name}を編集",
+  "@editNamed": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "reviewPending": "この項目はまだ選ばれていません。",
+  "exportTitle": "FLUTTER_ARCHITECTURE.md",
+  "loading": "アーキテクチャ知識を読み込み中…",
+  "loadError": "知識ベースを読み込めませんでした。",
+  "retry": "再試行",
+  "architectureTab": "構成",
+  "decisionTab": "決定",
+  "insightTab": "洞察",
+  "insightEmpty": "選択肢を選ぶかフォーカスすると、技術の詳細が表示されます。",
+  "languageEnglish": "English",
+  "languageChinese": "简体中文",
+  "languageJapanese": "日本語"
+}

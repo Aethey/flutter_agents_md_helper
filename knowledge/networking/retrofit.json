@@ -1,0 +1,107 @@
+{
+  "id": "retrofit",
+  "category": "networking",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/retrofit",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "retrofit on pub.dev",
+      "url": "https://pub.dev/packages/retrofit"
+    }
+  ],
+  "facts": [
+    "retrofit.dart generates Dio clients from annotated Dart interfaces."
+  ],
+  "copy": {
+    "en": {
+      "label": "Dio code generation",
+      "name": "Retrofit",
+      "summary": "Declare endpoints on an interface; generate the Dio client.",
+      "description": "Keeps REST surfaces in one place. Requires Dio and a generator. Not a GraphQL tool.",
+      "advantages": [
+        "Endpoints list themselves",
+        "Sits on Dio",
+        "Shape stays consistent across the team"
+      ],
+      "tradeOffs": [
+        "Dio is required",
+        "Annotations and generation must be operated"
+      ],
+      "recommendedWhen": [
+        "REST is central",
+        "Dio is already chosen"
+      ],
+      "avoidWhen": [
+        "GraphQL-first",
+        "You want the HTTP layer tiny"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Riverpod"
+      ]
+    },
+    "zh": {
+      "label": "Dio 代码生成",
+      "name": "Retrofit",
+      "summary": "在接口上声明端点，再生成 Dio 客户端。",
+      "description": "把 REST 面收在一处。依赖 Dio 和生成器。不是 GraphQL 工具。",
+      "advantages": [
+        "端点可一目了然",
+        "建立在 Dio 上",
+        "团队形态一致"
+      ],
+      "tradeOffs": [
+        "必须以 Dio 为前提",
+        "需要运营注解与生成"
+      ],
+      "recommendedWhen": [
+        "以 REST 为主",
+        "已经选择 Dio"
+      ],
+      "avoidWhen": [
+        "以 GraphQL 为主",
+        "希望 HTTP 层尽量薄"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Riverpod"
+      ]
+    },
+    "ja": {
+      "label": "Dio コード生成",
+      "name": "Retrofit",
+      "summary": "インターフェースから Dio クライアントを生成します。",
+      "description": "REST の面を一箇所にできます。Dio と生成器が前提です。GraphQL 向きではありません。",
+      "advantages": [
+        "エンドポイントが一覧になる",
+        "Dio の上に乗る",
+        "チームで形が揃う"
+      ],
+      "tradeOffs": [
+        "Dio 前提",
+        "アノテーションと生成の運用が必要"
+      ],
+      "recommendedWhen": [
+        "REST が中心",
+        "すでに Dio を選んでいる"
+      ],
+      "avoidWhen": [
+        "GraphQL 中心",
+        "HTTP 層を薄くしたい"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Riverpod"
+      ]
+    }
+  },
+  "packageName": "retrofit",
+  "impliedPackages": [
+    "retrofit_generator",
+    "build_runner"
+  ]
+}

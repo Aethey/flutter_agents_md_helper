@@ -1,0 +1,104 @@
+{
+  "id": "json-serializable",
+  "category": "models",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/json_serializable",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "json_serializable on pub.dev",
+      "url": "https://pub.dev/packages/json_serializable"
+    }
+  ],
+  "facts": [
+    "json_serializable generates fromJson and toJson from annotations and is the usual pair for Freezed."
+  ],
+  "copy": {
+    "en": {
+      "label": "JSON code generation",
+      "name": "json_serializable",
+      "summary": "Generate fromJson and toJson from annotations.",
+      "description": "The standard generated JSON path in Dart. Custom converters use extra annotations.",
+      "advantages": [
+        "Field additions follow the generator",
+        "Official pairing with Freezed",
+        "Consistent team shape"
+      ],
+      "tradeOffs": [
+        "build_runner is required",
+        "Custom mapping needs more annotations"
+      ],
+      "recommendedWhen": [
+        "REST JSON is central",
+        "Freezed is selected"
+      ],
+      "avoidWhen": [
+        "Almost no JSON"
+      ],
+      "worksWellWith": [
+        "Freezed",
+        "Retrofit",
+        "Riverpod"
+      ]
+    },
+    "zh": {
+      "label": "JSON 代码生成",
+      "name": "json_serializable",
+      "summary": "由注解生成 fromJson / toJson。",
+      "description": "Dart 里标准的 JSON 生成路径。自定义转换需要额外注解。",
+      "advantages": [
+        "加字段能跟上生成器",
+        "与 Freezed 官方搭配",
+        "团队形态一致"
+      ],
+      "tradeOffs": [
+        "需要 build_runner",
+        "自定义映射注解更多"
+      ],
+      "recommendedWhen": [
+        "以 REST JSON 为主",
+        "已选 Freezed"
+      ],
+      "avoidWhen": [
+        "几乎没有 JSON"
+      ],
+      "worksWellWith": [
+        "Freezed",
+        "Retrofit",
+        "Riverpod"
+      ]
+    },
+    "ja": {
+      "label": "JSON コード生成",
+      "name": "json_serializable",
+      "summary": "アノテーションから fromJson / toJson を生成します。",
+      "description": "Dart の定番生成パスです。カスタム変換にはアノテーションが増えます。",
+      "advantages": [
+        "フィールド追加に追従しやすい",
+        "Freezed と公式連携",
+        "チームで形が揃う"
+      ],
+      "tradeOffs": [
+        "build_runner が必要",
+        "カスタム変換にアノテーションが増える"
+      ],
+      "recommendedWhen": [
+        "REST JSON が中心",
+        "Freezed を選んでいる"
+      ],
+      "avoidWhen": [
+        "JSON がほとんどない"
+      ],
+      "worksWellWith": [
+        "Freezed",
+        "Retrofit",
+        "Riverpod"
+      ]
+    }
+  },
+  "packageName": "json_serializable",
+  "impliedPackages": [
+    "json_annotation",
+    "build_runner"
+  ]
+}

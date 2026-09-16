@@ -1,0 +1,2957 @@
+{
+  "id": "flutter_decision_flow",
+  "version": "1.0.0",
+  "groups": [
+    {
+      "id": "requirements",
+      "icon": "structure",
+      "title": {
+        "en": "Project",
+        "zh": "项目",
+        "ja": "プロジェクト"
+      },
+      "decisionIds": [
+        "project-target",
+        "project-scale",
+        "engineering-needs"
+      ]
+    },
+    {
+      "id": "structure",
+      "icon": "structure",
+      "title": {
+        "en": "Structure",
+        "zh": "结构",
+        "ja": "構成"
+      },
+      "decisionIds": [
+        "project-structure",
+        "workspace"
+      ]
+    },
+    {
+      "id": "architecture",
+      "icon": "architecture",
+      "title": {
+        "en": "Architecture",
+        "zh": "架构",
+        "ja": "アーキテクチャ"
+      },
+      "decisionIds": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "state",
+      "icon": "state",
+      "title": {
+        "en": "State",
+        "zh": "状态",
+        "ja": "状態"
+      },
+      "decisionIds": [
+        "state"
+      ]
+    },
+    {
+      "id": "routing",
+      "icon": "routing",
+      "title": {
+        "en": "Routing",
+        "zh": "路由",
+        "ja": "ルーティング"
+      },
+      "decisionIds": [
+        "routing",
+        "typed-routing"
+      ]
+    },
+    {
+      "id": "network",
+      "icon": "network",
+      "title": {
+        "en": "Networking",
+        "zh": "网络",
+        "ja": "通信"
+      },
+      "decisionIds": [
+        "networking",
+        "api-client"
+      ]
+    },
+    {
+      "id": "models",
+      "icon": "models",
+      "title": {
+        "en": "Models",
+        "zh": "模型",
+        "ja": "モデル"
+      },
+      "decisionIds": [
+        "models",
+        "serialization"
+      ]
+    },
+    {
+      "id": "persistence",
+      "icon": "models",
+      "title": {
+        "en": "Persistence",
+        "zh": "持久化",
+        "ja": "永続化"
+      },
+      "decisionIds": [
+        "persistence"
+      ]
+    },
+    {
+      "id": "native",
+      "icon": "native",
+      "title": {
+        "en": "Native",
+        "zh": "原生",
+        "ja": "ネイティブ連携"
+      },
+      "decisionIds": [
+        "native"
+      ]
+    },
+    {
+      "id": "testing",
+      "icon": "monitor",
+      "title": {
+        "en": "Testing",
+        "zh": "测试",
+        "ja": "テスト"
+      },
+      "decisionIds": [
+        "testing"
+      ]
+    },
+    {
+      "id": "analysis",
+      "icon": "monitor",
+      "title": {
+        "en": "Quality",
+        "zh": "质量",
+        "ja": "品質"
+      },
+      "decisionIds": [
+        "analysis"
+      ]
+    },
+    {
+      "id": "monitor",
+      "icon": "monitor",
+      "title": {
+        "en": "Monitoring",
+        "zh": "监控",
+        "ja": "監視"
+      },
+      "decisionIds": [
+        "monitoring"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "project-target",
+      "groupId": "requirements",
+      "icon": "structure",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Project",
+        "zh": "项目",
+        "ja": "プロジェクト"
+      },
+      "category": {
+        "en": "Project target",
+        "zh": "项目目标",
+        "ja": "プロジェクト対象"
+      },
+      "question": {
+        "en": "Where does this app need to run?",
+        "zh": "这个应用需要运行在哪里？",
+        "ja": "このアプリはどこで動かす必要がありますか？"
+      },
+      "blurb": {
+        "en": "Pick every platform this architecture must support. Mobile, web, and desktop can be combined.",
+        "zh": "选出这套架构必须支持的所有平台。移动端、Web、桌面可以一起选。",
+        "ja": "この設計が支えるプラットフォームをすべて選んでください。モバイル・Web・デスクトップは併用できます。"
+      },
+      "options": [
+        {
+          "id": "mobile",
+          "technologyId": "mobile",
+          "name": {
+            "en": "Mobile",
+            "zh": "移动端",
+            "ja": "モバイル"
+          },
+          "summary": {
+            "en": "iOS and Android store apps.",
+            "zh": "iOS 与 Android 商店应用。",
+            "ja": "iOS と Android のストアアプリ。"
+          },
+          "tags": {
+            "en": [
+              "iOS",
+              "Android"
+            ],
+            "zh": [
+              "iOS",
+              "Android"
+            ],
+            "ja": [
+              "iOS",
+              "Android"
+            ]
+          },
+          "reason": {
+            "en": "Phone and tablet clients are in scope.",
+            "zh": "手机和平板客户端在范围内。",
+            "ja": "スマホとタブレットのクライアントが範囲に入るため。"
+          }
+        },
+        {
+          "id": "web",
+          "technologyId": "web",
+          "name": {
+            "en": "Web",
+            "zh": "Web",
+            "ja": "Web"
+          },
+          "summary": {
+            "en": "Users reach the product from a browser.",
+            "zh": "用户从浏览器进入产品。",
+            "ja": "ユーザーはブラウザから使います。"
+          },
+          "tags": {
+            "en": [
+              "Browser",
+              "URL"
+            ],
+            "zh": [
+              "浏览器",
+              "URL"
+            ],
+            "ja": [
+              "ブラウザ",
+              "URL"
+            ]
+          },
+          "reason": {
+            "en": "The product is delivered as a web app.",
+            "zh": "产品以 Web 应用交付。",
+            "ja": "Web アプリとして届けるため。"
+          }
+        },
+        {
+          "id": "desktop",
+          "technologyId": "desktop",
+          "name": {
+            "en": "Desktop",
+            "zh": "桌面",
+            "ja": "デスクトップ"
+          },
+          "summary": {
+            "en": "Windows, macOS, or Linux windowed apps.",
+            "zh": "Windows、macOS 或 Linux 窗口应用。",
+            "ja": "Windows / macOS / Linux の窓アプリ。"
+          },
+          "tags": {
+            "en": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "zh": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ],
+            "ja": [
+              "Windows",
+              "macOS",
+              "Linux"
+            ]
+          },
+          "reason": {
+            "en": "A windowed desktop client is in scope.",
+            "zh": "窗口化桌面客户端在范围内。",
+            "ja": "窓付きデスクトップクライアントが範囲に入るため。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "project-scale",
+      "groupId": "requirements",
+      "icon": "structure",
+      "selection": "single",
+      "crumb": {
+        "en": "Project / scale",
+        "zh": "项目 / 规模",
+        "ja": "プロジェクト / 規模"
+      },
+      "category": {
+        "en": "Project scale",
+        "zh": "项目规模",
+        "ja": "プロジェクト規模"
+      },
+      "question": {
+        "en": "How large is this project likely to get?",
+        "zh": "这个项目大概会做到多大？",
+        "ja": "このプロジェクトはどの規模になりそうですか？"
+      },
+      "blurb": {
+        "en": "Scale drives package boundaries, codegen, and how much ceremony is worth paying.",
+        "zh": "规模决定包边界、代码生成，以及值得付出多少仪式感。",
+        "ja": "規模がパッケージ境界、コード生成、儀式の量を決めます。"
+      },
+      "options": [
+        {
+          "id": "scale-small",
+          "technologyId": "scale-small",
+          "name": {
+            "en": "Small",
+            "zh": "小型",
+            "ja": "小規模"
+          },
+          "summary": {
+            "en": "Few screens, a small team, a short horizon.",
+            "zh": "页面少、团队小、周期短。",
+            "ja": "画面が少なく、少人数、短期間。"
+          },
+          "tags": {
+            "en": [
+              "Prototype",
+              "Small team"
+            ],
+            "zh": [
+              "原型",
+              "小团队"
+            ],
+            "ja": [
+              "試作",
+              "少人数"
+            ]
+          },
+          "reason": {
+            "en": "Split packages and heavy codegen would cost more than they save.",
+            "zh": "拆包和重代码生成的成本高于收益。",
+            "ja": "分割と重い生成のコストが利益を上回るため。"
+          }
+        },
+        {
+          "id": "scale-medium",
+          "technologyId": "scale-medium",
+          "name": {
+            "en": "Medium",
+            "zh": "中型",
+            "ja": "中規模"
+          },
+          "summary": {
+            "en": "A product that will keep adding features with several contributors.",
+            "zh": "会持续加功能、有多名贡献者的产品。",
+            "ja": "機能が増え、数人が関わる製品。"
+          },
+          "tags": {
+            "en": [
+              "Product",
+              "Codegen OK"
+            ],
+            "zh": [
+              "产品",
+              "可接受生成"
+            ],
+            "ja": [
+              "製品",
+              "生成可"
+            ]
+          },
+          "reason": {
+            "en": "Feature folders and typed providers start to pay off.",
+            "zh": "按功能分目录和类型化 provider 开始划算。",
+            "ja": "機能フォルダと型付き Provider が引き合うため。"
+          },
+          "recommendBecause": {
+            "en": [
+              "Ongoing roadmap",
+              "More than a couple of contributors"
+            ],
+            "zh": [
+              "有持续路线图",
+              "贡献者超过两三人"
+            ],
+            "ja": [
+              "継続的なロードマップ",
+              "数人以上が関わる"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "scale-large",
+          "technologyId": "scale-large",
+          "name": {
+            "en": "Large",
+            "zh": "大型",
+            "ja": "大規模"
+          },
+          "summary": {
+            "en": "Multiple teams or complex domain rules over a long horizon.",
+            "zh": "多团队，或长期复杂领域规则。",
+            "ja": "複数チーム、または長期の複雑なドメイン。"
+          },
+          "tags": {
+            "en": [
+              "Teams",
+              "Domain"
+            ],
+            "zh": [
+              "多团队",
+              "领域"
+            ],
+            "ja": [
+              "複数チーム",
+              "ドメイン"
+            ]
+          },
+          "reason": {
+            "en": "Ownership and domain isolation need explicit boundaries.",
+            "zh": "所有权与领域隔离需要明确边界。",
+            "ja": "所有とドメイン分離に明示的な境界が必要なため。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "engineering-needs",
+      "groupId": "requirements",
+      "icon": "structure",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Project / needs",
+        "zh": "项目 / 需求",
+        "ja": "プロジェクト / 要件"
+      },
+      "category": {
+        "en": "Engineering needs",
+        "zh": "工程需求",
+        "ja": "エンジニアリング要件"
+      },
+      "question": {
+        "en": "Which engineering needs apply?",
+        "zh": "有哪些工程需求？",
+        "ja": "どのエンジニアリング要件が当てはまりますか？"
+      },
+      "blurb": {
+        "en": "Pick only what this milestone needs. Later library questions stay hidden unless you select them.",
+        "zh": "只选本里程碑需要的。未选中的后续库问题会保持隐藏。",
+        "ja": "このマイルストーンに必要なものだけ選んでください。選ばない項目のライブラリ質問は出ません。"
+      },
+      "options": [
+        {
+          "id": "need-backend",
+          "technologyId": "need-backend",
+          "name": {
+            "en": "Backend / API",
+            "zh": "后端 / API",
+            "ja": "バックエンド / API"
+          },
+          "summary": {
+            "en": "The app calls a remote HTTP API.",
+            "zh": "应用会调用远程 HTTP API。",
+            "ja": "リモート HTTP API を呼びます。"
+          },
+          "tags": {
+            "en": [
+              "HTTP",
+              "JSON"
+            ],
+            "zh": [
+              "HTTP",
+              "JSON"
+            ],
+            "ja": [
+              "HTTP",
+              "JSON"
+            ]
+          },
+          "reason": {
+            "en": "There is a backend the client must talk to.",
+            "zh": "存在客户端必须访问的后端。",
+            "ja": "クライアントが話すバックエンドがあるため。"
+          },
+          "recommendBecause": {
+            "en": [
+              "Most product apps have a backend"
+            ],
+            "zh": [
+              "大多数产品应用都有后端"
+            ],
+            "ja": [
+              "製品アプリの多くはバックエンドを持つ"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "need-persistence",
+          "technologyId": "need-persistence",
+          "name": {
+            "en": "Local persistence",
+            "zh": "本地持久化",
+            "ja": "ローカル永続化"
+          },
+          "summary": {
+            "en": "Data must survive process death.",
+            "zh": "数据必须在进程结束后仍保留。",
+            "ja": "プロセス終了後もデータを残します。"
+          },
+          "tags": {
+            "en": [
+              "Offline",
+              "Settings"
+            ],
+            "zh": [
+              "离线",
+              "设置"
+            ],
+            "ja": [
+              "オフライン",
+              "設定"
+            ]
+          },
+          "reason": {
+            "en": "User or session data cannot be memory-only.",
+            "zh": "用户或会话数据不能只放内存。",
+            "ja": "ユーザーやセッションをメモリだけに置けないため。"
+          }
+        },
+        {
+          "id": "need-native",
+          "technologyId": "need-native",
+          "name": {
+            "en": "Native integration",
+            "zh": "原生集成",
+            "ja": "ネイティブ連携"
+          },
+          "summary": {
+            "en": "Host APIs beyond existing plugins are required.",
+            "zh": "需要现有插件之外的宿主 API。",
+            "ja": "既存プラグイン以外のホスト API が必要です。"
+          },
+          "tags": {
+            "en": [
+              "iOS",
+              "Android"
+            ],
+            "zh": [
+              "iOS",
+              "Android"
+            ],
+            "ja": [
+              "iOS",
+              "Android"
+            ]
+          },
+          "reason": {
+            "en": "A product-specific host API exists.",
+            "zh": "存在产品特有的宿主 API。",
+            "ja": "製品固有のホスト API があるため。"
+          }
+        },
+        {
+          "id": "need-monitoring",
+          "technologyId": "need-monitoring",
+          "name": {
+            "en": "Production monitoring",
+            "zh": "生产监控",
+            "ja": "本番監視"
+          },
+          "summary": {
+            "en": "Crashes should be visible after release.",
+            "zh": "发版后应能看到崩溃。",
+            "ja": "リリース後にクラッシュを見たい。"
+          },
+          "tags": {
+            "en": [
+              "Release",
+              "Errors"
+            ],
+            "zh": [
+              "发布",
+              "错误"
+            ],
+            "ja": [
+              "リリース",
+              "エラー"
+            ]
+          },
+          "reason": {
+            "en": "Real users will run this build.",
+            "zh": "真实用户会运行该构建。",
+            "ja": "実ユーザーがこのビルドを使うため。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "project-structure",
+      "groupId": "structure",
+      "icon": "structure",
+      "selection": "single",
+      "crumb": {
+        "en": "Structure",
+        "zh": "结构",
+        "ja": "構成"
+      },
+      "category": {
+        "en": "Project structure",
+        "zh": "项目结构",
+        "ja": "プロジェクト構成"
+      },
+      "question": {
+        "en": "How should the project be packaged?",
+        "zh": "项目应如何分包？",
+        "ja": "プロジェクト構成はどうしますか？"
+      },
+      "blurb": {
+        "en": "Match package boundaries to team and scale. Do not split for ceremony.",
+        "zh": "让包边界匹配团队和规模。不要为仪式感而拆。",
+        "ja": "規模とチーム分割に合う切り方を選んでください。"
+      },
+      "options": [
+        {
+          "id": "single-package",
+          "technologyId": "single-package",
+          "name": {
+            "en": "Single package",
+            "zh": "单包",
+            "ja": "Single Package"
+          },
+          "summary": {
+            "en": "One Dart package holds the app.",
+            "zh": "一个 Dart 包容纳整个应用。",
+            "ja": "1つの Dart パッケージでアプリ全体をまとめます。"
+          },
+          "tags": {
+            "en": [
+              "Simple",
+              "Small team"
+            ],
+            "zh": [
+              "简单",
+              "小团队"
+            ],
+            "ja": [
+              "単純",
+              "少人数"
+            ]
+          },
+          "reason": {
+            "en": "Screen count is low; split cost is higher than the benefit.",
+            "zh": "页面少；拆分成本高于收益。",
+            "ja": "画面数が少なく、分割コストの方が大きいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Package split cost is not justified yet"
+            ],
+            "zh": [
+              "项目规模小",
+              "现在拆包还不划算"
+            ],
+            "ja": [
+              "小規模",
+              "分割コストがまだ引き合わない"
+            ]
+          }
+        },
+        {
+          "id": "multi-package",
+          "technologyId": "multi-package",
+          "name": {
+            "en": "Multi-package",
+            "zh": "多包",
+            "ja": "Multi-package"
+          },
+          "summary": {
+            "en": "Apps and shared libraries become packages.",
+            "zh": "应用与共享库拆成包。",
+            "ja": "アプリと共有ライブラリをパッケージに分けます。"
+          },
+          "tags": {
+            "en": [
+              "Scale",
+              "Ownership"
+            ],
+            "zh": [
+              "规模",
+              "所有权"
+            ],
+            "ja": [
+              "スケール",
+              "所有"
+            ]
+          },
+          "reason": {
+            "en": "Feature ownership can be fixed as packages.",
+            "zh": "功能所有权可以按包固定。",
+            "ja": "機能ごとの所有境界をパッケージとして固定できるため。"
+          },
+          "implies": [
+            "Melos"
+          ],
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is medium or large",
+              "Parallel feature work needs package boundaries"
+            ],
+            "zh": [
+              "项目是中型或大型",
+              "并行功能开发需要包边界"
+            ],
+            "ja": [
+              "中〜大規模",
+              "並行開発にパッケージ境界が必要"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ]
+    },
+    {
+      "id": "workspace",
+      "groupId": "structure",
+      "icon": "structure",
+      "selection": "single",
+      "crumb": {
+        "en": "Structure / workspace",
+        "zh": "结构 / 工作区",
+        "ja": "構成 / ワークスペース"
+      },
+      "category": {
+        "en": "Workspace",
+        "zh": "工作区",
+        "ja": "ワークスペース"
+      },
+      "question": {
+        "en": "How will multiple packages be managed?",
+        "zh": "多个包要怎么管理？",
+        "ja": "マルチパッケージはどう管理しますか？"
+      },
+      "blurb": {
+        "en": "Decide which tool owns bootstrap, scripts, and versions.",
+        "zh": "决定由谁负责 bootstrap、脚本和版本。",
+        "ja": "bootstrap、スクリプト、バージョンをどのツールに任せるかを決めてください。"
+      },
+      "options": [
+        {
+          "id": "dart-workspace",
+          "technologyId": "dart-workspace",
+          "name": {
+            "en": "Dart workspace",
+            "zh": "Dart Workspace",
+            "ja": "Dart Workspace"
+          },
+          "summary": {
+            "en": "Use pub workspaces without an extra runner.",
+            "zh": "只用 pub workspace，不再加运行器。",
+            "ja": "追加ランナーなしで pub workspace を使います。"
+          },
+          "tags": {
+            "en": [
+              "Official",
+              "Thin"
+            ],
+            "zh": [
+              "官方",
+              "轻量"
+            ],
+            "ja": [
+              "公式",
+              "薄い"
+            ]
+          },
+          "reason": {
+            "en": "Official workspaces are enough without extra orchestration.",
+            "zh": "官方 workspace 已够用，不必再编排。",
+            "ja": "公式 workspace だけで足り、追加オーケストレーションが不要なため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-medium"
+          },
+          "recommendBecause": {
+            "en": [
+              "Package count is still moderate",
+              "Custom scripts are not the bottleneck"
+            ],
+            "zh": [
+              "包数量仍算中等",
+              "自定义脚本还不是瓶颈"
+            ],
+            "ja": [
+              "パッケージ数は中程度",
+              "カスタムスクリプトが瓶颈ではない"
+            ]
+          }
+        },
+        {
+          "id": "melos",
+          "technologyId": "melos",
+          "name": {
+            "en": "Melos",
+            "zh": "Melos",
+            "ja": "Melos"
+          },
+          "summary": {
+            "en": "Bootstrap, filter, and version packages together.",
+            "zh": "一起 bootstrap、过滤执行和发版。",
+            "ja": "bootstrap、フィルタ、バージョンを一括管理します。"
+          },
+          "tags": {
+            "en": [
+              "Monorepo",
+              "Scripts"
+            ],
+            "zh": [
+              "Monorepo",
+              "脚本"
+            ],
+            "ja": [
+              "Monorepo",
+              "Scripts"
+            ]
+          },
+          "reason": {
+            "en": "Scripts and versions need one runner across packages.",
+            "zh": "脚本和版本需要跨包的统一运行器。",
+            "ja": "スクリプトとバージョンを一括管理できるため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-large"
+          },
+          "recommendBecause": {
+            "en": [
+              "Many packages need filtered scripts and versioning"
+            ],
+            "zh": [
+              "很多包需要过滤脚本和统一发版"
+            ],
+            "ja": [
+              "多数パッケージでスクリプトとバージョンが必要"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "project-structure",
+        "equals": "multi-package"
+      },
+      "shownBecause": {
+        "en": "You selected a multi-package repository.",
+        "zh": "你选择了多包仓库。",
+        "ja": "マルチパッケージを選んだため。"
+      }
+    },
+    {
+      "id": "architecture",
+      "groupId": "architecture",
+      "icon": "architecture",
+      "selection": "single",
+      "crumb": {
+        "en": "Architecture",
+        "zh": "架构",
+        "ja": "アーキテクチャ"
+      },
+      "category": {
+        "en": "Architecture",
+        "zh": "架构",
+        "ja": "アーキテクチャ"
+      },
+      "question": {
+        "en": "How should code be sliced?",
+        "zh": "代码应按什么单位来切？",
+        "ja": "コードはどの単位で切りますか？"
+      },
+      "blurb": {
+        "en": "Folder shape decides dependency direction and how teams move.",
+        "zh": "目录形状决定依赖方向和团队怎么动。",
+        "ja": "フォルダの切り方が、依存の向きとチームの動き方を決めます。"
+      },
+      "options": [
+        {
+          "id": "simple-layers",
+          "technologyId": "simple-layers",
+          "name": {
+            "en": "Simple layers",
+            "zh": "简单分层",
+            "ja": "Simple Layers"
+          },
+          "summary": {
+            "en": "Thin presentation / domain / data layers.",
+            "zh": "薄的 presentation / domain / data 层。",
+            "ja": "presentation / domain / data の薄い層。"
+          },
+          "tags": {
+            "en": [
+              "Layers",
+              "Small"
+            ],
+            "zh": [
+              "分层",
+              "小型"
+            ],
+            "ja": [
+              "層",
+              "小規模"
+            ]
+          },
+          "reason": {
+            "en": "A few layers still explain the app.",
+            "zh": "几层仍然能说清应用。",
+            "ja": "層が少なく、まだ機能横断の整理で足りるため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Feature-first folders would scatter a tiny codebase"
+            ],
+            "zh": [
+              "项目规模小",
+              "功能目录会把很小的代码库打散"
+            ],
+            "ja": [
+              "小規模",
+              "機能フォルダは小さすぎるコードを散らす"
+            ]
+          }
+        },
+        {
+          "id": "feature-first",
+          "technologyId": "feature-first",
+          "name": {
+            "en": "Feature-first",
+            "zh": "Feature-first",
+            "ja": "Feature-first"
+          },
+          "summary": {
+            "en": "Keep a feature's UI, state, and data together.",
+            "zh": "把功能的 UI、状态和数据放在一起。",
+            "ja": "機能ごとに UI・状態・データをまとめます。"
+          },
+          "tags": {
+            "en": [
+              "Features",
+              "Teams"
+            ],
+            "zh": [
+              "功能",
+              "团队"
+            ],
+            "ja": [
+              "機能単位",
+              "チーム"
+            ]
+          },
+          "reason": {
+            "en": "Features stay together, which matches team splits.",
+            "zh": "功能内聚，和团队拆分相配。",
+            "ja": "機能単位でコードがまとまり、チーム分割と相性がよいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Features will keep arriving",
+              "Several people will work in parallel"
+            ],
+            "zh": [
+              "功能会持续增加",
+              "会有多人并行"
+            ],
+            "ja": [
+              "機能が増え続ける",
+              "複数人が並行する"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "clean",
+          "technologyId": "clean",
+          "name": {
+            "en": "Clean Architecture",
+            "zh": "Clean Architecture",
+            "ja": "Clean Architecture"
+          },
+          "summary": {
+            "en": "Domain at the center; UI and infrastructure depend inward.",
+            "zh": "领域在中心；UI 与基础设施向内依赖。",
+            "ja": "ドメイン中心。UI とインフラは内向きに依存。"
+          },
+          "tags": {
+            "en": [
+              "Domain",
+              "Strict"
+            ],
+            "zh": [
+              "领域",
+              "严格"
+            ],
+            "ja": [
+              "ドメイン",
+              "厳格"
+            ]
+          },
+          "reason": {
+            "en": "Domain rules must stay independent of Flutter and HTTP.",
+            "zh": "领域规则必须独立于 Flutter 和 HTTP。",
+            "ja": "ドメイン規則を UI とインフラから切り離したいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-large"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is large",
+              "Domain rules are expected to outlive UI"
+            ],
+            "zh": [
+              "项目规模大",
+              "领域规则预计比 UI 活得更久"
+            ],
+            "ja": [
+              "大規模",
+              "ドメインが UI より長生きする"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "state",
+      "groupId": "state",
+      "icon": "state",
+      "selection": "single",
+      "crumb": {
+        "en": "Architecture / state",
+        "zh": "架构 / 状态",
+        "ja": "アーキテクチャ / 状態管理"
+      },
+      "category": {
+        "en": "State management",
+        "zh": "状态管理",
+        "ja": "状態管理"
+      },
+      "question": {
+        "en": "How should application state be managed?",
+        "zh": "应用状态应如何管理？",
+        "ja": "状態管理はどうしますか？"
+      },
+      "blurb": {
+        "en": "Decide where state that outlives a screen lives, and how it notifies.",
+        "zh": "决定活过一屏的状态放哪、如何通知。",
+        "ja": "画面の寿命を超える状態をどこに置き、どう通知するかを決めてください。"
+      },
+      "options": [
+        {
+          "id": "setstate",
+          "technologyId": "setstate",
+          "name": {
+            "en": "setState",
+            "zh": "setState",
+            "ja": "setState"
+          },
+          "summary": {
+            "en": "Local StatefulWidget fields only.",
+            "zh": "只用 StatefulWidget 局部字段。",
+            "ja": "Widget 内の局所状態だけ。"
+          },
+          "tags": {
+            "en": [
+              "Official",
+              "Local"
+            ],
+            "zh": [
+              "官方",
+              "局部"
+            ],
+            "ja": [
+              "公式",
+              "局所"
+            ]
+          },
+          "reason": {
+            "en": "Almost no shared state; widgets can own it.",
+            "zh": "几乎没有共享状态，widget 自己能管。",
+            "ja": "共有状態がほとんどなく、Widget 内で完結するため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Shared async state is not a driver"
+            ],
+            "zh": [
+              "项目规模小",
+              "共享异步状态不是主要矛盾"
+            ],
+            "ja": [
+              "小規模",
+              "共有非同期状態が主因ではない"
+            ]
+          }
+        },
+        {
+          "id": "provider",
+          "technologyId": "provider",
+          "name": {
+            "en": "Provider",
+            "zh": "Provider",
+            "ja": "Provider"
+          },
+          "summary": {
+            "en": "InheritedWidget DI with ChangeNotifier.",
+            "zh": "用 InheritedWidget 做 DI，搭配 ChangeNotifier。",
+            "ja": "ChangeNotifier と InheritedWidget の DI。"
+          },
+          "tags": {
+            "en": [
+              "DI",
+              "Stable"
+            ],
+            "zh": [
+              "DI",
+              "稳定"
+            ],
+            "ja": [
+              "DI",
+              "安定"
+            ]
+          },
+          "reason": {
+            "en": "Dependency injection is the main need; a reactive layer can stay simple.",
+            "zh": "主要需求是依赖注入，响应式层可以保持简单。",
+            "ja": "依存注入が主目的で、複雑なリアクティブ層は不要なため。"
+          }
+        },
+        {
+          "id": "riverpod",
+          "technologyId": "riverpod",
+          "name": {
+            "en": "Riverpod",
+            "zh": "Riverpod",
+            "ja": "Riverpod"
+          },
+          "summary": {
+            "en": "Typed providers, including generated ones, outside the widget tree.",
+            "zh": "类型化 provider（含生成式），活在 widget 树外。",
+            "ja": "Widget 外の型付き Provider。生成コードとも相性がよい。"
+          },
+          "tags": {
+            "en": [
+              "Typed",
+              "Testable"
+            ],
+            "zh": [
+              "类型安全",
+              "可测"
+            ],
+            "ja": [
+              "型安全",
+              "テスト"
+            ]
+          },
+          "reason": {
+            "en": "Compile-time safety and testability beat a thinner DI wrapper here.",
+            "zh": "这里编译期安全与可测性优于更薄的 DI 包装。",
+            "ja": "コンパイル時安全とテスト容易性のバランスがよいため。"
+          },
+          "implies": [
+            "riverpod_generator"
+          ],
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Asynchronous state is significant",
+              "Generated providers are acceptable",
+              "Strict Event → State modeling is not required"
+            ],
+            "zh": [
+              "异步状态很重要",
+              "可以接受生成式 provider",
+              "不需要严格的 Event → State 建模"
+            ],
+            "ja": [
+              "非同期状態が大きい",
+              "生成 Provider を受け入れられる",
+              "厳密な Event → State は必須ではない"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "bloc",
+          "technologyId": "bloc",
+          "name": {
+            "en": "BLoC",
+            "zh": "BLoC",
+            "ja": "BLoC"
+          },
+          "summary": {
+            "en": "Events in, states out, on a stream.",
+            "zh": "事件进入、状态流出。",
+            "ja": "イベント入力、状態出力のストリーム。"
+          },
+          "tags": {
+            "en": [
+              "Events",
+              "Explicit"
+            ],
+            "zh": [
+              "事件",
+              "显式"
+            ],
+            "ja": [
+              "イベント",
+              "明示的"
+            ]
+          },
+          "reason": {
+            "en": "Transitions should stay auditable as events.",
+            "zh": "迁移应以事件形式可审计。",
+            "ja": "状態遷移をイベントとして残し、監査とテストを厚くしたいため。"
+          },
+          "implies": [
+            "flutter_bloc"
+          ],
+          "recommendWhen": {
+            "decision": "architecture",
+            "equals": "clean"
+          },
+          "recommendBecause": {
+            "en": [
+              "Clean Architecture was selected",
+              "Explicit Event → State modeling fits that boundary"
+            ],
+            "zh": [
+              "已选择 Clean Architecture",
+              "显式 Event → State 符合该边界"
+            ],
+            "ja": [
+              "Clean Architecture を選んだ",
+              "明示的な Event → State がその境界に合う"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "routing",
+      "groupId": "routing",
+      "icon": "routing",
+      "selection": "single",
+      "crumb": {
+        "en": "Architecture / routing",
+        "zh": "架构 / 路由",
+        "ja": "アーキテクチャ / ルーティング"
+      },
+      "category": {
+        "en": "Routing",
+        "zh": "路由",
+        "ja": "ルーティング"
+      },
+      "question": {
+        "en": "How should navigation be handled?",
+        "zh": "导航应如何处理？",
+        "ja": "ナビゲーションはどう扱いますか？"
+      },
+      "blurb": {
+        "en": "Match the router to URL, deep-link, and graph complexity.",
+        "zh": "让路由器匹配 URL、深链和图的复杂度。",
+        "ja": "アプリの複雑さと要件に合うルーティング戦略を選んでください。"
+      },
+      "options": [
+        {
+          "id": "navigator",
+          "technologyId": "navigator",
+          "name": {
+            "en": "Navigator",
+            "zh": "Navigator",
+            "ja": "Navigator"
+          },
+          "summary": {
+            "en": "Built-in stacks, no routing package.",
+            "zh": "内置堆栈，无路由包。",
+            "ja": "組み込みスタック。ルーティングパッケージなし。"
+          },
+          "tags": {
+            "en": [
+              "Simple",
+              "Mobile"
+            ],
+            "zh": [
+              "简单",
+              "移动"
+            ],
+            "ja": [
+              "Simple",
+              "Mobile"
+            ]
+          },
+          "reason": {
+            "en": "Transitions are simple and URL sync is not required.",
+            "zh": "跳转简单且不需要 URL 同步。",
+            "ja": "画面遷移が単純で、URL 同期が不要なため。"
+          },
+          "recommendWhen": {
+            "any": [
+              {
+                "decision": "project-target",
+                "equals": "mobile"
+              },
+              {
+                "decision": "project-scale",
+                "equals": "scale-small"
+              }
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Mobile-only or small scale reduces the need for URL routing"
+            ],
+            "zh": [
+              "仅移动或小规模时，不太需要 URL 路由"
+            ],
+            "ja": [
+              "モバイルのみ、または小規模で URL ルーティングの必要が薄い"
+            ]
+          }
+        },
+        {
+          "id": "go-router",
+          "technologyId": "go-router",
+          "name": {
+            "en": "go_router",
+            "zh": "go_router",
+            "ja": "go_router"
+          },
+          "summary": {
+            "en": "Declarative routes, deep links, web URLs, redirects.",
+            "zh": "声明式路由、深链、Web URL、重定向。",
+            "ja": "宣言的ルート、ディープリンク、Web URL、リダイレクト。"
+          },
+          "tags": {
+            "en": [
+              "Deep links",
+              "Web"
+            ],
+            "zh": [
+              "深链",
+              "Web"
+            ],
+            "ja": [
+              "Deep Links",
+              "Web"
+            ]
+          },
+          "reason": {
+            "en": "Deep links and web URLs should be declarative.",
+            "zh": "深链和 Web URL 应该声明式处理。",
+            "ja": "Deep Link と Web の URL 同期を、宣言的に扱いたいため。"
+          },
+          "recommendWhen": {
+            "any": [
+              {
+                "decision": "project-target",
+                "in": [
+                  "web",
+                  "desktop"
+                ]
+              },
+              {
+                "decision": "project-scale",
+                "in": [
+                  "scale-medium",
+                  "scale-large"
+                ]
+              }
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Web or multi-platform needs URL sync",
+              "Auth redirects and nested branches stay explicit"
+            ],
+            "zh": [
+              "Web 或多平台需要 URL 同步",
+              "认证重定向和嵌套分支保持显式"
+            ],
+            "ja": [
+              "Web またはマルチプラットフォームは URL 同期が必要",
+              "認証リダイレクトと分岐を明示できる"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ]
+    },
+    {
+      "id": "typed-routing",
+      "groupId": "routing",
+      "icon": "routing",
+      "selection": "single",
+      "crumb": {
+        "en": "Architecture / typed routing",
+        "zh": "架构 / 类型化路由",
+        "ja": "アーキテクチャ / 型付きルーティング"
+      },
+      "category": {
+        "en": "Typed routing",
+        "zh": "类型化路由",
+        "ja": "型付きルーティング"
+      },
+      "question": {
+        "en": "How should route types be enforced?",
+        "zh": "路由类型应如何保证？",
+        "ja": "ルートの型はどう守りますか？"
+      },
+      "blurb": {
+        "en": "Hand-written path strings versus generated typed parameters.",
+        "zh": "手写路径字符串，还是生成类型化参数。",
+        "ja": "パス文字列を手で書くか、生成された型でパラメータを固定するかを選んでください。"
+      },
+      "options": [
+        {
+          "id": "manual-routes",
+          "technologyId": "manual-routes",
+          "name": {
+            "en": "Manual routes",
+            "zh": "手动路由",
+            "ja": "Manual Routes"
+          },
+          "summary": {
+            "en": "String paths and manual parsing.",
+            "zh": "字符串路径，手动解析。",
+            "ja": "パス文字列と手動パース。"
+          },
+          "tags": {
+            "en": [
+              "Explicit",
+              "No codegen"
+            ],
+            "zh": [
+              "显式",
+              "无生成"
+            ],
+            "ja": [
+              "明示",
+              "生成なし"
+            ]
+          },
+          "reason": {
+            "en": "Route count is low; a generator is extra surface.",
+            "zh": "路由少；生成器是多余的面。",
+            "ja": "ルート数が少なく、生成パイプラインを増やしたくないため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Few routes do not justify another generator"
+            ],
+            "zh": [
+              "项目规模小",
+              "路由少，不值得再加生成器"
+            ],
+            "ja": [
+              "小規模",
+              "ルートが少なく生成器が引き合わない"
+            ]
+          }
+        },
+        {
+          "id": "go-router-builder",
+          "technologyId": "go-router-builder",
+          "name": {
+            "en": "go_router_builder",
+            "zh": "go_router_builder",
+            "ja": "go_router_builder"
+          },
+          "summary": {
+            "en": "Annotated, typed GoRouteData classes.",
+            "zh": "带注解的类型化 GoRouteData。",
+            "ja": "アノテーション付きの型付き GoRouteData。"
+          },
+          "tags": {
+            "en": [
+              "Typed",
+              "Codegen"
+            ],
+            "zh": [
+              "类型安全",
+              "代码生成"
+            ],
+            "ja": [
+              "型安全",
+              "生成コード"
+            ]
+          },
+          "reason": {
+            "en": "Path and argument mix-ups should fail at compile time.",
+            "zh": "路径和参数弄错应在编译期失败。",
+            "ja": "パスと引数の取り違えをコンパイル時に潰したいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Many routes and parameters",
+              "The stack already accepts code generation"
+            ],
+            "zh": [
+              "路由和参数多",
+              "技术栈已接受代码生成"
+            ],
+            "ja": [
+              "ルートとパラメータが多い",
+              "すでに生成コードを受け入れている"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "routing",
+        "equals": "go-router"
+      },
+      "shownBecause": {
+        "en": "You selected go_router, which can generate typed routes.",
+        "zh": "你选择了 go_router，它可以生成类型化路由。",
+        "ja": "go_router を選んだため、型付きルートを生成できます。"
+      }
+    },
+    {
+      "id": "networking",
+      "groupId": "network",
+      "icon": "network",
+      "selection": "single",
+      "crumb": {
+        "en": "Data / networking",
+        "zh": "数据 / 网络",
+        "ja": "データ / 通信"
+      },
+      "category": {
+        "en": "HTTP client",
+        "zh": "HTTP 客户端",
+        "ja": "HTTP クライアント"
+      },
+      "question": {
+        "en": "Which HTTP client should be used?",
+        "zh": "应使用哪个 HTTP 客户端？",
+        "ja": "HTTP クライアントは何を使いますか？"
+      },
+      "blurb": {
+        "en": "Timeouts, interceptors, and uploads decide whether a thin client is enough.",
+        "zh": "超时、拦截器和上传决定薄客户端是否够用。",
+        "ja": "タイムアウト、インターセプタ、ファイル送信の必要度で選んでください。"
+      },
+      "options": [
+        {
+          "id": "http",
+          "technologyId": "http",
+          "name": {
+            "en": "http",
+            "zh": "http",
+            "ja": "http"
+          },
+          "summary": {
+            "en": "Official thin client.",
+            "zh": "官方薄客户端。",
+            "ja": "公式の薄いクライアント。"
+          },
+          "tags": {
+            "en": [
+              "Official",
+              "Thin"
+            ],
+            "zh": [
+              "官方",
+              "薄"
+            ],
+            "ja": [
+              "公式",
+              "薄い"
+            ]
+          },
+          "reason": {
+            "en": "REST calls are few and interceptors are unnecessary.",
+            "zh": "REST 调用少，不需要拦截器。",
+            "ja": "REST 呼び出しが少なく、インターセプタが不要なため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "A thin official client matches a small API surface"
+            ],
+            "zh": [
+              "项目规模小",
+              "薄的官方客户端匹配很小的 API 面"
+            ],
+            "ja": [
+              "小規模",
+              "薄い公式クライアントが小さな API 面に合う"
+            ]
+          }
+        },
+        {
+          "id": "dio",
+          "technologyId": "dio",
+          "name": {
+            "en": "Dio",
+            "zh": "Dio",
+            "ja": "Dio"
+          },
+          "summary": {
+            "en": "Interceptors, transforms, cancellation, uploads.",
+            "zh": "拦截器、转换、取消、上传。",
+            "ja": "インターセプタ、変換、キャンセル、アップロード。"
+          },
+          "tags": {
+            "en": [
+              "Interceptor",
+              "Upload"
+            ],
+            "zh": [
+              "拦截器",
+              "上传"
+            ],
+            "ja": [
+              "Interceptor",
+              "Upload"
+            ]
+          },
+          "reason": {
+            "en": "Auth, logging, and retries belong in interceptors.",
+            "zh": "认证、日志和重试应放进拦截器。",
+            "ja": "認証、ログ、リトライをインターセプタに寄せたいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Production HTTP usually needs interceptors",
+              "Uploads, retries, or token refresh are likely"
+            ],
+            "zh": [
+              "生产 HTTP 通常需要拦截器",
+              "很可能有上传、重试或令牌刷新"
+            ],
+            "ja": [
+              "本番 HTTP はインターセプタが要りやすい",
+              "アップロード、リトライ、トークン更新が起きやすい"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-backend"
+      },
+      "shownBecause": {
+        "en": "You marked Backend / API as an engineering need.",
+        "zh": "你把「后端 / API」标成了工程需求。",
+        "ja": "エンジニアリング要件でバックエンド / API を選んだため。"
+      }
+    },
+    {
+      "id": "api-client",
+      "groupId": "network",
+      "icon": "network",
+      "selection": "single",
+      "crumb": {
+        "en": "Data / API client",
+        "zh": "数据 / API 客户端",
+        "ja": "データ / API クライアント"
+      },
+      "category": {
+        "en": "API client",
+        "zh": "API 客户端",
+        "ja": "API クライアント"
+      },
+      "question": {
+        "en": "How should the API client be produced?",
+        "zh": "API 客户端应如何产出？",
+        "ja": "API クライアントはどう生成しますか？"
+      },
+      "blurb": {
+        "en": "Handwritten calls, annotations, or an OpenAPI document as source of truth.",
+        "zh": "手写调用、注解，或以 OpenAPI 文档为正本。",
+        "ja": "手書き、アノテーション、OpenAPI のどれでエンドポイントを固定するかを選んでください。"
+      },
+      "options": [
+        {
+          "id": "manual-api",
+          "technologyId": "manual-api",
+          "name": {
+            "en": "Manual",
+            "zh": "手写",
+            "ja": "Manual"
+          },
+          "summary": {
+            "en": "Call Dio or http from repositories.",
+            "zh": "在 repository 里调用 Dio 或 http。",
+            "ja": "repository から Dio や http を呼びます。"
+          },
+          "tags": {
+            "en": [
+              "Explicit",
+              "Flexible"
+            ],
+            "zh": [
+              "显式",
+              "灵活"
+            ],
+            "ja": [
+              "明示",
+              "柔軟"
+            ]
+          },
+          "reason": {
+            "en": "Endpoint count is low; generation is heavier.",
+            "zh": "端点少；生成更重。",
+            "ja": "エンドポイントが少なく、生成の方が重いため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The API is still small or moving"
+            ],
+            "zh": [
+              "API 仍然很小或还在变"
+            ],
+            "ja": [
+              "API が小さい、またはまだ動いている"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "retrofit",
+          "technologyId": "retrofit",
+          "name": {
+            "en": "Retrofit",
+            "zh": "Retrofit",
+            "ja": "Retrofit"
+          },
+          "summary": {
+            "en": "Generate a Dio client from an annotated interface.",
+            "zh": "由带注解的接口生成 Dio 客户端。",
+            "ja": "アノテーション付きインターフェースから Dio クライアントを生成。"
+          },
+          "tags": {
+            "en": [
+              "Dio",
+              "Codegen"
+            ],
+            "zh": [
+              "Dio",
+              "代码生成"
+            ],
+            "ja": [
+              "Dio",
+              "生成コード"
+            ]
+          },
+          "reason": {
+            "en": "Endpoint declarations should stay in one typed place.",
+            "zh": "端点声明应留在一个有类型的地方。",
+            "ja": "エンドポイント定義を宣言的に固定し、実装を生成したいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Dio is selected",
+              "REST endpoints should be declared, not copied"
+            ],
+            "zh": [
+              "已选择 Dio",
+              "REST 端点应声明而不是复制"
+            ],
+            "ja": [
+              "Dio を選んだ",
+              "REST を宣言し、コピーしたくない"
+            ]
+          },
+          "visibleWhen": {
+            "decision": "networking",
+            "equals": "dio"
+          }
+        },
+        {
+          "id": "openapi",
+          "technologyId": "openapi",
+          "name": {
+            "en": "OpenAPI Generator",
+            "zh": "OpenAPI Generator",
+            "ja": "OpenAPI Generator"
+          },
+          "summary": {
+            "en": "Generate models and client from an OpenAPI document.",
+            "zh": "由 OpenAPI 文档生成模型与客户端。",
+            "ja": "OpenAPI 仕様からモデルとクライアントを出します。"
+          },
+          "tags": {
+            "en": [
+              "Spec",
+              "Contract"
+            ],
+            "zh": [
+              "规格",
+              "契约"
+            ],
+            "ja": [
+              "Spec",
+              "契約"
+            ]
+          },
+          "reason": {
+            "en": "The backend OpenAPI document is the contract source.",
+            "zh": "后端 OpenAPI 文档是契约正本。",
+            "ja": "バックエンドの OpenAPI をクライアントの正本にしたいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-large"
+          },
+          "recommendBecause": {
+            "en": [
+              "A large API surface should stay attached to a spec"
+            ],
+            "zh": [
+              "很大的 API 面应附着在规格上"
+            ],
+            "ja": [
+              "大きな API 面は仕様に付けておきたい"
+            ]
+          }
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-backend"
+      },
+      "shownBecause": {
+        "en": "You marked Backend / API as an engineering need.",
+        "zh": "你把「后端 / API」标成了工程需求。",
+        "ja": "エンジニアリング要件でバックエンド / API を選んだため。"
+      }
+    },
+    {
+      "id": "models",
+      "groupId": "models",
+      "icon": "models",
+      "selection": "single",
+      "crumb": {
+        "en": "Data / models",
+        "zh": "数据 / 模型",
+        "ja": "データ / モデル"
+      },
+      "category": {
+        "en": "Models",
+        "zh": "模型",
+        "ja": "モデル"
+      },
+      "question": {
+        "en": "How should data models be written?",
+        "zh": "数据模型应如何编写？",
+        "ja": "データモデルはどう書きますか？"
+      },
+      "blurb": {
+        "en": "Generated immutable unions versus handwritten classes.",
+        "zh": "生成不可变 union，还是手写类。",
+        "ja": "イミュータブルな生成モデルか、手書きの Dart クラスかを選んでください。"
+      },
+      "options": [
+        {
+          "id": "plain-dart",
+          "technologyId": "plain-dart",
+          "name": {
+            "en": "Plain Dart classes",
+            "zh": "普通 Dart 类",
+            "ja": "Plain Dart Classes"
+          },
+          "summary": {
+            "en": "Handwritten classes, no data-class generator.",
+            "zh": "手写类，无数据类生成器。",
+            "ja": "手書きクラス。データクラス生成なし。"
+          },
+          "tags": {
+            "en": [
+              "Handwritten",
+              "Light"
+            ],
+            "zh": [
+              "手写",
+              "轻"
+            ],
+            "ja": [
+              "手書き",
+              "軽い"
+            ]
+          },
+          "reason": {
+            "en": "Few models; generation does not pay off.",
+            "zh": "模型少；生成不划算。",
+            "ja": "モデルが少なく、生成のコストが引き合わないため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Model count does not justify Freezed yet"
+            ],
+            "zh": [
+              "项目规模小",
+              "模型数量还撑不起 Freezed"
+            ],
+            "ja": [
+              "小規模",
+              "モデル数がまだ Freezed に見合わない"
+            ]
+          }
+        },
+        {
+          "id": "freezed",
+          "technologyId": "freezed",
+          "name": {
+            "en": "Freezed",
+            "zh": "Freezed",
+            "ja": "Freezed"
+          },
+          "summary": {
+            "en": "Immutable unions, copyWith, equality.",
+            "zh": "不可变 union、copyWith、相等。",
+            "ja": "イミュータブル union、copyWith、等値。"
+          },
+          "tags": {
+            "en": [
+              "Immutable",
+              "Union"
+            ],
+            "zh": [
+              "不可变",
+              "Union"
+            ],
+            "ja": [
+              "Immutable",
+              "Union"
+            ]
+          },
+          "reason": {
+            "en": "copyWith, equality, and unions should be generated so state updates stay safe.",
+            "zh": "copyWith、相等和 union 应生成，让状态更新保持安全。",
+            "ja": "copyWith、等値、union を生成し、状態の更新を安全にしたいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "State and DTOs benefit from unions",
+              "build_runner is already likely"
+            ],
+            "zh": [
+              "状态和 DTO 能受益于 union",
+              "很可能已经有 build_runner"
+            ],
+            "ja": [
+              "状態と DTO が union の恩恵を受ける",
+              "build_runner が既にありやすい"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ]
+    },
+    {
+      "id": "serialization",
+      "groupId": "models",
+      "icon": "models",
+      "selection": "single",
+      "crumb": {
+        "en": "Data / serialization",
+        "zh": "数据 / 序列化",
+        "ja": "データ / シリアライズ"
+      },
+      "category": {
+        "en": "Serialization",
+        "zh": "序列化",
+        "ja": "シリアライズ"
+      },
+      "question": {
+        "en": "How should JSON be converted?",
+        "zh": "JSON 应如何转换？",
+        "ja": "JSON はどう変換しますか？"
+      },
+      "blurb": {
+        "en": "Handwritten fromJson versus annotation-generated mapping.",
+        "zh": "手写 fromJson，还是注解生成映射。",
+        "ja": "fromJson を手で書くか、アノテーションから生成するかを選んでください。"
+      },
+      "options": [
+        {
+          "id": "manual-json",
+          "technologyId": "manual-json",
+          "name": {
+            "en": "Manual",
+            "zh": "手写",
+            "ja": "Manual"
+          },
+          "summary": {
+            "en": "Write fromJson and toJson.",
+            "zh": "手写 fromJson / toJson。",
+            "ja": "fromJson / toJson を自分で書く。"
+          },
+          "tags": {
+            "en": [
+              "Explicit",
+              "Simple JSON"
+            ],
+            "zh": [
+              "显式",
+              "简单 JSON"
+            ],
+            "ja": [
+              "明示",
+              "単純 JSON"
+            ]
+          },
+          "reason": {
+            "en": "Few fields; hand mapping is faster than a generator.",
+            "zh": "字段少；手写映射比生成器更快。",
+            "ja": "フィールドが少なく、生成より手元の変換の方が速いため。"
+          },
+          "recommendWhen": {
+            "decision": "models",
+            "equals": "plain-dart"
+          },
+          "recommendBecause": {
+            "en": [
+              "Plain Dart models were selected",
+              "Keeping JSON mapping next to those classes avoids a generator"
+            ],
+            "zh": [
+              "已选择普通 Dart 模型",
+              "把 JSON 映射留在这些类旁可避免生成器"
+            ],
+            "ja": [
+              "手書きモデルを選んだ",
+              "JSON 変換をその横に置けば生成器が不要"
+            ]
+          }
+        },
+        {
+          "id": "json-serializable",
+          "technologyId": "json-serializable",
+          "name": {
+            "en": "json_serializable",
+            "zh": "json_serializable",
+            "ja": "json_serializable"
+          },
+          "summary": {
+            "en": "Generate fromJson and toJson from annotations.",
+            "zh": "由注解生成 fromJson / toJson。",
+            "ja": "アノテーションから fromJson / toJson を生成。"
+          },
+          "tags": {
+            "en": [
+              "Codegen",
+              "Freezed"
+            ],
+            "zh": [
+              "代码生成",
+              "Freezed"
+            ],
+            "ja": [
+              "生成コード",
+              "Freezed"
+            ]
+          },
+          "reason": {
+            "en": "Model-to-JSON mapping should be generated, not hand-maintained.",
+            "zh": "模型到 JSON 的映射应生成，而不是手维护。",
+            "ja": "モデルと JSON の対応を生成し、手メンテをやめたいため。"
+          },
+          "recommendWhen": {
+            "decision": "models",
+            "equals": "freezed"
+          },
+          "recommendBecause": {
+            "en": [
+              "Freezed was selected",
+              "json_serializable is the documented pairing"
+            ],
+            "zh": [
+              "已选择 Freezed",
+              "json_serializable 是文档中的搭配"
+            ],
+            "ja": [
+              "Freezed を選んだ",
+              "json_serializable が文書上の組み合わせ"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ]
+    },
+    {
+      "id": "persistence",
+      "groupId": "persistence",
+      "icon": "models",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Data / persistence",
+        "zh": "数据 / 持久化",
+        "ja": "データ / 永続化"
+      },
+      "category": {
+        "en": "Persistence",
+        "zh": "持久化",
+        "ja": "永続化"
+      },
+      "question": {
+        "en": "How should data be stored on device?",
+        "zh": "设备上的数据应如何存储？",
+        "ja": "端末内のデータはどう保存しますか？"
+      },
+      "blurb": {
+        "en": "Settings, documents, and SQL can be combined. shared_preferences is commonly used next to a database.",
+        "zh": "设置、文档库和 SQL 可以并用。shared_preferences 经常和数据库一起用。",
+        "ja": "設定・ドキュメント・SQL は併用できます。shared_preferences はデータベースと一緒に使うことが多いです。"
+      },
+      "options": [
+        {
+          "id": "shared-preferences",
+          "technologyId": "shared-preferences",
+          "name": {
+            "en": "shared_preferences",
+            "zh": "shared_preferences",
+            "ja": "shared_preferences"
+          },
+          "summary": {
+            "en": "Official key-value settings.",
+            "zh": "官方键值设置。",
+            "ja": "公式のキーバリュー設定。"
+          },
+          "tags": {
+            "en": [
+              "Settings",
+              "Simple"
+            ],
+            "zh": [
+              "设置",
+              "简单"
+            ],
+            "ja": [
+              "設定",
+              "単純"
+            ]
+          },
+          "reason": {
+            "en": "Only flags and small values need to survive launches.",
+            "zh": "只有开关和少量值需要跨启动保存。",
+            "ja": "フラグと小さな値だけを起動またぎで残すため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "A database would be unused weight"
+            ],
+            "zh": [
+              "项目规模小",
+              "数据库会是用不上的重量"
+            ],
+            "ja": [
+              "小規模",
+              "データベースは使わない重さになる"
+            ]
+          }
+        },
+        {
+          "id": "hive",
+          "technologyId": "hive",
+          "name": {
+            "en": "Hive",
+            "zh": "Hive",
+            "ja": "Hive"
+          },
+          "summary": {
+            "en": "Dart-first boxes for structured objects.",
+            "zh": "面向 Dart 的 box，存结构化对象。",
+            "ja": "構造化オブジェクト向けの Dart 寄りの box。"
+          },
+          "tags": {
+            "en": [
+              "Documents",
+              "Offline"
+            ],
+            "zh": [
+              "文档",
+              "离线"
+            ],
+            "ja": [
+              "文書",
+              "オフライン"
+            ]
+          },
+          "reason": {
+            "en": "Local objects matter, but SQL relations do not.",
+            "zh": "需要本地对象，但不需要 SQL 关系。",
+            "ja": "ローカルオブジェクトは要るが、SQL の関係は不要なため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-medium"
+          },
+          "recommendBecause": {
+            "en": [
+              "Structured offline data without relational queries"
+            ],
+            "zh": [
+              "有结构化离线数据，但不需要关系查询"
+            ],
+            "ja": [
+              "構造化オフラインデータがあり、関係クエリは不要"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "drift",
+          "technologyId": "drift",
+          "name": {
+            "en": "Drift",
+            "zh": "Drift",
+            "ja": "Drift"
+          },
+          "summary": {
+            "en": "Type-safe SQL on SQLite.",
+            "zh": "SQLite 上的类型安全 SQL。",
+            "ja": "SQLite 上の型付き SQL。"
+          },
+          "tags": {
+            "en": [
+              "SQL",
+              "Relational"
+            ],
+            "zh": [
+              "SQL",
+              "关系"
+            ],
+            "ja": [
+              "SQL",
+              "リレーショナル"
+            ]
+          },
+          "reason": {
+            "en": "Relations, migrations, and queries are part of the product.",
+            "zh": "关系、迁移和查询是产品的一部分。",
+            "ja": "関係、移行、クエリが製品の一部であるため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-large"
+          },
+          "recommendBecause": {
+            "en": [
+              "Large or long-lived products usually outgrow key-value stores"
+            ],
+            "zh": [
+              "大型或长期产品通常会超出键值存储"
+            ],
+            "ja": [
+              "大規模・長期製品はキーバリューを超えやすい"
+            ]
+          }
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-persistence"
+      },
+      "shownBecause": {
+        "en": "You marked local persistence as an engineering need.",
+        "zh": "你把本地持久化标成了工程需求。",
+        "ja": "ローカル永続化を要件に選んだため。"
+      }
+    },
+    {
+      "id": "native",
+      "groupId": "native",
+      "icon": "native",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Platform",
+        "zh": "平台",
+        "ja": "プラットフォーム"
+      },
+      "category": {
+        "en": "Native integration",
+        "zh": "原生集成",
+        "ja": "ネイティブ連携"
+      },
+      "question": {
+        "en": "How should native APIs be called?",
+        "zh": "应如何调用原生 API？",
+        "ja": "ネイティブ API はどう呼びますか？"
+      },
+      "blurb": {
+        "en": "Hand-written channels and Pigeon can be used together.",
+        "zh": "手写通道和 Pigeon 可以并用。",
+        "ja": "手書きチャネルと Pigeon は併用できます。"
+      },
+      "options": [
+        {
+          "id": "method-channel",
+          "technologyId": "method-channel",
+          "name": {
+            "en": "MethodChannel",
+            "zh": "MethodChannel",
+            "ja": "MethodChannel"
+          },
+          "summary": {
+            "en": "Official channels, mapped by hand.",
+            "zh": "官方通道，手写映射。",
+            "ja": "公式チャネルを手でつなぐ。"
+          },
+          "tags": {
+            "en": [
+              "Official",
+              "Few APIs"
+            ],
+            "zh": [
+              "官方",
+              "少量 API"
+            ],
+            "ja": [
+              "公式",
+              "少数 API"
+            ]
+          },
+          "reason": {
+            "en": "Only a few native calls; generated contracts are extra.",
+            "zh": "原生调用很少；生成契约是多余的。",
+            "ja": "呼び出すネイティブ API が少なく、契約生成が過剰なため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "Few host APIs",
+              "A generator would be unused weight"
+            ],
+            "zh": [
+              "宿主 API 很少",
+              "生成器会是用不上的重量"
+            ],
+            "ja": [
+              "ホスト API が少ない",
+              "生成器は使わない重さになる"
+            ]
+          }
+        },
+        {
+          "id": "pigeon",
+          "technologyId": "pigeon",
+          "name": {
+            "en": "Pigeon",
+            "zh": "Pigeon",
+            "ja": "Pigeon"
+          },
+          "summary": {
+            "en": "Typed host APIs generated from Dart.",
+            "zh": "由 Dart 生成类型化宿主 API。",
+            "ja": "Dart から型付きホスト API を生成。"
+          },
+          "tags": {
+            "en": [
+              "Typed",
+              "Contract"
+            ],
+            "zh": [
+              "类型安全",
+              "契约"
+            ],
+            "ja": [
+              "型安全",
+              "契約"
+            ]
+          },
+          "reason": {
+            "en": "The native boundary should fail at generation time when types drift.",
+            "zh": "类型漂移时，原生边界应在生成期失败。",
+            "ja": "ネイティブ境界の型を、生成コードで固定したいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Several native APIs should share a typed contract"
+            ],
+            "zh": [
+              "多个原生 API 应共享类型化契约"
+            ],
+            "ja": [
+              "複数のネイティブ API で型付き契約を共有したい"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-native"
+      },
+      "shownBecause": {
+        "en": "You marked native integration as an engineering need.",
+        "zh": "你把原生集成标成了工程需求。",
+        "ja": "ネイティブ連携を要件に選んだため。"
+      }
+    },
+    {
+      "id": "testing",
+      "groupId": "testing",
+      "icon": "monitor",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Quality / testing",
+        "zh": "质量 / 测试",
+        "ja": "品質 / テスト"
+      },
+      "category": {
+        "en": "Testing",
+        "zh": "测试",
+        "ja": "テスト"
+      },
+      "question": {
+        "en": "How thorough should automated tests be?",
+        "zh": "自动化测试应做到多彻底？",
+        "ja": "自動テストはどこまで厚くしますか？"
+      },
+      "blurb": {
+        "en": "Unit/widget tests, integration tests, and a broader suite can be combined.",
+        "zh": "单元/组件测试、集成测试和更完整的套件可以并用。",
+        "ja": "ユニット/Widget、統合、包括スイートは併用できます。"
+      },
+      "options": [
+        {
+          "id": "unit-widget",
+          "technologyId": "unit-widget",
+          "name": {
+            "en": "Unit and widget tests",
+            "zh": "单元与组件测试",
+            "ja": "ユニットと Widget テスト"
+          },
+          "summary": {
+            "en": "flutter_test for domain rules and UI behavior.",
+            "zh": "用 flutter_test 覆盖领域规则和 UI 行为。",
+            "ja": "ドメインと UI 行為を flutter_test で。"
+          },
+          "tags": {
+            "en": [
+              "Fast",
+              "Default"
+            ],
+            "zh": [
+              "快",
+              "默认"
+            ],
+            "ja": [
+              "速い",
+              "標準"
+            ]
+          },
+          "reason": {
+            "en": "Logic and widget behavior are the product-defining tests.",
+            "zh": "逻辑与组件行为是定义产品的测试。",
+            "ja": "ロジックと Widget 行為が製品を定義するテストであるため。"
+          },
+          "recommendBecause": {
+            "en": [
+              "Fast tests should gate architecture behavior first"
+            ],
+            "zh": [
+              "应先用快速测试为架构行为设门禁"
+            ],
+            "ja": [
+              "まず速いテストで設計行為をゲートする"
+            ]
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "integration",
+          "technologyId": "integration",
+          "name": {
+            "en": "Integration tests",
+            "zh": "集成测试",
+            "ja": "統合テスト"
+          },
+          "summary": {
+            "en": "Full-app flows on a device, plus unit and widget tests.",
+            "zh": "设备上的全应用流程，外加单元与组件测试。",
+            "ja": "デバイス上のフルアプリに加え、ユニットと Widget。"
+          },
+          "tags": {
+            "en": [
+              "Device",
+              "Plugins"
+            ],
+            "zh": [
+              "设备",
+              "插件"
+            ],
+            "ja": [
+              "デバイス",
+              "プラグイン"
+            ]
+          },
+          "reason": {
+            "en": "Plugin and startup risk needs a small on-device suite.",
+            "zh": "插件和启动风险需要少量真机套件。",
+            "ja": "プラグインと起動リスクに、小さな実機スイートが必要なため。"
+          },
+          "recommendWhen": {
+            "any": [
+              {
+                "decision": "engineering-needs",
+                "contains": "need-native"
+              },
+              {
+                "decision": "project-scale",
+                "in": [
+                  "scale-medium",
+                  "scale-large"
+                ]
+              }
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Native plugins or medium-plus scale make on-device flows worthwhile"
+            ],
+            "zh": [
+              "原生插件或中等以上规模让真机流程值得做"
+            ],
+            "ja": [
+              "ネイティブプラグインや中規模以上なら実機フローが引き合う"
+            ]
+          }
+        },
+        {
+          "id": "comprehensive",
+          "technologyId": "comprehensive",
+          "name": {
+            "en": "Comprehensive suite",
+            "zh": "综合测试集",
+            "ja": "包括的なテスト"
+          },
+          "summary": {
+            "en": "Unit, widget, integration, and goldens as CI gates.",
+            "zh": "单元、组件、集成与金色测试作为 CI 门禁。",
+            "ja": "ユニット、Widget、統合、ゴールデンを CI ゲートに。"
+          },
+          "tags": {
+            "en": [
+              "CI",
+              "Visual"
+            ],
+            "zh": [
+              "CI",
+              "视觉"
+            ],
+            "ja": [
+              "CI",
+              "見た目"
+            ]
+          },
+          "reason": {
+            "en": "Visual and platform regressions are expensive on a long-lived product.",
+            "zh": "长期产品上，视觉和平台回归很贵。",
+            "ja": "長期製品では見た目とプラットフォームの回帰が高いため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-large"
+          },
+          "recommendBecause": {
+            "en": [
+              "Large products pay for a wider regression net"
+            ],
+            "zh": [
+              "大型产品值得更宽的回归网"
+            ],
+            "ja": [
+              "大規模製品は広い回帰ネットの代を払う"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "analysis",
+      "groupId": "analysis",
+      "icon": "monitor",
+      "selection": "single",
+      "crumb": {
+        "en": "Quality / analysis",
+        "zh": "质量 / 分析",
+        "ja": "品質 / 静的解析"
+      },
+      "category": {
+        "en": "Static analysis",
+        "zh": "静态分析",
+        "ja": "静的解析"
+      },
+      "question": {
+        "en": "How strict should static analysis be?",
+        "zh": "静态分析应有多严格？",
+        "ja": "静的解析はどこまで厳しくしますか？"
+      },
+      "blurb": {
+        "en": "Official lints are the floor. Strict language modes encode the type-safety bar.",
+        "zh": "官方 lint 是底线。严格语言模式用来编码类型安全门槛。",
+        "ja": "公式 lint が下限です。厳格な言語モードが型安全のバーを表します。"
+      },
+      "options": [
+        {
+          "id": "flutter-lints",
+          "technologyId": "flutter-lints",
+          "name": {
+            "en": "flutter_lints",
+            "zh": "flutter_lints",
+            "ja": "flutter_lints"
+          },
+          "summary": {
+            "en": "Official Flutter lint set.",
+            "zh": "官方 Flutter lint 集。",
+            "ja": "公式 Flutter lint セット。"
+          },
+          "tags": {
+            "en": [
+              "Official",
+              "Default"
+            ],
+            "zh": [
+              "官方",
+              "默认"
+            ],
+            "ja": [
+              "公式",
+              "標準"
+            ]
+          },
+          "reason": {
+            "en": "The default Flutter bar is enough for this scope.",
+            "zh": "对本范围来说，默认 Flutter 门槛已够。",
+            "ja": "この範囲では Flutter の標準バーで足りるため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "equals": "scale-small"
+          },
+          "recommendBecause": {
+            "en": [
+              "The project is small",
+              "Extra analyzer strictness is optional"
+            ],
+            "zh": [
+              "项目规模小",
+              "额外的分析器严格度是可选项"
+            ],
+            "ja": [
+              "小規模",
+              "追加の厳格さは任意"
+            ]
+          }
+        },
+        {
+          "id": "strict-analysis",
+          "technologyId": "strict-analysis",
+          "name": {
+            "en": "Strict analyzer",
+            "zh": "严格分析器",
+            "ja": "厳格なアナライザ"
+          },
+          "summary": {
+            "en": "Strict language modes, flutter_lints, and custom_lint as needed.",
+            "zh": "严格语言模式、flutter_lints，必要时加 custom_lint。",
+            "ja": "厳格な言語モード、flutter_lints、必要なら custom_lint。"
+          },
+          "tags": {
+            "en": [
+              "strict-casts",
+              "custom_lint"
+            ],
+            "zh": [
+              "strict-casts",
+              "custom_lint"
+            ],
+            "ja": [
+              "strict-casts",
+              "custom_lint"
+            ]
+          },
+          "reason": {
+            "en": "Implicit downs and raw types should fail in CI.",
+            "zh": "隐式向下转型和裸类型应在 CI 失败。",
+            "ja": "暗黙のダウンキャストと生の型を CI で落としたいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-scale",
+            "in": [
+              "scale-medium",
+              "scale-large"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Type safety is an architecture requirement",
+              "Generated Riverpod code is linted with riverpod_lint"
+            ],
+            "zh": [
+              "类型安全是架构要求",
+              "生成的 Riverpod 代码用 riverpod_lint 检查"
+            ],
+            "ja": [
+              "型安全が設計要件",
+              "生成 Riverpod を riverpod_lint で見る"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ]
+    },
+    {
+      "id": "monitoring",
+      "groupId": "monitor",
+      "icon": "monitor",
+      "selection": "multiple",
+      "crumb": {
+        "en": "Operations",
+        "zh": "运营",
+        "ja": "運用"
+      },
+      "category": {
+        "en": "Monitoring",
+        "zh": "监控",
+        "ja": "監視"
+      },
+      "question": {
+        "en": "How should production failures be observed?",
+        "zh": "生产故障应如何观测？",
+        "ja": "クラッシュ監視はどうしますか？"
+      },
+      "blurb": {
+        "en": "Crashlytics and Sentry can be used together when mobile and web both need coverage.",
+        "zh": "移动端和 Web 都要覆盖时，Crashlytics 与 Sentry 可以并用。",
+        "ja": "モバイルと Web の両方を見るなら Crashlytics と Sentry は併用できます。"
+      },
+      "options": [
+        {
+          "id": "crashlytics",
+          "technologyId": "crashlytics",
+          "name": {
+            "en": "Firebase Crashlytics",
+            "zh": "Firebase Crashlytics",
+            "ja": "Firebase Crashlytics"
+          },
+          "summary": {
+            "en": "Crash reporting in the Firebase family.",
+            "zh": "Firebase 家族里的崩溃报告。",
+            "ja": "Firebase 家族のクラッシュ報告。"
+          },
+          "tags": {
+            "en": [
+              "Firebase",
+              "Mobile"
+            ],
+            "zh": [
+              "Firebase",
+              "移动"
+            ],
+            "ja": [
+              "Firebase",
+              "モバイル"
+            ]
+          },
+          "reason": {
+            "en": "Firebase is already the operations home.",
+            "zh": "Firebase 已经是运营归属。",
+            "ja": "すでに Firebase を使う前提で、クラッシュ監視を同じ家族に揃えるため。"
+          },
+          "recommendWhen": {
+            "decision": "project-target",
+            "equals": "mobile"
+          },
+          "recommendBecause": {
+            "en": [
+              "Mobile-only apps often already sit on Firebase"
+            ],
+            "zh": [
+              "仅移动应用常常已经在 Firebase 上"
+            ],
+            "ja": [
+              "モバイルのみなら Firebase に既に乗っていることが多い"
+            ]
+          }
+        },
+        {
+          "id": "sentry",
+          "technologyId": "sentry",
+          "name": {
+            "en": "Sentry",
+            "zh": "Sentry",
+            "ja": "Sentry"
+          },
+          "summary": {
+            "en": "Errors across app, native, and web.",
+            "zh": "覆盖应用、原生与 Web 的错误。",
+            "ja": "アプリ、ネイティブ、Web のエラー。"
+          },
+          "tags": {
+            "en": [
+              "Cross-platform",
+              "Release"
+            ],
+            "zh": [
+              "跨平台",
+              "发布"
+            ],
+            "ja": [
+              "横断",
+              "Release"
+            ]
+          },
+          "reason": {
+            "en": "Release health should include more than mobile crashes.",
+            "zh": "发布健康应覆盖移动崩溃以外的东西。",
+            "ja": "モバイル以外も含め、リリース単位でエラーを追いたいため。"
+          },
+          "recommendWhen": {
+            "decision": "project-target",
+            "in": [
+              "web",
+              "desktop"
+            ]
+          },
+          "recommendBecause": {
+            "en": [
+              "Web or multi-platform needs one vendor view"
+            ],
+            "zh": [
+              "Web 或多平台需要同一厂商视图"
+            ],
+            "ja": [
+              "Web またはマルチプラットフォームは一つのベンダービューが必要"
+            ]
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-monitoring"
+      },
+      "shownBecause": {
+        "en": "You marked production monitoring as an engineering need.",
+        "zh": "你把生产监控标成了工程需求。",
+        "ja": "本番監視を要件に選んだため。"
+      }
+    }
+  ]
+}

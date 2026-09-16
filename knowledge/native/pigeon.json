@@ -1,0 +1,97 @@
+{
+  "id": "pigeon",
+  "category": "native",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/pigeon",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Pigeon on pub.dev",
+      "url": "https://pub.dev/packages/pigeon"
+    }
+  ],
+  "facts": [
+    "Pigeon generates typed host APIs in Kotlin, Swift, and other languages from Dart definitions."
+  ],
+  "copy": {
+    "en": {
+      "label": "Typed platform bridge",
+      "name": "Pigeon",
+      "summary": "Generate typed host APIs from Dart definitions.",
+      "description": "Official generator for the native boundary. Heavy if you only have one call.",
+      "advantages": [
+        "The boundary is typed",
+        "Broken contracts fail earlier",
+        "Official tool"
+      ],
+      "tradeOffs": [
+        "You operate generation plus native implementations",
+        "Heavy for a single call"
+      ],
+      "recommendedWhen": [
+        "Several native APIs",
+        "iOS and Android should share a contract"
+      ],
+      "avoidWhen": [
+        "Only one channel"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "MethodChannel as the underlying model"
+      ]
+    },
+    "zh": {
+      "label": "类型化平台桥",
+      "name": "Pigeon",
+      "summary": "由 Dart 定义生成类型化宿主 API。",
+      "description": "原生边界的官方生成器。如果只有一次调用会偏重。",
+      "advantages": [
+        "边界有类型",
+        "契约破坏能更早发现",
+        "官方工具"
+      ],
+      "tradeOffs": [
+        "要同时运营生成与原生实现",
+        "一次调用会偏重"
+      ],
+      "recommendedWhen": [
+        "多个原生 API",
+        "iOS 与 Android 应对齐契约"
+      ],
+      "avoidWhen": [
+        "只有一条通道"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "底层仍是 MethodChannel 模型"
+      ]
+    },
+    "ja": {
+      "label": "型付きプラットフォームブリッジ",
+      "name": "Pigeon",
+      "summary": "Dart 定義から型付きホスト API を生成します。",
+      "description": "ネイティブ境界の公式生成器です。呼び出しが1本だけなら重いです。",
+      "advantages": [
+        "境界が型付き",
+        "破れた契約に気づきやすい",
+        "公式ツール"
+      ],
+      "tradeOffs": [
+        "生成とネイティブ実装の運用が必要",
+        "一点呼び出しには重い"
+      ],
+      "recommendedWhen": [
+        "複数のネイティブ API がある",
+        "iOS と Android で契約を揃えたい"
+      ],
+      "avoidWhen": [
+        "チャネルが1本だけ"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "MethodChannel の代替"
+      ]
+    }
+  },
+  "packageName": "pigeon"
+}

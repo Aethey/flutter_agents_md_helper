@@ -1,0 +1,100 @@
+{
+  "id": "provider",
+  "category": "state",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/provider",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "provider on pub.dev",
+      "url": "https://pub.dev/packages/provider"
+    }
+  ],
+  "facts": [
+    "Provider is a wrapper around InheritedWidget, often used with ChangeNotifier."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter state package",
+      "name": "Provider",
+      "summary": "Pass dependencies with a thin InheritedWidget wrapper.",
+      "description": "ChangeNotifier plus Provider is a long-standing Flutter pattern. Rebuild control and compile-time safety are weaker than Riverpod.",
+      "advantages": [
+        "Few concepts",
+        "Large existing literature",
+        "Clear as DI"
+      ],
+      "tradeOffs": [
+        "Coarse rebuild control",
+        "Weaker codegen and typing than Riverpod"
+      ],
+      "recommendedWhen": [
+        "Existing code is Provider",
+        "ChangeNotifier is enough"
+      ],
+      "avoidWhen": [
+        "A new app that wants compile-time safety and easy tests"
+      ],
+      "worksWellWith": [
+        "Simple layers",
+        "Navigator",
+        "Dio"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 状态包",
+      "name": "Provider",
+      "summary": "用薄的 InheritedWidget 包装来传递依赖。",
+      "description": "ChangeNotifier + Provider 是沿用很久的 Flutter 模式。重建范围控制与编译期安全弱于 Riverpod。",
+      "advantages": [
+        "概念少",
+        "现有文章多",
+        "作为 DI 很清楚"
+      ],
+      "tradeOffs": [
+        "重建范围较粗",
+        "代码生成与类型安全弱于 Riverpod"
+      ],
+      "recommendedWhen": [
+        "现有代码已是 Provider",
+        "ChangeNotifier 已够用"
+      ],
+      "avoidWhen": [
+        "新应用且重视编译期安全与可测性"
+      ],
+      "worksWellWith": [
+        "Simple layers",
+        "Navigator",
+        "Dio"
+      ]
+    },
+    "ja": {
+      "label": "Flutter 状態パッケージ",
+      "name": "Provider",
+      "summary": "InheritedWidget の薄いラッパで依存を配ります。",
+      "description": "ChangeNotifier と Provider の定番構成です。再ビルド制御とコンパイル時安全は Riverpod に劣ります。",
+      "advantages": [
+        "概念が少ない",
+        "既存記事が豊富",
+        "DI として明快"
+      ],
+      "tradeOffs": [
+        "再ビルド範囲の制御が粗い",
+        "コード生成や型安全で Riverpod に劣る"
+      ],
+      "recommendedWhen": [
+        "既存コードが Provider",
+        "ChangeNotifier で足りる"
+      ],
+      "avoidWhen": [
+        "テストとコンパイル時安全を重視する新規"
+      ],
+      "worksWellWith": [
+        "Simple layers",
+        "Navigator",
+        "Dio"
+      ]
+    }
+  },
+  "packageName": "provider"
+}

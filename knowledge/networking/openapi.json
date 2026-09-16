@@ -1,0 +1,99 @@
+{
+  "id": "openapi",
+  "category": "networking",
+  "kind": "package",
+  "docsUrl": "https://openapi-generator.tech/docs/generators/dart-dio/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "OpenAPI dart-dio generator",
+      "url": "https://openapi-generator.tech/docs/generators/dart-dio/"
+    }
+  ],
+  "facts": [
+    "OpenAPI Generator can emit a Dart Dio client and models from an OpenAPI document."
+  ],
+  "copy": {
+    "en": {
+      "label": "OpenAPI code generation",
+      "name": "OpenAPI Generator",
+      "summary": "Treat the OpenAPI document as the source of models and the client.",
+      "description": "Largest contract surface. Generated diffs can be noisy; Flutter-specific tweaks sometimes follow.",
+      "advantages": [
+        "Contract stays in the spec",
+        "Less hand-maintained models",
+        "Easier backend sync"
+      ],
+      "tradeOffs": [
+        "Large generated diffs",
+        "Flutter-specific adjustments happen"
+      ],
+      "recommendedWhen": [
+        "OpenAPI is already operated",
+        "Many endpoints exist"
+      ],
+      "avoidWhen": [
+        "No spec file exists yet"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Melos"
+      ]
+    },
+    "zh": {
+      "label": "OpenAPI 代码生成",
+      "name": "OpenAPI Generator",
+      "summary": "把 OpenAPI 文档当作模型和客户端的正本。",
+      "description": "契约面最大。生成 diff 可能很吵；有时还要做 Flutter 向调整。",
+      "advantages": [
+        "契约固定在规格里",
+        "少维护手写模型",
+        "更容易与后端同步"
+      ],
+      "tradeOffs": [
+        "生成 diff 很大",
+        "常要做 Flutter 向调整"
+      ],
+      "recommendedWhen": [
+        "已经在运营 OpenAPI",
+        "端点很多"
+      ],
+      "avoidWhen": [
+        "还没有规格文件"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Melos"
+      ]
+    },
+    "ja": {
+      "label": "OpenAPI コード生成",
+      "name": "OpenAPI Generator",
+      "summary": "OpenAPI 仕様をモデルとクライアントの正本にします。",
+      "description": "契約面が最大です。生成差分が大きく、Flutter 向け調整が必要になることがあります。",
+      "advantages": [
+        "契約が仕様に固定される",
+        "モデルの手メンテが減る",
+        "バックエンドと同期しやすい"
+      ],
+      "tradeOffs": [
+        "生成物の差分が大きい",
+        "Flutter 向け調整が必要になることがある"
+      ],
+      "recommendedWhen": [
+        "OpenAPI がすでに運用されている",
+        "多数のエンドポイントがある"
+      ],
+      "avoidWhen": [
+        "仕様ファイルがまだない"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "json_serializable",
+        "Melos"
+      ]
+    }
+  }
+}

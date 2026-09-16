@@ -1,0 +1,100 @@
+{
+  "id": "shared-preferences",
+  "category": "persistence",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/shared_preferences",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "shared_preferences on pub.dev",
+      "url": "https://pub.dev/packages/shared_preferences"
+    }
+  ],
+  "facts": [
+    "shared_preferences stores key-value data in platform-backed preferences, including web localStorage."
+  ],
+  "copy": {
+    "en": {
+      "label": "Key-value persistence",
+      "name": "shared_preferences",
+      "summary": "Store small key-value settings with the official plugin.",
+      "description": "Right for flags, locale, and tokens. Not a database. Values are simple types.",
+      "advantages": [
+        "Official plugin",
+        "Works on web",
+        "Tiny API"
+      ],
+      "tradeOffs": [
+        "No queries",
+        "Not for large or relational data"
+      ],
+      "recommendedWhen": [
+        "Settings and session flags",
+        "Small scale"
+      ],
+      "avoidWhen": [
+        "You need queries, relations, or large offline datasets"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Provider",
+        "setState"
+      ]
+    },
+    "zh": {
+      "label": "键值持久化",
+      "name": "shared_preferences",
+      "summary": "用官方插件存储少量键值配置。",
+      "description": "适合开关、语言和令牌。不是数据库。值是简单类型。",
+      "advantages": [
+        "官方插件",
+        "Web 可用",
+        "API 很小"
+      ],
+      "tradeOffs": [
+        "不能查询",
+        "不适合大量或关系数据"
+      ],
+      "recommendedWhen": [
+        "设置项和会话标记",
+        "小规模"
+      ],
+      "avoidWhen": [
+        "需要查询、关系或大量离线数据"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Provider",
+        "setState"
+      ]
+    },
+    "ja": {
+      "label": "キーバリュー永続化",
+      "name": "shared_preferences",
+      "summary": "公式プラグインで小さなキーバリュー設定を保存します。",
+      "description": "フラグ、ロケール、トークン向きです。データベースではありません。値は単純型です。",
+      "advantages": [
+        "公式プラグイン",
+        "Web で動く",
+        "API が小さい"
+      ],
+      "tradeOffs": [
+        "クエリがない",
+        "大きなデータや関係データ向きではない"
+      ],
+      "recommendedWhen": [
+        "設定やセッションフラグ",
+        "小規模"
+      ],
+      "avoidWhen": [
+        "クエリ、関係、大きなオフラインデータが必要"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Provider",
+        "setState"
+      ]
+    }
+  },
+  "packageName": "shared_preferences"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "manual-api",
+  "category": "networking",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/cookbook/networking/fetch-data",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Fetch data from the internet",
+      "url": "https://docs.flutter.dev/cookbook/networking/fetch-data"
+    }
+  ],
+  "facts": [
+    "Flutter apps can call HTTP from repositories without a generated client."
+  ],
+  "copy": {
+    "en": {
+      "label": "Manual API layer",
+      "name": "Manual",
+      "summary": "Call Dio or http from repositories and map responses by hand.",
+      "description": "Easy to follow when the API is small. Duplication grows with endpoint count.",
+      "advantages": [
+        "Control flow is local",
+        "One-off changes are cheap",
+        "No generator"
+      ],
+      "tradeOffs": [
+        "Endpoints duplicate as they grow",
+        "Spec drift is easy to miss"
+      ],
+      "recommendedWhen": [
+        "The API is small",
+        "The contract is still moving"
+      ],
+      "avoidWhen": [
+        "Dozens of endpoints should share types"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "Freezed"
+      ]
+    },
+    "zh": {
+      "label": "手动 API 层",
+      "name": "手写",
+      "summary": "在 repository 里直接调 Dio 或 http，并手写响应映射。",
+      "description": "API 较小时好跟。端点变多后重复会增加。",
+      "advantages": [
+        "控制流就在附近",
+        "改一处成本低",
+        "无生成器"
+      ],
+      "tradeOffs": [
+        "端点变多后会重复",
+        "与规格的偏差不易发现"
+      ],
+      "recommendedWhen": [
+        "API 很小",
+        "契约还在变"
+      ],
+      "avoidWhen": [
+        "几十个端点需要对齐类型"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "Freezed"
+      ]
+    },
+    "ja": {
+      "label": "手動 API 層",
+      "name": "Manual",
+      "summary": "repository で Dio や http を呼び、応答を手でマップします。",
+      "description": "API が小さいうちは追いやすいです。エンドポイントが増えると重複します。",
+      "advantages": [
+        "流れが追いやすい",
+        "一点だけ変えるのが楽",
+        "生成が不要"
+      ],
+      "tradeOffs": [
+        "エンドポイントが増えると重複する",
+        "仕様との差が気づきにくい"
+      ],
+      "recommendedWhen": [
+        "API が小さい",
+        "仕様がまだ揺れている"
+      ],
+      "avoidWhen": [
+        "数十のエンドポイントを型で揃えたい"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "Freezed"
+      ]
+    }
+  }
+}

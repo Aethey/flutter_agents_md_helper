@@ -1,0 +1,251 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-09-16",
+  "flow": "flow/flutter_decision_flow.json",
+  "categories": {
+    "requirements": {
+      "path": "requirements",
+      "entries": [
+        {
+          "id": "mobile",
+          "file": "mobile.json"
+        },
+        {
+          "id": "web",
+          "file": "web.json"
+        },
+        {
+          "id": "desktop",
+          "file": "desktop.json"
+        },
+        {
+          "id": "scale-small",
+          "file": "scale_small.json"
+        },
+        {
+          "id": "scale-medium",
+          "file": "scale_medium.json"
+        },
+        {
+          "id": "scale-large",
+          "file": "scale_large.json"
+        },
+        {
+          "id": "need-backend",
+          "file": "need_backend.json"
+        },
+        {
+          "id": "need-persistence",
+          "file": "need_persistence.json"
+        },
+        {
+          "id": "need-native",
+          "file": "need_native.json"
+        },
+        {
+          "id": "need-monitoring",
+          "file": "need_monitoring.json"
+        }
+      ]
+    },
+    "structure": {
+      "path": "structure",
+      "entries": [
+        {
+          "id": "single-package",
+          "file": "single_package.json"
+        },
+        {
+          "id": "multi-package",
+          "file": "multi_package.json"
+        },
+        {
+          "id": "dart-workspace",
+          "file": "dart_workspace.json"
+        },
+        {
+          "id": "melos",
+          "file": "melos.json"
+        }
+      ]
+    },
+    "architecture": {
+      "path": "architecture",
+      "entries": [
+        {
+          "id": "simple-layers",
+          "file": "simple_layers.json"
+        },
+        {
+          "id": "feature-first",
+          "file": "feature_first.json"
+        },
+        {
+          "id": "clean",
+          "file": "clean.json"
+        }
+      ]
+    },
+    "state": {
+      "path": "state",
+      "entries": [
+        {
+          "id": "setstate",
+          "file": "setstate.json"
+        },
+        {
+          "id": "provider",
+          "file": "provider.json"
+        },
+        {
+          "id": "riverpod",
+          "file": "riverpod.json"
+        },
+        {
+          "id": "bloc",
+          "file": "bloc.json"
+        }
+      ]
+    },
+    "routing": {
+      "path": "routing",
+      "entries": [
+        {
+          "id": "navigator",
+          "file": "navigator.json"
+        },
+        {
+          "id": "go-router",
+          "file": "go_router.json"
+        },
+        {
+          "id": "manual-routes",
+          "file": "manual_routes.json"
+        },
+        {
+          "id": "go-router-builder",
+          "file": "go_router_builder.json"
+        }
+      ]
+    },
+    "networking": {
+      "path": "networking",
+      "entries": [
+        {
+          "id": "http",
+          "file": "http_client.json"
+        },
+        {
+          "id": "dio",
+          "file": "dio.json"
+        },
+        {
+          "id": "manual-api",
+          "file": "manual_api.json"
+        },
+        {
+          "id": "retrofit",
+          "file": "retrofit.json"
+        },
+        {
+          "id": "openapi",
+          "file": "openapi.json"
+        }
+      ]
+    },
+    "models": {
+      "path": "models",
+      "entries": [
+        {
+          "id": "plain-dart",
+          "file": "plain_dart.json"
+        },
+        {
+          "id": "freezed",
+          "file": "freezed.json"
+        },
+        {
+          "id": "manual-json",
+          "file": "manual_json.json"
+        },
+        {
+          "id": "json-serializable",
+          "file": "json_serializable.json"
+        }
+      ]
+    },
+    "persistence": {
+      "path": "persistence",
+      "entries": [
+        {
+          "id": "shared-preferences",
+          "file": "shared_preferences.json"
+        },
+        {
+          "id": "hive",
+          "file": "hive.json"
+        },
+        {
+          "id": "drift",
+          "file": "drift.json"
+        }
+      ]
+    },
+    "native": {
+      "path": "native",
+      "entries": [
+        {
+          "id": "method-channel",
+          "file": "method_channel.json"
+        },
+        {
+          "id": "pigeon",
+          "file": "pigeon.json"
+        }
+      ]
+    },
+    "testing": {
+      "path": "testing",
+      "entries": [
+        {
+          "id": "unit-widget",
+          "file": "unit_widget.json"
+        },
+        {
+          "id": "integration",
+          "file": "integration.json"
+        },
+        {
+          "id": "comprehensive",
+          "file": "comprehensive.json"
+        }
+      ]
+    },
+    "analysis": {
+      "path": "analysis",
+      "entries": [
+        {
+          "id": "flutter-lints",
+          "file": "flutter_lints.json"
+        },
+        {
+          "id": "strict-analysis",
+          "file": "strict_analysis.json"
+        }
+      ]
+    },
+    "monitoring": {
+      "path": "monitoring",
+      "entries": [
+        {
+          "id": "crashlytics",
+          "file": "crashlytics.json"
+        },
+        {
+          "id": "sentry",
+          "file": "sentry.json"
+        }
+      ]
+    }
+  }
+}

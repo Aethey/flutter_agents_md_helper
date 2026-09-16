@@ -1,0 +1,99 @@
+{
+  "id": "strict-analysis",
+  "category": "analysis",
+  "kind": "pattern",
+  "docsUrl": "https://dart.dev/guides/language/analysis-options",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Analysis options",
+      "url": "https://dart.dev/guides/language/analysis-options"
+    }
+  ],
+  "facts": [
+    "The Dart analyzer supports strict-casts, strict-inference, and strict-raw-types under analyzer.language."
+  ],
+  "copy": {
+    "en": {
+      "label": "Static analysis",
+      "name": "Strict analyzer",
+      "summary": "Enable strict language modes plus flutter_lints, and custom_lint when using Riverpod.",
+      "description": "Matches the type-safety bar this product recommends. Fix warnings instead of excluding them.",
+      "advantages": [
+        "Fewer implicit downs",
+        "Raw types are visible",
+        "Lint plugins can encode architecture rules"
+      ],
+      "tradeOffs": [
+        "More analyzer noise at first",
+        "custom_lint is another CI step"
+      ],
+      "recommendedWhen": [
+        "Medium and large apps",
+        "Generated providers are in use"
+      ],
+      "avoidWhen": [
+        "A throwaway prototype with no CI"
+      ],
+      "worksWellWith": [
+        "flutter_lints",
+        "riverpod_lint",
+        "custom_lint"
+      ]
+    },
+    "zh": {
+      "label": "静态分析",
+      "name": "严格分析器",
+      "summary": "打开严格语言模式，搭配 flutter_lints；若用 Riverpod 再加 custom_lint。",
+      "description": "与本产品推荐的类型安全门槛一致。应修复警告而不是大范围排除。",
+      "advantages": [
+        "更少隐式向下转型",
+        "裸类型会被看见",
+        "lint 插件可编码架构规则"
+      ],
+      "tradeOffs": [
+        "一开始分析器更吵",
+        "custom_lint 是多一步 CI"
+      ],
+      "recommendedWhen": [
+        "中大型应用",
+        "在用生成式 provider"
+      ],
+      "avoidWhen": [
+        "没有 CI 的一次性原型"
+      ],
+      "worksWellWith": [
+        "flutter_lints",
+        "riverpod_lint",
+        "custom_lint"
+      ]
+    },
+    "ja": {
+      "label": "静的解析",
+      "name": "厳格なアナライザ",
+      "summary": "厳格な言語モードと flutter_lints。Riverpod なら custom_lint も。",
+      "description": "このプロダクトが勧める型安全のバーです。除外ではなく警告を直します。",
+      "advantages": [
+        "暗黙のダウンキャストが減る",
+        "生の型が見える",
+        "lint プラグインで設計規則を書ける"
+      ],
+      "tradeOffs": [
+        "最初はノイズが増える",
+        "custom_lint が CI の一段になる"
+      ],
+      "recommendedWhen": [
+        "中〜大規模",
+        "生成 Provider を使う"
+      ],
+      "avoidWhen": [
+        "CI がない捨てプロトタイプ"
+      ],
+      "worksWellWith": [
+        "flutter_lints",
+        "riverpod_lint",
+        "custom_lint"
+      ]
+    }
+  }
+}

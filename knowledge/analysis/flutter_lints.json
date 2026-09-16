@@ -1,0 +1,97 @@
+{
+  "id": "flutter-lints",
+  "category": "analysis",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/flutter_lints",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "flutter_lints on pub.dev",
+      "url": "https://pub.dev/packages/flutter_lints"
+    }
+  ],
+  "facts": [
+    "flutter_lints is the official recommended lint set for Flutter apps."
+  ],
+  "copy": {
+    "en": {
+      "label": "Static analysis",
+      "name": "flutter_lints",
+      "summary": "Use the official Flutter lint set.",
+      "description": "The default quality bar. Combine with analyzer language strictness when you want more type safety.",
+      "advantages": [
+        "Official",
+        "Low ceremony",
+        "Understood by every Flutter repo"
+      ],
+      "tradeOffs": [
+        "Does not enable strict-casts by itself",
+        "Team rules may still be missing"
+      ],
+      "recommendedWhen": [
+        "Small apps",
+        "You want the default Flutter bar"
+      ],
+      "avoidWhen": [
+        "You already need strict language modes and custom_lint"
+      ],
+      "worksWellWith": [
+        "flutter analyze",
+        "CI"
+      ]
+    },
+    "zh": {
+      "label": "静态分析",
+      "name": "flutter_lints",
+      "summary": "使用官方 Flutter lint 集。",
+      "description": "默认质量门槛。若要更强类型安全，可再打开 analyzer 的 language 严格选项。",
+      "advantages": [
+        "官方",
+        "仪式感低",
+        "每个 Flutter 仓库都认识"
+      ],
+      "tradeOffs": [
+        "本身不会打开 strict-casts",
+        "团队规则仍可能缺失"
+      ],
+      "recommendedWhen": [
+        "小型应用",
+        "想要默认 Flutter 门槛"
+      ],
+      "avoidWhen": [
+        "已经需要严格语言模式和 custom_lint"
+      ],
+      "worksWellWith": [
+        "flutter analyze",
+        "CI"
+      ]
+    },
+    "ja": {
+      "label": "静的解析",
+      "name": "flutter_lints",
+      "summary": "公式の Flutter lint セットを使います。",
+      "description": "標準の品質バーです。型安全を足すなら analyzer の language 厳格化と組み合わせます。",
+      "advantages": [
+        "公式",
+        "儀式が少ない",
+        "どの Flutter リポジトリでも通じる"
+      ],
+      "tradeOffs": [
+        "strict-casts は自動では入らない",
+        "チームルールは別途不足し得る"
+      ],
+      "recommendedWhen": [
+        "小規模",
+        "Flutter の標準バーが欲しい"
+      ],
+      "avoidWhen": [
+        "すでに厳格な言語モードと custom_lint が必要"
+      ],
+      "worksWellWith": [
+        "flutter analyze",
+        "CI"
+      ]
+    }
+  },
+  "packageName": "flutter_lints"
+}

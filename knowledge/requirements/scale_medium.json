@@ -1,0 +1,102 @@
+{
+  "id": "scale-medium",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/app-architecture/recommendations",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter architecture recommendations",
+      "url": "https://docs.flutter.dev/app-architecture/recommendations"
+    }
+  ],
+  "facts": [
+    "Feature-first layout is a common recommendation once several people work on separate features."
+  ],
+  "copy": {
+    "en": {
+      "label": "Project scale",
+      "name": "Medium",
+      "summary": "A product that will keep adding features, with more than a couple of contributors.",
+      "description": "Medium scale is where compile-time-safe state, typed routes, and feature folders start to pay off. Generation is acceptable if the team already runs build_runner.",
+      "advantages": [
+        "Room for tests and codegen",
+        "Clearer ownership per feature",
+        "Still understandable for a small team"
+      ],
+      "tradeOffs": [
+        "More setup than a prototype",
+        "You must keep generation in CI"
+      ],
+      "recommendedWhen": [
+        "A product with an ongoing roadmap",
+        "Several features in flight"
+      ],
+      "avoidWhen": [
+        "The app will be discarded after a demo",
+        "There is no appetite for build_runner"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Riverpod",
+        "go_router"
+      ]
+    },
+    "zh": {
+      "label": "项目规模",
+      "name": "中型",
+      "summary": "会持续加功能、贡献者超过两三人的产品。",
+      "description": "中型规模下，编译期安全的状态、类型化路由和按功能分目录开始划算。若团队已在用 build_runner，代码生成可以接受。",
+      "advantages": [
+        "测得动、也用得起代码生成",
+        "按功能划分所有权更清晰",
+        "小团队仍能理解"
+      ],
+      "tradeOffs": [
+        "比原型多一截搭建成本",
+        "生成步骤必须进 CI"
+      ],
+      "recommendedWhen": [
+        "有持续路线图的产品",
+        "同时推进多个功能"
+      ],
+      "avoidWhen": [
+        "演示完就会丢掉",
+        "完全不想引入 build_runner"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Riverpod",
+        "go_router"
+      ]
+    },
+    "ja": {
+      "label": "プロジェクト規模",
+      "name": "中規模",
+      "summary": "機能が増え続け、数人以上が関わる製品。",
+      "description": "中規模では型安全な状態、型付きルート、機能フォルダが効いてきます。build_runner があるなら生成コードも妥当です。",
+      "advantages": [
+        "テストとコード生成の余地",
+        "機能ごとの所有が明確",
+        "少人数でも追いやすい"
+      ],
+      "tradeOffs": [
+        "プロトタイプよりセットアップが多い",
+        "生成を CI に乗せる必要がある"
+      ],
+      "recommendedWhen": [
+        "継続的なロードマップがある",
+        "複数機能が並行する"
+      ],
+      "avoidWhen": [
+        "デモのあと捨てる",
+        "build_runner を入れたくない"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Riverpod",
+        "go_router"
+      ]
+    }
+  }
+}

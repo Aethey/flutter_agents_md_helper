@@ -1,0 +1,102 @@
+{
+  "id": "integration",
+  "category": "testing",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/testing/integration-tests",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Integration tests",
+      "url": "https://docs.flutter.dev/testing/integration-tests"
+    }
+  ],
+  "facts": [
+    "integration_test runs the full app on a device or emulator and exercises real plugin code."
+  ],
+  "copy": {
+    "en": {
+      "label": "Testing strategy",
+      "name": "Integration tests",
+      "summary": "Run the full app on a device or emulator for critical flows.",
+      "description": "Catches plugin and platform issues unit tests miss. Slower and more brittle; keep the set small.",
+      "advantages": [
+        "Exercises plugins",
+        "Validates navigation and startup",
+        "Closer to user flows"
+      ],
+      "tradeOffs": [
+        "Slow",
+        "Flaky without discipline",
+        "Needs device CI"
+      ],
+      "recommendedWhen": [
+        "Native plugins are load-bearing",
+        "Medium and large products"
+      ],
+      "avoidWhen": [
+        "The app is still a prototype with no platform code"
+      ],
+      "worksWellWith": [
+        "Pigeon",
+        "firebase_crashlytics",
+        "go_router"
+      ]
+    },
+    "zh": {
+      "label": "测试策略",
+      "name": "集成测试",
+      "summary": "在设备或模拟器上跑完整应用，覆盖关键流程。",
+      "description": "能抓住单元测试错过的插件与平台问题。更慢更脆，集合应保持小。",
+      "advantages": [
+        "能练到插件",
+        "能验证导航与启动",
+        "更接近用户流程"
+      ],
+      "tradeOffs": [
+        "慢",
+        "没有纪律会不稳定",
+        "需要设备 CI"
+      ],
+      "recommendedWhen": [
+        "原生插件是承重的",
+        "中大型产品"
+      ],
+      "avoidWhen": [
+        "仍是原型且没有平台代码"
+      ],
+      "worksWellWith": [
+        "Pigeon",
+        "firebase_crashlytics",
+        "go_router"
+      ]
+    },
+    "ja": {
+      "label": "テスト戦略",
+      "name": "統合テスト",
+      "summary": "デバイスやエミュレータでアプリ全体を回し、重要フローを確認します。",
+      "description": "ユニットでは拾えないプラグイン問題を拾います。遅く壊れやすいので数は絞ります。",
+      "advantages": [
+        "プラグインを行使できる",
+        "起動と遷移を検証できる",
+        "ユーザーフローに近い"
+      ],
+      "tradeOffs": [
+        "遅い",
+        "規律がないとフレークする",
+        "デバイス CI が必要"
+      ],
+      "recommendedWhen": [
+        "ネイティブプラグインが重要",
+        "中〜大規模"
+      ],
+      "avoidWhen": [
+        "プロトタイプでプラットフォームコードがない"
+      ],
+      "worksWellWith": [
+        "Pigeon",
+        "firebase_crashlytics",
+        "go_router"
+      ]
+    }
+  }
+}

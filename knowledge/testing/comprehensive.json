@@ -1,0 +1,102 @@
+{
+  "id": "comprehensive",
+  "category": "testing",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/testing/overview",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Testing overview",
+      "url": "https://docs.flutter.dev/testing/overview"
+    }
+  ],
+  "facts": [
+    "Flutter's testing pyramid includes unit, widget, integration, and optional golden tests."
+  ],
+  "copy": {
+    "en": {
+      "label": "Testing strategy",
+      "name": "Comprehensive suite",
+      "summary": "Unit, widget, integration, and golden tests as a gated suite.",
+      "description": "For long-lived products where visual and platform regressions are expensive. Highest CI cost.",
+      "advantages": [
+        "Broad regression net",
+        "Goldens lock visual intent",
+        "Integration covers plugins"
+      ],
+      "tradeOffs": [
+        "Slow CI",
+        "Golden maintenance",
+        "Requires test ownership"
+      ],
+      "recommendedWhen": [
+        "Large, long-lived products",
+        "Design-sensitive UI"
+      ],
+      "avoidWhen": [
+        "Small tools with no design system"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Alchemist or golden_toolkit",
+        "integration_test"
+      ]
+    },
+    "zh": {
+      "label": "测试策略",
+      "name": "综合测试集",
+      "summary": "把单元、组件、集成与金色测试作为门禁套件。",
+      "description": "适合视觉和平台回归代价很高的长期产品。CI 成本最高。",
+      "advantages": [
+        "回归网更宽",
+        "金色测试锁定视觉意图",
+        "集成覆盖插件"
+      ],
+      "tradeOffs": [
+        "CI 慢",
+        "金色测试要维护",
+        "需要有人负责测试"
+      ],
+      "recommendedWhen": [
+        "大型长期产品",
+        "对设计敏感的 UI"
+      ],
+      "avoidWhen": [
+        "没有设计系统的小工具"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Alchemist 或 golden_toolkit",
+        "integration_test"
+      ]
+    },
+    "ja": {
+      "label": "テスト戦略",
+      "name": "包括的なテスト",
+      "summary": "ユニット、Widget、統合、ゴールデンをゲートにします。",
+      "description": "見た目とプラットフォームの回帰が高い長期製品向けです。CI コストが最大です。",
+      "advantages": [
+        "回帰の網が広い",
+        "ゴールデンで見た目を固定",
+        "統合がプラグインを覆う"
+      ],
+      "tradeOffs": [
+        "CI が遅い",
+        "ゴールデンのメンテ",
+        "テストの所有が必要"
+      ],
+      "recommendedWhen": [
+        "大規模で長期の製品",
+        "見た目に厳しい UI"
+      ],
+      "avoidWhen": [
+        "デザインシステムがない小さなツール"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Alchemist または golden_toolkit",
+        "integration_test"
+      ]
+    }
+  }
+}

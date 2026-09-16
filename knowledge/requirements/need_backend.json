@@ -1,0 +1,90 @@
+{
+  "id": "need-backend",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/cookbook/networking/fetch-data",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Fetch data from the internet",
+      "url": "https://docs.flutter.dev/cookbook/networking/fetch-data"
+    }
+  ],
+  "facts": [
+    "Flutter apps commonly call HTTP JSON APIs; the client library is a separate decision."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Backend / API",
+      "summary": "The app talks to a remote HTTP API.",
+      "description": "Selecting this reveals HTTP client and API-client decisions. Skip it if the app is local-only.",
+      "advantages": [
+        "Networking choices stay relevant",
+        "Generated clients can be considered"
+      ],
+      "tradeOffs": [
+        "You take on auth, timeouts, and serialization"
+      ],
+      "recommendedWhen": [
+        "There is a backend the app must call"
+      ],
+      "avoidWhen": [
+        "No remote API in this milestone"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "json_serializable"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "后端 / API",
+      "summary": "应用会访问远程 HTTP API。",
+      "description": "选中后会进入 HTTP 客户端与 API 客户端决策。若应用仅本地运行，请不要选。",
+      "advantages": [
+        "网络相关选择才有意义",
+        "可以考虑生成客户端"
+      ],
+      "tradeOffs": [
+        "需要承担认证、超时与序列化"
+      ],
+      "recommendedWhen": [
+        "存在应用必须调用的后端"
+      ],
+      "avoidWhen": [
+        "本里程碑没有远程 API"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "json_serializable"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "バックエンド / API",
+      "summary": "アプリがリモート HTTP API と通信します。",
+      "description": "選ぶと HTTP クライアントと API クライアントの決定が出ます。ローカルだけのアプリなら選ばないでください。",
+      "advantages": [
+        "通信の選択肢が意味を持つ",
+        "生成クライアントを検討できる"
+      ],
+      "tradeOffs": [
+        "認証・タイムアウト・シリアライズが発生"
+      ],
+      "recommendedWhen": [
+        "アプリが呼ぶバックエンドがある"
+      ],
+      "avoidWhen": [
+        "このマイルストーンにリモート API がない"
+      ],
+      "worksWellWith": [
+        "Dio",
+        "http",
+        "json_serializable"
+      ]
+    }
+  }
+}

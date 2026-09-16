@@ -1,0 +1,102 @@
+{
+  "id": "mobile",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/platform-integration",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter platform integration",
+      "url": "https://docs.flutter.dev/platform-integration"
+    }
+  ],
+  "facts": [
+    "Flutter compiles to native ARM and x64 machine code for iOS and Android."
+  ],
+  "copy": {
+    "en": {
+      "label": "Project target",
+      "name": "Mobile",
+      "summary": "Ship on iOS and Android, without treating web or desktop as a requirement.",
+      "description": "A mobile-first Flutter app can still use the same widget tree later, but routing and URL sync can stay simpler if web is out of scope.",
+      "advantages": [
+        "Smaller navigation surface",
+        "Platform channels stay iOS/Android-shaped",
+        "Store release is the main distribution path"
+      ],
+      "tradeOffs": [
+        "Web URLs and deep-link design may be deferred",
+        "Desktop windowing is not a design input"
+      ],
+      "recommendedWhen": [
+        "The first release is phone-only",
+        "The team is mobile-native"
+      ],
+      "avoidWhen": [
+        "Marketing needs a web URL for every screen",
+        "A desktop client is in the same milestone"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "go_router",
+        "Firebase Crashlytics"
+      ]
+    },
+    "zh": {
+      "label": "项目目标",
+      "name": "移动端",
+      "summary": "面向 iOS 与 Android，不把 Web 或桌面当作硬性要求。",
+      "description": "以移动端为主的 Flutter 应用以后仍可复用同一套 widget 树；若暂不做 Web，路由和 URL 同步可以更简单。",
+      "advantages": [
+        "导航面更小",
+        "平台通道只需覆盖 iOS/Android",
+        "分发以应用商店为主"
+      ],
+      "tradeOffs": [
+        "Web URL 与深链设计可能被延后",
+        "桌面窗口体验不纳入设计输入"
+      ],
+      "recommendedWhen": [
+        "首发只做手机",
+        "团队以移动端为主"
+      ],
+      "avoidWhen": [
+        "每个页面都需要可分享的 Web URL",
+        "同一里程碑还要桌面客户端"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "go_router",
+        "Firebase Crashlytics"
+      ]
+    },
+    "ja": {
+      "label": "プロジェクト対象",
+      "name": "モバイル",
+      "summary": "iOS と Android 向け。Web やデスクトップは必須にしない。",
+      "description": "モバイル中心でも後から同じ Widget ツリーは使えますが、Web が不要ならルーティングと URL 同期は単純で済みます。",
+      "advantages": [
+        "ナビゲーションが小さい",
+        "チャネルは iOS/Android 前提",
+        "配布はストアが中心"
+      ],
+      "tradeOffs": [
+        "Web URL やディープリンク設計が後回しになりやすい",
+        "デスクトップの窓設計を考慮しない"
+      ],
+      "recommendedWhen": [
+        "最初のリリースがスマホのみ",
+        "チームがモバイル中心"
+      ],
+      "avoidWhen": [
+        "画面ごとに Web URL が必要",
+        "同じマイルストーンでデスクトップも出す"
+      ],
+      "worksWellWith": [
+        "Navigator",
+        "go_router",
+        "Firebase Crashlytics"
+      ]
+    }
+  }
+}

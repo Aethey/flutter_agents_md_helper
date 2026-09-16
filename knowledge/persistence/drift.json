@@ -1,0 +1,104 @@
+{
+  "id": "drift",
+  "category": "persistence",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/drift",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Drift on pub.dev",
+      "url": "https://pub.dev/packages/drift"
+    }
+  ],
+  "facts": [
+    "Drift is a type-safe SQL persistence library for Dart built on SQLite."
+  ],
+  "copy": {
+    "en": {
+      "label": "SQL persistence",
+      "name": "Drift",
+      "summary": "Type-safe SQL on SQLite, with generated tables and queries.",
+      "description": "Right when relations, migrations, and queries matter. Heavier than key-value stores.",
+      "advantages": [
+        "SQL and types together",
+        "Migrations are first-class",
+        "Queries are explicit"
+      ],
+      "tradeOffs": [
+        "Generator and schema design",
+        "Too much for a few flags"
+      ],
+      "recommendedWhen": [
+        "Relational offline data",
+        "Large or long-lived products"
+      ],
+      "avoidWhen": [
+        "Only a few preferences"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    },
+    "zh": {
+      "label": "SQL 持久化",
+      "name": "Drift",
+      "summary": "在 SQLite 上做类型安全的 SQL，并生成表与查询。",
+      "description": "当关系、迁移和查询很重要时适用。比键值存储更重。",
+      "advantages": [
+        "SQL 与类型在一起",
+        "迁移是一等能力",
+        "查询是显式的"
+      ],
+      "tradeOffs": [
+        "需要生成器与 schema 设计",
+        "只存几个开关会过重"
+      ],
+      "recommendedWhen": [
+        "关系型离线数据",
+        "大型或长期产品"
+      ],
+      "avoidWhen": [
+        "只有少量偏好设置"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    },
+    "ja": {
+      "label": "SQL 永続化",
+      "name": "Drift",
+      "summary": "SQLite 上の型付き SQL。テーブルとクエリを生成します。",
+      "description": "関係、移行、クエリが重要なときに向きます。キーバリューより重いです。",
+      "advantages": [
+        "SQL と型が両立",
+        "移行が第一級",
+        "クエリが明示的"
+      ],
+      "tradeOffs": [
+        "生成とスキーマ設計が必要",
+        "フラグ数個には過剰"
+      ],
+      "recommendedWhen": [
+        "関係のあるオフラインデータ",
+        "大規模または長期製品"
+      ],
+      "avoidWhen": [
+        "設定が数個だけ"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Freezed",
+        "Feature-first"
+      ]
+    }
+  },
+  "packageName": "drift",
+  "impliedPackages": [
+    "drift_dev",
+    "build_runner"
+  ]
+}

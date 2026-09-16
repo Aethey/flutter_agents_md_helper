@@ -1,0 +1,102 @@
+{
+  "id": "feature-first",
+  "category": "architecture",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/app-architecture/recommendations",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Architecture recommendations",
+      "url": "https://docs.flutter.dev/app-architecture/recommendations"
+    }
+  ],
+  "facts": [
+    "Flutter architecture recommendations describe grouping code by feature as the app grows."
+  ],
+  "copy": {
+    "en": {
+      "label": "Feature-first",
+      "name": "Feature-first",
+      "summary": "Keep UI, state, and data access for a feature in the same directory.",
+      "description": "Cut by auth, feed, checkout, and keep shared platform code in a small core. Features can later become packages.",
+      "advantages": [
+        "Features can be moved or deleted together",
+        "PRs stay inside a feature",
+        "Grows into packages cleanly"
+      ],
+      "tradeOffs": [
+        "Shared widgets need a clear home",
+        "Cross-cutting rules are extra work"
+      ],
+      "recommendedWhen": [
+        "Features keep arriving",
+        "Several people implement different features"
+      ],
+      "avoidWhen": [
+        "A few-screen tool",
+        "The team prefers teaching layers first"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "go_router",
+        "Melos"
+      ]
+    },
+    "zh": {
+      "label": "功能优先",
+      "name": "Feature-first",
+      "summary": "把同一功能的 UI、状态与数据访问放在同一目录。",
+      "description": "按 auth、feed、checkout 来切，共享平台代码放进较小的 core。功能以后可以升成包。",
+      "advantages": [
+        "功能可整体搬迁或删除",
+        "PR 范围能关在功能内",
+        "容易长成多包"
+      ],
+      "tradeOffs": [
+        "共享组件放哪容易纠结",
+        "横切规则要另外定"
+      ],
+      "recommendedWhen": [
+        "功能会持续增加",
+        "多人同时做不同功能"
+      ],
+      "avoidWhen": [
+        "只有几屏的工具",
+        "团队更习惯先讲分层"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "go_router",
+        "Melos"
+      ]
+    },
+    "ja": {
+      "label": "フィーチャーファースト",
+      "name": "Feature-first",
+      "summary": "機能ごとに UI・状態・データアクセスを同じディレクトリにまとめます。",
+      "description": "auth、feed、checkout のように機能で切り、共有は小さな core に残します。後からパッケージ化しやすいです。",
+      "advantages": [
+        "機能の削除と移動がしやすい",
+        "PR の範囲が機能に閉じる",
+        "パッケージ分割へ育てやすい"
+      ],
+      "tradeOffs": [
+        "共有ウィジェットの置き場で迷いやすい",
+        "横断ルールを別途決める必要がある"
+      ],
+      "recommendedWhen": [
+        "機能が増え続けるアプリ",
+        "複数人が同時に別機能を書く"
+      ],
+      "avoidWhen": [
+        "画面が数枚のツール",
+        "層で教える方がチームに合う場合"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "go_router",
+        "Melos"
+      ]
+    }
+  }
+}

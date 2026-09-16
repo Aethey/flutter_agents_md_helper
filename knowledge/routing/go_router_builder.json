@@ -1,0 +1,103 @@
+{
+  "id": "go-router-builder",
+  "category": "routing",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/go_router_builder",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "go_router_builder on pub.dev",
+      "url": "https://pub.dev/packages/go_router_builder"
+    }
+  ],
+  "facts": [
+    "go_router_builder generates typed GoRouteData classes from annotations so navigation is checked at compile time."
+  ],
+  "copy": {
+    "en": {
+      "label": "go_router code generation",
+      "name": "go_router_builder",
+      "summary": "Generate typed routes from annotations instead of string paths.",
+      "description": "TypedGoRoute produces location helpers and typed parameters. You give up some URL flexibility for compile-time checks.",
+      "advantages": [
+        "Parameters are typed",
+        "Refactors are safer",
+        "Official extension of go_router"
+      ],
+      "tradeOffs": [
+        "build_runner is required",
+        "Generated files need review"
+      ],
+      "recommendedWhen": [
+        "Many routes and parameters",
+        "The project already generates code"
+      ],
+      "avoidWhen": [
+        "Almost no routes"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Riverpod",
+        "Freezed"
+      ]
+    },
+    "zh": {
+      "label": "go_router 代码生成",
+      "name": "go_router_builder",
+      "summary": "由注解生成类型化路由，而不是手写路径字符串。",
+      "description": "TypedGoRoute 会生成 location 辅助方法与类型化参数。用编译期检查换一部分 URL 灵活性。",
+      "advantages": [
+        "参数有类型",
+        "重构更安全",
+        "go_router 官方延伸"
+      ],
+      "tradeOffs": [
+        "需要 build_runner",
+        "生成文件需要审查"
+      ],
+      "recommendedWhen": [
+        "路由和参数很多",
+        "项目已经在用代码生成"
+      ],
+      "avoidWhen": [
+        "几乎没有路由"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Riverpod",
+        "Freezed"
+      ]
+    },
+    "ja": {
+      "label": "go_router コード生成",
+      "name": "go_router_builder",
+      "summary": "アノテーションから型付きルートを生成します。",
+      "description": "TypedGoRoute から location とパラメータを生成します。柔軟さの一部をコンパイル時チェックと交換します。",
+      "advantages": [
+        "パラメータが型付き",
+        "リファクタに強い",
+        "go_router 公式の延長"
+      ],
+      "tradeOffs": [
+        "build_runner が必要",
+        "生成ファイルのレビューが必要"
+      ],
+      "recommendedWhen": [
+        "ルートとパラメータが多い",
+        "すでに生成コードを使っている"
+      ],
+      "avoidWhen": [
+        "ルートがほとんどない"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Riverpod",
+        "Freezed"
+      ]
+    }
+  },
+  "packageName": "go_router_builder",
+  "impliedPackages": [
+    "build_runner"
+  ]
+}

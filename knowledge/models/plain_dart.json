@@ -1,0 +1,99 @@
+{
+  "id": "plain-dart",
+  "category": "models",
+  "kind": "pattern",
+  "docsUrl": "https://dart.dev/language/classes",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Dart classes",
+      "url": "https://dart.dev/language/classes"
+    }
+  ],
+  "facts": [
+    "Dart classes can hold JSON data without code generation."
+  ],
+  "copy": {
+    "en": {
+      "label": "Handwritten Dart models",
+      "name": "Plain Dart classes",
+      "summary": "Write classes and constructors; skip generated data classes.",
+      "description": "Equality and copyWith are manual. Unions are weak compared with Freezed.",
+      "advantages": [
+        "Reading is straightforward",
+        "No generator",
+        "Odd cases are easy to write"
+      ],
+      "tradeOffs": [
+        "copyWith and == get verbose",
+        "Unions are weak"
+      ],
+      "recommendedWhen": [
+        "Fewer than about ten models",
+        "JSON is flat"
+      ],
+      "avoidWhen": [
+        "Many unions or deep nesting"
+      ],
+      "worksWellWith": [
+        "Manual JSON",
+        "Provider",
+        "http"
+      ]
+    },
+    "zh": {
+      "label": "手写 Dart 模型",
+      "name": "普通 Dart 类",
+      "summary": "手写类和构造函数，不用生成数据类。",
+      "description": "相等与 copyWith 要手写。相对 Freezed，union 更弱。",
+      "advantages": [
+        "读起来直接",
+        "无生成器",
+        "特殊情况好写"
+      ],
+      "tradeOffs": [
+        "copyWith 与 == 会很冗长",
+        "union 弱"
+      ],
+      "recommendedWhen": [
+        "模型大约不到十个",
+        "JSON 很平坦"
+      ],
+      "avoidWhen": [
+        "大量 union 或深层嵌套"
+      ],
+      "worksWellWith": [
+        "Manual JSON",
+        "Provider",
+        "http"
+      ]
+    },
+    "ja": {
+      "label": "手書き Dart モデル",
+      "name": "Plain Dart Classes",
+      "summary": "手書きのクラスとコンストラクタ。生成データクラスを増やしません。",
+      "description": "等値と copyWith は自前です。union は Freezed より弱いです。",
+      "advantages": [
+        "読み方が素直",
+        "生成が不要",
+        "特殊ケースを書きやすい"
+      ],
+      "tradeOffs": [
+        "copyWith と == が冗長",
+        "union 型が弱い"
+      ],
+      "recommendedWhen": [
+        "モデルが十個未満",
+        "JSON が単純"
+      ],
+      "avoidWhen": [
+        "union や深いネストが多い"
+      ],
+      "worksWellWith": [
+        "Manual JSON",
+        "Provider",
+        "http"
+      ]
+    }
+  }
+}

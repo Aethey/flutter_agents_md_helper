@@ -1,0 +1,102 @@
+{
+  "id": "scale-small",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/app-architecture/recommendations",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter architecture recommendations",
+      "url": "https://docs.flutter.dev/app-architecture/recommendations"
+    }
+  ],
+  "facts": [
+    "Flutter's official architecture guidance scales recommendations with app size and team size."
+  ],
+  "copy": {
+    "en": {
+      "label": "Project scale",
+      "name": "Small",
+      "summary": "A short-lived or tightly scoped app: few screens, one small team.",
+      "description": "Small apps pay extra cost for monorepos, generated clients, and strict Clean Architecture. Prefer the thinnest stack that still has clear boundaries.",
+      "advantages": [
+        "Fastest time to first screen",
+        "Fewer tools to learn",
+        "Less generated-code surface"
+      ],
+      "tradeOffs": [
+        "Boundaries get fuzzy as features grow",
+        "A later split costs more than starting with packages"
+      ],
+      "recommendedWhen": [
+        "Prototypes, internal tools, weekend products",
+        "One to three people"
+      ],
+      "avoidWhen": [
+        "Several teams will share the codebase this year",
+        "You already know the app will grow into many features"
+      ],
+      "worksWellWith": [
+        "Single package",
+        "Simple layers",
+        "Navigator"
+      ]
+    },
+    "zh": {
+      "label": "项目规模",
+      "name": "小型",
+      "summary": "周期短或范围很紧的应用：页面少，团队小。",
+      "description": "小型应用为 monorepo、生成客户端和严格整洁架构付出的成本更高。应选择边界清晰但尽量薄的技术栈。",
+      "advantages": [
+        "最快做出第一屏",
+        "要学的工具更少",
+        "生成代码面更小"
+      ],
+      "tradeOffs": [
+        "功能变多后面边界会糊",
+        "以后再拆包往往比一开始分包装成本更高"
+      ],
+      "recommendedWhen": [
+        "原型、内部工具、周末产品",
+        "1 到 3 人"
+      ],
+      "avoidWhen": [
+        "今年就会有多团队共用代码",
+        "已经确定功能会持续变多"
+      ],
+      "worksWellWith": [
+        "Single package",
+        "Simple layers",
+        "Navigator"
+      ]
+    },
+    "ja": {
+      "label": "プロジェクト規模",
+      "name": "小規模",
+      "summary": "短命または範囲の狭いアプリ。画面が少なく、少人数。",
+      "description": "小規模ではモノレポや生成クライアント、厳格な Clean Architecture のコストが目立ちます。境界は残しつつ、薄い構成を選びます。",
+      "advantages": [
+        "最初の画面までが速い",
+        "学ぶツールが少ない",
+        "生成コードが少ない"
+      ],
+      "tradeOffs": [
+        "機能が増えると境界が曖昧",
+        "後からパッケージ分割する方が高い"
+      ],
+      "recommendedWhen": [
+        "プロトタイプや社内ツール",
+        "1〜3人"
+      ],
+      "avoidWhen": [
+        "今年中に複数チームが触る",
+        "機能が増え続けることが分かっている"
+      ],
+      "worksWellWith": [
+        "Single package",
+        "Simple layers",
+        "Navigator"
+      ]
+    }
+  }
+}

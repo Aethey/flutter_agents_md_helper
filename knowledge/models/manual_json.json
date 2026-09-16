@@ -1,0 +1,99 @@
+{
+  "id": "manual-json",
+  "category": "models",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/data-and-backend/serialization/json",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "JSON serialization",
+      "url": "https://docs.flutter.dev/data-and-backend/serialization/json"
+    }
+  ],
+  "facts": [
+    "Dart can decode JSON to Map and list structures without code generation."
+  ],
+  "copy": {
+    "en": {
+      "label": "Manual JSON",
+      "name": "Manual",
+      "summary": "Implement fromJson and toJson yourself.",
+      "description": "Visible conversions, no generator. Nested models and added fields are easy to forget.",
+      "advantages": [
+        "Conversions are visible",
+        "No generator",
+        "Exceptions sit next to the mapping"
+      ],
+      "tradeOffs": [
+        "New fields are easy to miss",
+        "Nesting gets verbose"
+      ],
+      "recommendedWhen": [
+        "Responses are flat",
+        "Custom conversions dominate"
+      ],
+      "avoidWhen": [
+        "Many models"
+      ],
+      "worksWellWith": [
+        "Plain Dart",
+        "http",
+        "Manual API"
+      ]
+    },
+    "zh": {
+      "label": "手动 JSON",
+      "name": "手写",
+      "summary": "自己实现 fromJson / toJson。",
+      "description": "转换过程可见，无生成器。嵌套模型与新增字段容易漏改。",
+      "advantages": [
+        "转换可见",
+        "无生成器",
+        "异常就写在映射旁边"
+      ],
+      "tradeOffs": [
+        "加字段容易漏",
+        "嵌套会变冗长"
+      ],
+      "recommendedWhen": [
+        "响应很平坦",
+        "自定义转换很多"
+      ],
+      "avoidWhen": [
+        "模型很多"
+      ],
+      "worksWellWith": [
+        "Plain Dart",
+        "http",
+        "Manual API"
+      ]
+    },
+    "ja": {
+      "label": "手動 JSON 変換",
+      "name": "Manual",
+      "summary": "fromJson / toJson を自分で実装します。",
+      "description": "変換が見え、生成不要です。ネストとフィールド追加で忘れやすいです。",
+      "advantages": [
+        "変換が見える",
+        "生成が不要",
+        "例外を近くに書ける"
+      ],
+      "tradeOffs": [
+        "フィールド追加で忘れやすい",
+        "ネストで冗長"
+      ],
+      "recommendedWhen": [
+        "応答が平坦",
+        "カスタム変換が多い"
+      ],
+      "avoidWhen": [
+        "モデル数が多い"
+      ],
+      "worksWellWith": [
+        "Plain Dart",
+        "http",
+        "Manual API"
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "need-monitoring",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/cookbook/maintenance/error-reporting",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Error reporting",
+      "url": "https://docs.flutter.dev/cookbook/maintenance/error-reporting"
+    }
+  ],
+  "facts": [
+    "Flutter can report errors to Crashlytics, Sentry, and similar services."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Production monitoring",
+      "summary": "Crashes and non-fatal errors should be visible after release.",
+      "description": "Selecting this reveals Crashlytics versus Sentry. Skip it for prototypes that will never reach real users.",
+      "advantages": [
+        "Release health becomes an architecture input"
+      ],
+      "tradeOffs": [
+        "A vendor account and privacy review are required"
+      ],
+      "recommendedWhen": [
+        "Real users will run this build"
+      ],
+      "avoidWhen": [
+        "Internal spike with no production plan"
+      ],
+      "worksWellWith": [
+        "Sentry",
+        "Firebase Crashlytics"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "生产监控",
+      "summary": "发版后需要能看到崩溃与非致命错误。",
+      "description": "选中后会进入 Crashlytics 与 Sentry 的选择。永远不会给真实用户用的原型请不要选。",
+      "advantages": [
+        "发布健康会进入架构输入"
+      ],
+      "tradeOffs": [
+        "需要厂商账号与隐私评估"
+      ],
+      "recommendedWhen": [
+        "真实用户会运行该构建"
+      ],
+      "avoidWhen": [
+        "没有上线计划的内部试验"
+      ],
+      "worksWellWith": [
+        "Sentry",
+        "Firebase Crashlytics"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "本番監視",
+      "summary": "リリース後にクラッシュと非致命エラーを見たい。",
+      "description": "選ぶと Crashlytics と Sentry の選択が出ます。実ユーザーに出さない試作なら選ばないでください。",
+      "advantages": [
+        "リリース健全性が設計入力になる"
+      ],
+      "tradeOffs": [
+        "ベンダー契約とプライバシー確認が要る"
+      ],
+      "recommendedWhen": [
+        "実ユーザーがこのビルドを使う"
+      ],
+      "avoidWhen": [
+        "本番予定のないスパイク"
+      ],
+      "worksWellWith": [
+        "Sentry",
+        "Firebase Crashlytics"
+      ]
+    }
+  }
+}

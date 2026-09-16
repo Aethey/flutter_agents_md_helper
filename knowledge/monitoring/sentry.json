@@ -1,0 +1,100 @@
+{
+  "id": "sentry",
+  "category": "monitoring",
+  "kind": "package",
+  "docsUrl": "https://docs.sentry.io/platforms/flutter/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Sentry Flutter",
+      "url": "https://docs.sentry.io/platforms/flutter/"
+    }
+  ],
+  "facts": [
+    "Sentry officially supports Flutter and can capture events across mobile, web, and desktop."
+  ],
+  "copy": {
+    "en": {
+      "label": "Error tracking",
+      "name": "Sentry",
+      "summary": "Track errors across app, native, and web in one product.",
+      "description": "Official Flutter support, breadcrumbs, and release health. Sampling and a vendor contract are the cost.",
+      "advantages": [
+        "Breadcrumbs and releases",
+        "Cross-platform",
+        "Performance can be added"
+      ],
+      "tradeOffs": [
+        "Separate vendor",
+        "Sampling must be designed"
+      ],
+      "recommendedWhen": [
+        "Web and mobile share one view",
+        "You operate release health"
+      ],
+      "avoidWhen": [
+        "Crashlytics already covers the need"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Dio",
+        "go_router"
+      ]
+    },
+    "zh": {
+      "label": "错误追踪",
+      "name": "Sentry",
+      "summary": "在同一产品里追踪应用、原生与 Web 上的错误。",
+      "description": "官方 Flutter 支持、面包屑与发布健康。代价是采样设计与厂商合同。",
+      "advantages": [
+        "面包屑与发布追踪",
+        "跨平台",
+        "还可加性能"
+      ],
+      "tradeOffs": [
+        "另一家厂商",
+        "必须设计采样"
+      ],
+      "recommendedWhen": [
+        "Web 与移动要同一视图",
+        "要运营发布健康"
+      ],
+      "avoidWhen": [
+        "Crashlytics 已经够用"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Dio",
+        "go_router"
+      ]
+    },
+    "ja": {
+      "label": "エラートラッキング",
+      "name": "Sentry",
+      "summary": "アプリ、ネイティブ、Web を横断してイベントを追えます。",
+      "description": "Flutter 公式サポート、パンくず、リリース健全性。サンプリングと契約がコストです。",
+      "advantages": [
+        "パンくずとリリース追跡",
+        "プラットフォーム横断",
+        "パフォーマンスも足せる"
+      ],
+      "tradeOffs": [
+        "別ベンダーの契約",
+        "サンプリング設計が必要"
+      ],
+      "recommendedWhen": [
+        "Web とモバイルを同じで見る",
+        "リリース健全性を運用する"
+      ],
+      "avoidWhen": [
+        "すでに Crashlytics だけで足りている"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "Dio",
+        "go_router"
+      ]
+    }
+  },
+  "packageName": "sentry_flutter"
+}

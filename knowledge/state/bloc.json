@@ -1,0 +1,103 @@
+{
+  "id": "bloc",
+  "category": "state",
+  "kind": "package",
+  "docsUrl": "https://bloclibrary.dev/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "bloc library",
+      "url": "https://bloclibrary.dev/"
+    }
+  ],
+  "facts": [
+    "BLoC maps incoming events to outgoing states through a stream."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter state package",
+      "name": "BLoC",
+      "summary": "Model intent as events and publish states on a stream.",
+      "description": "event → bloc → state makes transitions reviewable. File count and ceremony are the cost, especially on simple screens.",
+      "advantages": [
+        "Transitions are traceable",
+        "Easy to turn into team rules",
+        "DevTools are mature"
+      ],
+      "tradeOffs": [
+        "More files and ceremony",
+        "Heavy for small screens"
+      ],
+      "recommendedWhen": [
+        "Complex flows and many contributors",
+        "You want an event log"
+      ],
+      "avoidWhen": [
+        "Screens are simple and events would be ceremonial"
+      ],
+      "worksWellWith": [
+        "Clean Architecture",
+        "Freezed",
+        "go_router"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 状态包",
+      "name": "BLoC",
+      "summary": "用事件表达意图，并在流上发布状态。",
+      "description": "event → bloc → state 让迁移可审查。代价是文件数和仪式感，简单页面尤其明显。",
+      "advantages": [
+        "迁移可追踪",
+        "容易写成团队规范",
+        "DevTools 成熟"
+      ],
+      "tradeOffs": [
+        "文件和仪式更多",
+        "小页面偏重"
+      ],
+      "recommendedWhen": [
+        "流程复杂且贡献者多",
+        "需要事件日志"
+      ],
+      "avoidWhen": [
+        "页面简单，事件只会流于形式"
+      ],
+      "worksWellWith": [
+        "Clean Architecture",
+        "Freezed",
+        "go_router"
+      ]
+    },
+    "ja": {
+      "label": "Flutter 状態パッケージ",
+      "name": "BLoC",
+      "summary": "イベントと状態のストリームで意図を明示します。",
+      "description": "event → bloc → state。遷移を追えることが強みです。ファイル数と儀式がコストで、小さな画面では重いです。",
+      "advantages": [
+        "遷移が追跡しやすい",
+        "チーム規約に落とし込みやすい",
+        "devtools が充実"
+      ],
+      "tradeOffs": [
+        "ファイル数と儀式が多い",
+        "小さな画面では重い"
+      ],
+      "recommendedWhen": [
+        "複雑なフローと多くの貢献者",
+        "イベントログが欲しい"
+      ],
+      "avoidWhen": [
+        "画面が単純でイベントが形式的になる場合"
+      ],
+      "worksWellWith": [
+        "Clean Architecture",
+        "Freezed",
+        "go_router"
+      ]
+    }
+  },
+  "packageName": "flutter_bloc",
+  "impliedPackages": [
+    "bloc"
+  ]
+}

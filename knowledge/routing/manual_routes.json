@@ -1,0 +1,96 @@
+{
+  "id": "manual-routes",
+  "category": "routing",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/ui/navigation",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter navigation",
+      "url": "https://docs.flutter.dev/ui/navigation"
+    }
+  ],
+  "facts": [
+    "go_router routes can be declared with string paths and parsed parameters."
+  ],
+  "copy": {
+    "en": {
+      "label": "Manual routes",
+      "name": "Manual routes",
+      "summary": "Keep path strings and parse parameters yourself.",
+      "description": "Transparent, no builder. Typos and parameter types show up at runtime.",
+      "advantages": [
+        "Mechanics stay visible",
+        "No generated files",
+        "Odd URLs are easy to write"
+      ],
+      "tradeOffs": [
+        "Typos survive until runtime",
+        "Parameter types scatter"
+      ],
+      "recommendedWhen": [
+        "Fewer than about ten routes",
+        "Information architecture is still experimental"
+      ],
+      "avoidWhen": [
+        "Many paths and query parameters must be safe"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Navigator"
+      ]
+    },
+    "zh": {
+      "label": "手动路由",
+      "name": "手动路由",
+      "summary": "自己维护路径字符串并解析参数。",
+      "description": "透明、无需生成器。拼写错误和参数类型要到运行时才暴露。",
+      "advantages": [
+        "机制可见",
+        "无生成文件",
+        "特殊 URL 好写"
+      ],
+      "tradeOffs": [
+        "拼写错误留到运行时",
+        "参数类型分散"
+      ],
+      "recommendedWhen": [
+        "路由大约不到十条",
+        "信息架构还在试验"
+      ],
+      "avoidWhen": [
+        "大量 path 与 query 需要类型安全"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Navigator"
+      ]
+    },
+    "ja": {
+      "label": "手動ルート定義",
+      "name": "Manual Routes",
+      "summary": "パス文字列とパラメータ解析を自分で定義します。",
+      "description": "仕組みが透明で生成不要です。タイポとパラメータ型は実行時まで残ります。",
+      "advantages": [
+        "仕組みが透明",
+        "生成コードが不要",
+        "例外的な URL を書きやすい"
+      ],
+      "tradeOffs": [
+        "タイポが実行時まで残る",
+        "パラメータ型が散らばる"
+      ],
+      "recommendedWhen": [
+        "ルートが十本に満たない",
+        "実験中の情報設計"
+      ],
+      "avoidWhen": [
+        "多数のパスと query を安全に扱いたい"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "Navigator"
+      ]
+    }
+  }
+}

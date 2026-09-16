@@ -1,0 +1,105 @@
+{
+  "id": "riverpod",
+  "category": "state",
+  "kind": "package",
+  "docsUrl": "https://riverpod.dev/",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Riverpod documentation",
+      "url": "https://riverpod.dev/"
+    }
+  ],
+  "facts": [
+    "Riverpod providers are resolved from a ProviderContainer and do not require an ancestor widget.",
+    "riverpod_generator creates providers from @riverpod annotations."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter state package",
+      "name": "Riverpod",
+      "summary": "Compile-time-safe providers that can live outside the widget tree.",
+      "description": "Riverpod is the typed successor to Provider. Generated providers cut boilerplate. You need a build_runner pipeline.",
+      "advantages": [
+        "Reads are typed",
+        "Testable without pumping widgets",
+        "family and codegen are strong"
+      ],
+      "tradeOffs": [
+        "More concepts",
+        "Generated-code pipeline required"
+      ],
+      "recommendedWhen": [
+        "New medium or large apps",
+        "Lots of async and caching"
+      ],
+      "avoidWhen": [
+        "Truly local UI state only"
+      ],
+      "worksWellWith": [
+        "riverpod_generator",
+        "go_router",
+        "Freezed"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 状态包",
+      "name": "Riverpod",
+      "summary": "编译期安全的 provider，可以活在 widget 树之外。",
+      "description": "Riverpod 是 Provider 的类型安全后继。生成式 provider 能减少样板。需要 build_runner 流水线。",
+      "advantages": [
+        "读取有类型",
+        "不必泵 widget 也能测",
+        "family 与 codegen 很强"
+      ],
+      "tradeOffs": [
+        "概念更多",
+        "必须有生成流水线"
+      ],
+      "recommendedWhen": [
+        "新建中大型应用",
+        "异步与缓存很多"
+      ],
+      "avoidWhen": [
+        "真的只有局部 UI 状态"
+      ],
+      "worksWellWith": [
+        "riverpod_generator",
+        "go_router",
+        "Freezed"
+      ]
+    },
+    "ja": {
+      "label": "Flutter 状態パッケージ",
+      "name": "Riverpod",
+      "summary": "Widget ツリーに依存しない、コンパイル時安全な Provider です。",
+      "description": "Provider の型安全な後継です。生成コードでボイラープレートを削れます。build_runner が必要です。",
+      "advantages": [
+        "読み取りが型安全",
+        "Widget 外でテストできる",
+        "family / codegen が強い"
+      ],
+      "tradeOffs": [
+        "概念が増える",
+        "生成コードのパイプラインが必要"
+      ],
+      "recommendedWhen": [
+        "新規の中〜大規模",
+        "非同期とキャッシュが多い"
+      ],
+      "avoidWhen": [
+        "本当に局所状態だけの画面"
+      ],
+      "worksWellWith": [
+        "riverpod_generator",
+        "go_router",
+        "Freezed"
+      ]
+    }
+  },
+  "packageName": "flutter_riverpod",
+  "impliedPackages": [
+    "riverpod_annotation",
+    "riverpod_generator"
+  ]
+}

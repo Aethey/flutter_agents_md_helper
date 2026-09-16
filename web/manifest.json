@@ -1,12 +1,12 @@
 {
-    "name": "flutter_agents_md_helper",
-    "short_name": "flutter_agents_md_helper",
+    "name": "Flutter Architect",
+    "short_name": "Flutter Architect",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
+    "background_color": "#1A1B22",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "description": "Build a Flutter architecture and export FLUTTER_ARCHITECTURE.md for coding agents.",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {

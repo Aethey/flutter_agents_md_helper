@@ -1,0 +1,99 @@
+{
+  "id": "unit-widget",
+  "category": "testing",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/testing",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter testing",
+      "url": "https://docs.flutter.dev/testing"
+    }
+  ],
+  "facts": [
+    "flutter_test supports unit tests and widget tests; they are the default Flutter test surface."
+  ],
+  "copy": {
+    "en": {
+      "label": "Testing strategy",
+      "name": "Unit and widget tests",
+      "summary": "Cover domain rules and decision UI with flutter_test.",
+      "description": "The default productive suite. Integration and golden tests can be added later without changing architecture.",
+      "advantages": [
+        "Fast feedback",
+        "No extra device farm",
+        "Matches Flutter's own guidance"
+      ],
+      "tradeOffs": [
+        "Does not prove real-device plugins",
+        "Does not catch every visual regression"
+      ],
+      "recommendedWhen": [
+        "Most apps",
+        "Logic and widget behavior matter more than pixels"
+      ],
+      "avoidWhen": [
+        "You already know you must test plugins on devices continuously"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "BLoC",
+        "go_router"
+      ]
+    },
+    "zh": {
+      "label": "测试策略",
+      "name": "单元与组件测试",
+      "summary": "用 flutter_test 覆盖领域规则与决策 UI。",
+      "description": "默认且高效的测试集。以后可以再加集成和金色测试，不必改架构。",
+      "advantages": [
+        "反馈快",
+        "不需要设备农场",
+        "符合 Flutter 自身指导"
+      ],
+      "tradeOffs": [
+        "证明不了真机插件",
+        "抓不全视觉回归"
+      ],
+      "recommendedWhen": [
+        "大多数应用",
+        "逻辑和组件行为重于像素"
+      ],
+      "avoidWhen": [
+        "已经确定必须持续在真机上测插件"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "BLoC",
+        "go_router"
+      ]
+    },
+    "ja": {
+      "label": "テスト戦略",
+      "name": "ユニットと Widget テスト",
+      "summary": "flutter_test でドメイン規則と UI をカバーします。",
+      "description": "まず足る標準セットです。統合やゴールデンは後から足せます。",
+      "advantages": [
+        "フィードバックが速い",
+        "デバイスファーム不要",
+        "Flutter の指針に沿う"
+      ],
+      "tradeOffs": [
+        "実機プラグインは保証しない",
+        "見た目の回帰は取り切れない"
+      ],
+      "recommendedWhen": [
+        "ほとんどのアプリ",
+        "ピクセルよりロジックと Widget 行為"
+      ],
+      "avoidWhen": [
+        "プラグインを継続的に実機で試す必要がある"
+      ],
+      "worksWellWith": [
+        "Riverpod",
+        "BLoC",
+        "go_router"
+      ]
+    }
+  }
+}

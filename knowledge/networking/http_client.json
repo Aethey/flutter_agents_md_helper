@@ -1,0 +1,100 @@
+{
+  "id": "http",
+  "category": "networking",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/http",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "http on pub.dev",
+      "url": "https://pub.dev/packages/http"
+    }
+  ],
+  "facts": [
+    "The http package is the dart.dev-supported thin HTTP client."
+  ],
+  "copy": {
+    "en": {
+      "label": "Dart HTTP client",
+      "name": "http",
+      "summary": "A small official client for straightforward REST calls.",
+      "description": "Enough when endpoints are few and auth is a static header. Interceptors, retries, and FormData are not included.",
+      "advantages": [
+        "Official and stable",
+        "Small API",
+        "Light dependency"
+      ],
+      "tradeOffs": [
+        "No interceptors",
+        "Complex clients get handwritten"
+      ],
+      "recommendedWhen": [
+        "Few endpoints",
+        "Auth headers are simple"
+      ],
+      "avoidWhen": [
+        "Token refresh or cross-cutting logging is required"
+      ],
+      "worksWellWith": [
+        "Manual API",
+        "Provider",
+        "Plain Dart"
+      ]
+    },
+    "zh": {
+      "label": "Dart HTTP 客户端",
+      "name": "http",
+      "summary": "官方小巧客户端，适合直接的 REST 调用。",
+      "description": "端点少、认证只是静态头时够用。不含拦截器、重试和 FormData。",
+      "advantages": [
+        "官方且稳定",
+        "API 面小",
+        "依赖轻"
+      ],
+      "tradeOffs": [
+        "没有拦截器",
+        "复杂客户端往往手写"
+      ],
+      "recommendedWhen": [
+        "端点很少",
+        "认证头很简单"
+      ],
+      "avoidWhen": [
+        "需要刷新令牌或横切日志"
+      ],
+      "worksWellWith": [
+        "Manual API",
+        "Provider",
+        "Plain Dart"
+      ]
+    },
+    "ja": {
+      "label": "Dart HTTP クライアント",
+      "name": "http",
+      "summary": "素直な REST 向けの公式の薄いクライアントです。",
+      "description": "エンドポイントが少なく、認証が静的ヘッダなら足ります。インターセプタ、リトライ、FormData はありません。",
+      "advantages": [
+        "公式で安定",
+        "API が小さい",
+        "依存が軽い"
+      ],
+      "tradeOffs": [
+        "インターセプタがない",
+        "複雑なクライアントを自前実装しがち"
+      ],
+      "recommendedWhen": [
+        "エンドポイントが少ない",
+        "認証ヘッダが単純"
+      ],
+      "avoidWhen": [
+        "トークン更新やログを横断で入れたい"
+      ],
+      "worksWellWith": [
+        "Manual client",
+        "Provider",
+        "Plain Dart"
+      ]
+    }
+  },
+  "packageName": "http"
+}

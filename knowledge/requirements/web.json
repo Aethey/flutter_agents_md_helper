@@ -1,0 +1,99 @@
+{
+  "id": "web",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/platform-integration/web",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter web",
+      "url": "https://docs.flutter.dev/platform-integration/web"
+    }
+  ],
+  "facts": [
+    "Flutter web uses URL-based routing and can be deployed as static files."
+  ],
+  "copy": {
+    "en": {
+      "label": "Project target",
+      "name": "Web",
+      "summary": "The product must work in a browser, including URLs, refresh, and shareable links.",
+      "description": "Flutter web is a first-class target. Declarative routing with URL sync is the usual fit; Navigator-only stacks hide location from the address bar.",
+      "advantages": [
+        "Shareable locations",
+        "Static hosting is possible",
+        "Same Dart codebase as mobile"
+      ],
+      "tradeOffs": [
+        "SEO remains a Flutter web constraint",
+        "Plugin coverage is narrower than mobile"
+      ],
+      "recommendedWhen": [
+        "The app is used from a browser",
+        "GitHub Pages or another static host is the delivery path"
+      ],
+      "avoidWhen": [
+        "The only clients are store apps with no web milestone"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "go_router_builder",
+        "Sentry"
+      ]
+    },
+    "zh": {
+      "label": "项目目标",
+      "name": "Web",
+      "summary": "产品必须能在浏览器中运行，包括 URL、刷新与可分享链接。",
+      "description": "Flutter Web 是一等目标。通常需要带 URL 同步的声明式路由；只用 Navigator 堆栈时，地址栏看不到位置。",
+      "advantages": [
+        "位置可分享",
+        "可以静态托管",
+        "与移动端共用 Dart 代码"
+      ],
+      "tradeOffs": [
+        "SEO 仍受 Flutter Web 限制",
+        "插件覆盖比移动端窄"
+      ],
+      "recommendedWhen": [
+        "用户从浏览器使用",
+        "通过 GitHub Pages 等静态托管交付"
+      ],
+      "avoidWhen": [
+        "只有商店应用，没有 Web 里程碑"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "go_router_builder",
+        "Sentry"
+      ]
+    },
+    "ja": {
+      "label": "プロジェクト対象",
+      "name": "Web",
+      "summary": "ブラウザで動き、URL・再読み込み・共有リンクが必要です。",
+      "description": "Flutter Web は正式ターゲットです。URL 同期のある宣言的ルーティングが向きます。Navigator だけではアドレスバーに位置が出ません。",
+      "advantages": [
+        "URL を共有できる",
+        "静的ホスティングが可能",
+        "モバイルと同じ Dart コード"
+      ],
+      "tradeOffs": [
+        "SEO は Flutter web の制約が残る",
+        "プラグイン対応はモバイルより狭い"
+      ],
+      "recommendedWhen": [
+        "ブラウザから使う",
+        "GitHub Pages などの静的ホストで配る"
+      ],
+      "avoidWhen": [
+        "ストアアプリのみで Web 予定がない"
+      ],
+      "worksWellWith": [
+        "go_router",
+        "go_router_builder",
+        "Sentry"
+      ]
+    }
+  }
+}

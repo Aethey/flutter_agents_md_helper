@@ -1,0 +1,102 @@
+{
+  "id": "simple-layers",
+  "category": "architecture",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/app-architecture",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter app architecture",
+      "url": "https://docs.flutter.dev/app-architecture"
+    }
+  ],
+  "facts": [
+    "Flutter's architecture guidance describes separating UI from data with layered responsibilities."
+  ],
+  "copy": {
+    "en": {
+      "label": "Layered layout",
+      "name": "Simple layers",
+      "summary": "Keep thin presentation / domain / data layers without feature folders.",
+      "description": "A classic technical-layer split. It works at small and medium size until feature ownership starts to scatter across folders.",
+      "advantages": [
+        "Easy to teach",
+        "Dependency direction is obvious",
+        "Lots of existing material"
+      ],
+      "tradeOffs": [
+        "A feature change touches several folders",
+        "Ownership blurs past medium size"
+      ],
+      "recommendedWhen": [
+        "The team already thinks in layers",
+        "Feature count is still low"
+      ],
+      "avoidWhen": [
+        "Feature teams work in parallel",
+        "You want hard module boundaries"
+      ],
+      "worksWellWith": [
+        "Provider",
+        "Navigator",
+        "http"
+      ]
+    },
+    "zh": {
+      "label": "分层结构",
+      "name": "简单分层",
+      "summary": "保留薄的 presentation / domain / data 层，不按功能分目录。",
+      "description": "经典按技术层切分。小到中型够用，直到功能所有权开始散落到多个目录。",
+      "advantages": [
+        "好教",
+        "依赖方向直观",
+        "现成资料多"
+      ],
+      "tradeOffs": [
+        "一个功能改动会碰多个目录",
+        "超过中型后所有权变糊"
+      ],
+      "recommendedWhen": [
+        "团队已习惯分层",
+        "功能数量还少"
+      ],
+      "avoidWhen": [
+        "功能团队并行开发",
+        "想要硬模块边界"
+      ],
+      "worksWellWith": [
+        "Provider",
+        "Navigator",
+        "http"
+      ]
+    },
+    "ja": {
+      "label": "レイヤード構成",
+      "name": "Simple Layers",
+      "summary": "presentation / domain / data の薄い層だけを置きます。",
+      "description": "技術層で切る古典的な分け方。中規模までは足りますが、所有がフォルダをまたぎ始めます。",
+      "advantages": [
+        "学習しやすい",
+        "依存の向きが説明しやすい",
+        "既存資料が多い"
+      ],
+      "tradeOffs": [
+        "機能追加が複数フォルダに散る",
+        "中規模を超えると所有が曖昧"
+      ],
+      "recommendedWhen": [
+        "チームが層の話に慣れている",
+        "機能数がまだ少ない"
+      ],
+      "avoidWhen": [
+        "機能チームが並行で動く",
+        "モジュール境界を硬くしたい"
+      ],
+      "worksWellWith": [
+        "Provider",
+        "Navigator",
+        "http"
+      ]
+    }
+  }
+}

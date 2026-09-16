@@ -1,0 +1,82 @@
+{
+  "@@locale": "zh",
+  "appTitle": "Flutter Architect",
+  "subtitle": "先搭好 Flutter 架构，再开始写应用。",
+  "navMain": "主导航",
+  "newProject": "新建项目",
+  "review": "审查",
+  "github": "项目 GitHub",
+  "theme": "切换主题",
+  "language": "语言",
+  "archEyebrow": "当前架构",
+  "yourArchitecture": "你的架构",
+  "decisionsMade": "已做出的决定",
+  "progress": "已完成 {done} / {total} 项决定",
+  "@progress": {
+    "placeholders": {
+      "done": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "options": "选项",
+  "decisionIndex": "第 {n} / {total} 项决定",
+  "@decisionIndex": {
+    "placeholders": {
+      "n": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "back": "返回",
+  "skip": "跳过",
+  "continueLabel": "继续",
+  "selectSingle": "只能选一项。",
+  "selectMultiple": "可多选，再点一次取消。",
+  "reviewEyebrow": "最终确认",
+  "reviewTitle": "你的 Flutter 架构",
+  "reviewLead": "生成项目说明前，请先核对全部决定。",
+  "reviewCtaTitle": "按此架构写出 FLUTTER_ARCHITECTURE.md",
+  "reviewCtaLead": "把决定转换成给实现代理用的项目说明。",
+  "generate": "生成 FLUTTER_ARCHITECTURE.md",
+  "backDecisions": "返回决定",
+  "restart": "从头开始",
+  "copy": "复制",
+  "copied": "已复制",
+  "close": "关闭",
+  "undecided": "未决定",
+  "recommended": "推荐",
+  "preview": "预览",
+  "pros": "优点",
+  "cons": "取舍",
+  "when": "适合的情况",
+  "avoid": "应避免的情况",
+  "withLabel": "搭配良好",
+  "sources": "来源",
+  "whyRecommended": "推荐原因",
+  "whyShown": "为何展示该选项",
+  "docs": "官方文档",
+  "docsAria": "打开 {name} 的官方页面",
+  "@docsAria": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "edit": "编辑",
+  "editNamed": "编辑{name}",
+  "@editNamed": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "reviewPending": "这一项还没有选择。",
+  "exportTitle": "FLUTTER_ARCHITECTURE.md",
+  "loading": "正在加载架构知识库…",
+  "loadError": "无法加载知识库。",
+  "retry": "重试",
+  "architectureTab": "架构",
+  "decisionTab": "决定",
+  "insightTab": "洞察",
+  "insightEmpty": "选择或聚焦一个选项以查看技术细节。",
+  "languageEnglish": "English",
+  "languageChinese": "简体中文",
+  "languageJapanese": "日本語"
+}

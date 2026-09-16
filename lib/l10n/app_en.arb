@@ -1,0 +1,82 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter Architect",
+  "subtitle": "Build your Flutter architecture before you build your app.",
+  "navMain": "Main",
+  "newProject": "New project",
+  "review": "Review",
+  "github": "Project GitHub",
+  "theme": "Toggle theme",
+  "language": "Language",
+  "archEyebrow": "Selected architecture",
+  "yourArchitecture": "Your architecture",
+  "decisionsMade": "Decisions you have made",
+  "progress": "{done} of {total} decisions completed",
+  "@progress": {
+    "placeholders": {
+      "done": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "options": "Options",
+  "decisionIndex": "Decision {n} of {total}",
+  "@decisionIndex": {
+    "placeholders": {
+      "n": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "back": "Back",
+  "skip": "Skip",
+  "continueLabel": "Continue",
+  "selectSingle": "Choose one.",
+  "selectMultiple": "Choose one or more. Click again to remove.",
+  "reviewEyebrow": "Final review",
+  "reviewTitle": "Your Flutter architecture",
+  "reviewLead": "Review your decisions before generating project instructions.",
+  "reviewCtaTitle": "Write FLUTTER_ARCHITECTURE.md from this architecture",
+  "reviewCtaLead": "Convert the decisions into project instructions for an implementation agent.",
+  "generate": "Generate FLUTTER_ARCHITECTURE.md",
+  "backDecisions": "Back to decisions",
+  "restart": "Start over",
+  "copy": "Copy",
+  "copied": "Copied",
+  "close": "Close",
+  "undecided": "Undecided",
+  "recommended": "Recommended",
+  "preview": "Preview",
+  "pros": "Advantages",
+  "cons": "Trade-offs",
+  "when": "Recommended when",
+  "avoid": "Avoid when",
+  "withLabel": "Works well with",
+  "sources": "Sources",
+  "whyRecommended": "Why this is recommended",
+  "whyShown": "Why this option is shown",
+  "docs": "Official docs",
+  "docsAria": "Open the official {name} page",
+  "@docsAria": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "edit": "Edit",
+  "editNamed": "Edit {name}",
+  "@editNamed": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "reviewPending": "This item has not been chosen yet.",
+  "exportTitle": "FLUTTER_ARCHITECTURE.md",
+  "loading": "Loading architecture knowledge…",
+  "loadError": "Could not load the knowledge base.",
+  "retry": "Retry",
+  "architectureTab": "Architecture",
+  "decisionTab": "Decision",
+  "insightTab": "Insight",
+  "insightEmpty": "Select or focus an option to see technology details.",
+  "languageEnglish": "English",
+  "languageChinese": "简体中文",
+  "languageJapanese": "日本語"
+}

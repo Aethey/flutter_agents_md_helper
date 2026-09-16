@@ -1,0 +1,99 @@
+{
+  "id": "clean",
+  "category": "architecture",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/app-architecture/guide",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter architecture guide",
+      "url": "https://docs.flutter.dev/app-architecture/guide"
+    }
+  ],
+  "facts": [
+    "Clean Architecture keeps domain entities and use cases independent of Flutter and network adapters."
+  ],
+  "copy": {
+    "en": {
+      "label": "Clean Architecture",
+      "name": "Clean Architecture",
+      "summary": "Keep domain at the center; UI and infrastructure depend inward.",
+      "description": "Entities and use cases stay independent. Flutter widgets and HTTP become adapters. This is a real cost on small apps.",
+      "advantages": [
+        "Domain tests run without Flutter",
+        "Infrastructure can be replaced",
+        "Dependency rules are explicit"
+      ],
+      "tradeOffs": [
+        "More boilerplate",
+        "Too much for small apps"
+      ],
+      "recommendedWhen": [
+        "Complex business rules",
+        "Long-term maintenance is assumed"
+      ],
+      "avoidWhen": [
+        "Requirements are still changing weekly"
+      ],
+      "worksWellWith": [
+        "BLoC",
+        "Dio",
+        "Freezed"
+      ]
+    },
+    "zh": {
+      "label": "整洁架构",
+      "name": "Clean Architecture",
+      "summary": "领域放在中心；UI 与基础设施向内依赖。",
+      "description": "实体与用例保持独立。Flutter 组件和 HTTP 变成适配器。小应用上这是实打实的成本。",
+      "advantages": [
+        "领域测试可不依赖 Flutter",
+        "基础设施可替换",
+        "依赖规则明确"
+      ],
+      "tradeOffs": [
+        "样板代码更多",
+        "小应用会过重"
+      ],
+      "recommendedWhen": [
+        "业务规则复杂",
+        "按长期维护来假设"
+      ],
+      "avoidWhen": [
+        "需求还在每周大变"
+      ],
+      "worksWellWith": [
+        "BLoC",
+        "Dio",
+        "Freezed"
+      ]
+    },
+    "ja": {
+      "label": "クリーンアーキテクチャ",
+      "name": "Clean Architecture",
+      "summary": "ドメインを中心に置き、外側へ向かって依存させます。",
+      "description": "entities と use cases を独立させ、Flutter とネットワークをアダプタに下げます。小規模ではコストが大きいです。",
+      "advantages": [
+        "ドメインテストが速い",
+        "基盤差し替えに強い",
+        "依存ルールが明確"
+      ],
+      "tradeOffs": [
+        "ボイラープレートが多い",
+        "小規模では過剰"
+      ],
+      "recommendedWhen": [
+        "複雑な業務ルールがある",
+        "長期保守が前提"
+      ],
+      "avoidWhen": [
+        "まだ要件が変わっている立ち上げ期"
+      ],
+      "worksWellWith": [
+        "BLoC",
+        "Dio",
+        "Freezed"
+      ]
+    }
+  }
+}

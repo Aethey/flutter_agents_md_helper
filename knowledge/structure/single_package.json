@@ -1,0 +1,102 @@
+{
+  "id": "single-package",
+  "category": "structure",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/resources/architectural-overview",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Flutter architectural overview",
+      "url": "https://docs.flutter.dev/resources/architectural-overview"
+    }
+  ],
+  "facts": [
+    "A standard Flutter app is a single Dart package with a lib/ directory."
+  ],
+  "copy": {
+    "en": {
+      "label": "Flutter project layout",
+      "name": "Single package",
+      "summary": "Keep the whole app in one Dart package.",
+      "description": "The default Flutter layout: one pubspec, one lib/. Fastest to start, with the fewest tool seams.",
+      "advantages": [
+        "Shortest setup",
+        "Least friction in IDEs and CI",
+        "Readable while the app is small"
+      ],
+      "tradeOffs": [
+        "Ownership boundaries blur as features grow",
+        "Parallel work collides in the same package"
+      ],
+      "recommendedWhen": [
+        "Prototypes and internal tools",
+        "One to three people on a short timeline"
+      ],
+      "avoidWhen": [
+        "Multiple teams share the codebase",
+        "You need independently versioned libraries"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Provider",
+        "Navigator"
+      ]
+    },
+    "zh": {
+      "label": "Flutter 项目结构",
+      "name": "单包",
+      "summary": "整个应用放在一个 Dart 包里。",
+      "description": "默认 Flutter 布局：一个 pubspec、一个 lib/。启动最快，工具缝隙最少。",
+      "advantages": [
+        "搭建最短",
+        "IDE 与 CI 摩擦最小",
+        "应用还小时很好读"
+      ],
+      "tradeOffs": [
+        "功能变多后所有权边界会糊",
+        "并行开发容易在同一包里冲突"
+      ],
+      "recommendedWhen": [
+        "原型和内部工具",
+        "1 到 3 人、周期短"
+      ],
+      "avoidWhen": [
+        "多团队共用代码",
+        "需要独立版本的库"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Provider",
+        "Navigator"
+      ]
+    },
+    "ja": {
+      "label": "Flutter プロジェクト構成",
+      "name": "シングルパッケージ",
+      "summary": "アプリ全体を1つの Dart パッケージにまとめます。",
+      "description": "標準構成です。pubspec と lib が一つ。立ち上げが速く、ツールの隙間が少ない。",
+      "advantages": [
+        "セットアップが最短",
+        "IDE と CI の摩擦が少ない",
+        "小さいうちは読みやすい"
+      ],
+      "tradeOffs": [
+        "機能が増えると所有が曖昧",
+        "同じパッケージでコンフリクトしやすい"
+      ],
+      "recommendedWhen": [
+        "プロトタイプや社内ツール",
+        "1〜3人の短期間"
+      ],
+      "avoidWhen": [
+        "複数チームが同じコードベース",
+        "独立バージョンのライブラリが必要"
+      ],
+      "worksWellWith": [
+        "Feature-first",
+        "Provider",
+        "Navigator"
+      ]
+    }
+  }
+}

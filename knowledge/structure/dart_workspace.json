@@ -1,0 +1,96 @@
+{
+  "id": "dart-workspace",
+  "category": "structure",
+  "kind": "package",
+  "docsUrl": "https://dart.dev/tools/pub/workspaces",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Pub workspaces",
+      "url": "https://dart.dev/tools/pub/workspaces"
+    }
+  ],
+  "facts": [
+    "Dart 3.6+ pub workspaces let one repository resolve multiple local packages with a workspace key in pubspec.yaml."
+  ],
+  "copy": {
+    "en": {
+      "label": "Dart workspace",
+      "name": "Dart workspace",
+      "summary": "Use pub's workspace feature to resolve local packages without extra runners.",
+      "description": "The workspace key in pubspec is the official, thin way to group packages. You still write your own scripts for bootstrap-style tasks.",
+      "advantages": [
+        "Official support",
+        "Low learning cost",
+        "Resolution stays in pub"
+      ],
+      "tradeOffs": [
+        "No built-in script orchestration",
+        "Fewer large-monorepo conventions so far"
+      ],
+      "recommendedWhen": [
+        "Package count is small",
+        "Custom scripts are rare"
+      ],
+      "avoidWhen": [
+        "You need filtered bootstrap and version automation across many packages"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Dart 3.6+"
+      ]
+    },
+    "zh": {
+      "label": "Dart 工作区",
+      "name": "Dart Workspace",
+      "summary": "用 pub 的 workspace 解析本地包，不再加一层运行器。",
+      "description": "pubspec 里的 workspace 是官方、更薄的包分组方式。bootstrap 类任务仍需自写脚本。",
+      "advantages": [
+        "官方支持",
+        "学习成本低",
+        "解析仍走 pub"
+      ],
+      "tradeOffs": [
+        "没有内置脚本编排",
+        "大型 monorepo 惯例还少"
+      ],
+      "recommendedWhen": [
+        "包数量少",
+        "几乎没有自定义脚本"
+      ],
+      "avoidWhen": [
+        "需要在很多包上自动 bootstrap / 发版"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Dart 3.6+"
+      ]
+    },
+    "ja": {
+      "label": "Dart ワークスペース",
+      "name": "Dart Workspace",
+      "summary": "pub の workspace でローカルパッケージを解決します。",
+      "description": "pubspec の workspace キーが公式の薄いまとめ方です。bootstrap 系は自前スクリプトになります。",
+      "advantages": [
+        "公式サポート",
+        "学習コストが低い",
+        "依存解決が pub に乗る"
+      ],
+      "tradeOffs": [
+        "スクリプトオーケストレーションは自前",
+        "大規模モノレポの慣習はまだ少ない"
+      ],
+      "recommendedWhen": [
+        "パッケージ数が少ない",
+        "カスタムスクリプトがほとんどない"
+      ],
+      "avoidWhen": [
+        "多数パッケージで bootstrap / version を自動化したい"
+      ],
+      "worksWellWith": [
+        "Multi-package",
+        "Dart 3.6+"
+      ]
+    }
+  }
+}

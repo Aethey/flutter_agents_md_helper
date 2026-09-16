@@ -1,0 +1,105 @@
+{
+  "id": "freezed",
+  "category": "models",
+  "kind": "package",
+  "docsUrl": "https://pub.dev/packages/freezed",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Freezed on pub.dev",
+      "url": "https://pub.dev/packages/freezed"
+    }
+  ],
+  "facts": [
+    "Freezed generates immutable data classes, unions, copyWith, and equality, and can wire json_serializable."
+  ],
+  "copy": {
+    "en": {
+      "label": "Immutable Dart models",
+      "name": "Freezed",
+      "summary": "Generate immutable unions and copyWith.",
+      "description": "Fits Riverpod and BLoC state. Requires build_runner. Error messages can be long.",
+      "advantages": [
+        "copyWith and == are generated",
+        "Unions model states",
+        "Connects to json_serializable"
+      ],
+      "tradeOffs": [
+        "Generator pipeline required",
+        "Errors can be verbose"
+      ],
+      "recommendedWhen": [
+        "State is modeled as unions",
+        "build_runner is already present"
+      ],
+      "avoidWhen": [
+        "Almost no models"
+      ],
+      "worksWellWith": [
+        "json_serializable",
+        "Riverpod",
+        "BLoC"
+      ]
+    },
+    "zh": {
+      "label": "不可变 Dart 模型",
+      "name": "Freezed",
+      "summary": "生成不可变 union 与 copyWith。",
+      "description": "适合 Riverpod 与 BLoC 状态。需要 build_runner。报错信息可能很长。",
+      "advantages": [
+        "copyWith 与 == 自动生成",
+        "可用 union 表达状态",
+        "能接 json_serializable"
+      ],
+      "tradeOffs": [
+        "必须有生成流水线",
+        "报错可能很冗长"
+      ],
+      "recommendedWhen": [
+        "状态用 union 建模",
+        "已经有 build_runner"
+      ],
+      "avoidWhen": [
+        "几乎没有模型"
+      ],
+      "worksWellWith": [
+        "json_serializable",
+        "Riverpod",
+        "BLoC"
+      ]
+    },
+    "ja": {
+      "label": "Dart イミュータブルモデル",
+      "name": "Freezed",
+      "summary": "イミュータブルな union と copyWith を生成します。",
+      "description": "Riverpod や BLoC と相性がよいです。build_runner 必須で、エラーが長くなることがあります。",
+      "advantages": [
+        "copyWith と == が自動",
+        "union で状態を表現できる",
+        "json_serializable と接続できる"
+      ],
+      "tradeOffs": [
+        "生成パイプライン必須",
+        "エラーメッセージが長くなることがある"
+      ],
+      "recommendedWhen": [
+        "状態を union で表したい",
+        "すでに build_runner がある"
+      ],
+      "avoidWhen": [
+        "モデルがほとんどない"
+      ],
+      "worksWellWith": [
+        "json_serializable",
+        "Riverpod",
+        "BLoC"
+      ]
+    }
+  },
+  "packageName": "freezed",
+  "impliedPackages": [
+    "freezed_annotation",
+    "json_serializable",
+    "build_runner"
+  ]
+}
