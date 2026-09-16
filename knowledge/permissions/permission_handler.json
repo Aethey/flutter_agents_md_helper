@@ -1,0 +1,95 @@
+{
+  "id": "permission-handler",
+  "category": "permissions",
+  "kind": "package",
+  "packageName": "permission_handler",
+  "docsUrl": "https://pub.dev/packages/permission_handler",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "permission_handler on pub.dev",
+      "url": "https://pub.dev/packages/permission_handler"
+    },
+    {
+      "title": "flutter-permission-handler",
+      "url": "https://github.com/baseflow/flutter-permission-handler"
+    }
+  ],
+  "facts": [
+    "permission_handler exposes one Dart API for checking and requesting common permissions; each OS still owns grant semantics and required native configuration."
+  ],
+  "copy": {
+    "en": {
+      "label": "Permissions plugin",
+      "name": "permission_handler",
+      "summary": "Cross-platform checks and requests for OS-protected resources.",
+      "description": "Use it to ask for camera, microphone, location, photos, and similar permissions from Dart. Android manifests and iOS usage-description keys remain required. The plugin does not replace privacy UX.",
+      "advantages": [
+        "One Dart API across supported platforms",
+        "Avoids hand-rolled permission channels for common cases"
+      ],
+      "tradeOffs": [
+        "Native config is still required",
+        "Status values differ by OS and version"
+      ],
+      "recommendedWhen": [
+        "Camera, mic, location, photos, or notifications"
+      ],
+      "avoidWhen": [
+        "No protected-resource APIs"
+      ],
+      "worksWellWith": [
+        "Android permission declarations",
+        "iOS UsageDescription keys"
+      ]
+    },
+    "zh": {
+      "label": "权限插件",
+      "name": "permission_handler",
+      "summary": "跨平台检查并申请系统保护资源。",
+      "description": "从 Dart 申请相机、麦克风、位置、相册等权限。仍需配置 Android manifest 与 iOS 用途说明。它不能替代隐私体验设计。",
+      "advantages": [
+        "在支持的平台上用同一套 Dart API",
+        "常见权限不必手写通道"
+      ],
+      "tradeOffs": [
+        "仍需原生配置",
+        "状态值随系统和版本而变"
+      ],
+      "recommendedWhen": [
+        "相机、麦克风、位置、相册或通知"
+      ],
+      "avoidWhen": [
+        "没有受保护的系统资源"
+      ],
+      "worksWellWith": [
+        "Android 权限声明",
+        "iOS UsageDescription"
+      ]
+    },
+    "ja": {
+      "label": "権限プラグイン",
+      "name": "permission_handler",
+      "summary": "OS が保護するリソースを横断的に確認・要求します。",
+      "description": "カメラ、マイク、位置、写真などを Dart から要求します。Android manifest と iOS の用途説明は別途必要です。プライバシー UX の代わりにはなりません。",
+      "advantages": [
+        "対応プラットフォームで一つの Dart API",
+        "よくある権限で手書きチャネルを避けられる"
+      ],
+      "tradeOffs": [
+        "ネイティブ設定は別途必要",
+        "状態値は OS と版で異なる"
+      ],
+      "recommendedWhen": [
+        "カメラ、マイク、位置、写真、通知"
+      ],
+      "avoidWhen": [
+        "保護リソース API を使わない"
+      ],
+      "worksWellWith": [
+        "Android の権限宣言",
+        "iOS UsageDescription"
+      ]
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "dynamic-color",
+  "category": "theming",
+  "kind": "package",
+  "packageName": "dynamic_color",
+  "docsUrl": "https://pub.dev/packages/dynamic_color",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "dynamic_color on pub.dev",
+      "url": "https://pub.dev/packages/dynamic_color"
+    }
+  ],
+  "facts": [
+    "dynamic_color, published by material.io, reads platform accent or dynamic colors and exposes light and dark ColorScheme values, including color harmonization.",
+    "Documented platform support includes Android S+, Linux, macOS, and Windows, not every Flutter target."
+  ],
+  "copy": {
+    "en": {
+      "label": "Dynamic color package",
+      "name": "dynamic_color",
+      "summary": "Follow supported platform accent / dynamic colors with a fallback theme.",
+      "description": "DynamicColorBuilder supplies light and dark ColorScheme from the device when the platform can. Keep a deterministic ThemeData fallback. Combine with ThemeData or flex_color_scheme, do not treat it as a full design system.",
+      "advantages": [
+        "Material schemes from device accent colors",
+        "Light and dark ColorScheme via DynamicColorBuilder",
+        "Color harmonization"
+      ],
+      "tradeOffs": [
+        "Not every Flutter platform",
+        "Needs a fallback theme"
+      ],
+      "recommendedWhen": [
+        "You want device or desktop accent colors"
+      ],
+      "avoidWhen": [
+        "You need identical colors on every platform"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    },
+    "zh": {
+      "label": "动态色包",
+      "name": "dynamic_color",
+      "summary": "跟随系统强调色 / 动态色，并保留回退主题。",
+      "description": "平台支持时，DynamicColorBuilder 提供亮/暗 ColorScheme。必须有确定的 ThemeData 回退。可与 ThemeData 或 flex_color_scheme 并用，它本身不是完整设计系统。",
+      "advantages": [
+        "从设备强调色得到 Material 配色",
+        "DynamicColorBuilder 提供亮/暗 ColorScheme",
+        "颜色调和"
+      ],
+      "tradeOffs": [
+        "不是所有 Flutter 平台",
+        "需要回退主题"
+      ],
+      "recommendedWhen": [
+        "想跟随设备或桌面强调色"
+      ],
+      "avoidWhen": [
+        "每个平台都必须颜色完全一致"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    },
+    "ja": {
+      "label": "ダイナミックカラー",
+      "name": "dynamic_color",
+      "summary": "対応プラットフォームのアクセント/ダイナミックカラーに合わせ、フォールバックテーマを残します。",
+      "description": "対応 OS では DynamicColorBuilder がライト/ダーク ColorScheme を出します。必ず確定的な ThemeData フォールバックを置きます。ThemeData や flex_color_scheme と併用し、単独のデザインシステムにはしません。",
+      "advantages": [
+        "端末アクセントから Material 配色",
+        "DynamicColorBuilder のライト/ダーク ColorScheme",
+        "カラーハーモナイズ"
+      ],
+      "tradeOffs": [
+        "全 Flutter プラットフォームではない",
+        "フォールバックテーマが必要"
+      ],
+      "recommendedWhen": [
+        "端末やデスクトップのアクセント色に合わせたい"
+      ],
+      "avoidWhen": [
+        "全プラットフォームで色を完全一致させたい"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    }
+  }
+}

@@ -158,4 +158,10 @@ void main() {
     expect(find.text('继续'), findsOneWidget);
     expect(find.text('Recommended'), findsNothing);
   });
+
+  testWidgets('defaults to the light theme', (tester) async {
+    await pumpApp(tester);
+    final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
+    expect(app.themeMode, ThemeMode.light);
+  });
 }

@@ -1,0 +1,98 @@
+{
+  "id": "easy-localization",
+  "category": "localization",
+  "kind": "package",
+  "packageName": "easy_localization",
+  "docsUrl": "https://pub.dev/packages/easy_localization",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "easy_localization on pub.dev",
+      "url": "https://pub.dev/packages/easy_localization"
+    },
+    {
+      "title": "easy_localization GitHub",
+      "url": "https://github.com/aissat/easy_localization"
+    }
+  ],
+  "facts": [
+    "easy_localization loads JSON, CSV, YAML, or XML catalogs, switches locale at runtime, and can persist the chosen locale."
+  ],
+  "copy": {
+    "en": {
+      "label": "Asset localization package",
+      "name": "easy_localization",
+      "summary": "Runtime locale switching with JSON, CSV, YAML, or XML catalogs.",
+      "description": "A third-party runtime on top of Flutter localization. Useful when catalogs are not ARB, or several packages contribute translation files.",
+      "advantages": [
+        "Several catalog formats",
+        "Runtime locale change and persistence",
+        "Plurals, RTL, fallbacks, and generated keys"
+      ],
+      "tradeOffs": [
+        "Adds a localization runtime besides Flutter's",
+        "Check prerelease compatibility separately from the latest stable"
+      ],
+      "recommendedWhen": [
+        "Asset catalogs instead of ARB",
+        "Multi-package translation assets"
+      ],
+      "avoidWhen": [
+        "You want only the SDK gen_l10n path"
+      ],
+      "worksWellWith": [
+        "intl"
+      ]
+    },
+    "zh": {
+      "label": "资源本地化包",
+      "name": "easy_localization",
+      "summary": "运行时切换语言，目录可以是 JSON、CSV、YAML 或 XML。",
+      "description": "在 Flutter 本地化之上的第三方运行时。目录不是 ARB、或多个包要贡献翻译时有用。",
+      "advantages": [
+        "多种目录格式",
+        "运行时切换并持久化语言",
+        "复数、RTL、回退和生成键"
+      ],
+      "tradeOffs": [
+        "在 Flutter 之外再加一层运行时",
+        "预发布版兼容性要单独核对"
+      ],
+      "recommendedWhen": [
+        "用资源目录而不是 ARB",
+        "多包贡献翻译资源"
+      ],
+      "avoidWhen": [
+        "只要 SDK 的 gen_l10n"
+      ],
+      "worksWellWith": [
+        "intl"
+      ]
+    },
+    "ja": {
+      "label": "アセットローカライズ",
+      "name": "easy_localization",
+      "summary": "JSON / CSV / YAML / XML カタログで実行時にロケールを切り替えます。",
+      "description": "Flutter ローカライズの上に乗るサードパーティ実行時です。ARB 以外のカタログや、複数パッケージから翻訳を集めるときに向きます。",
+      "advantages": [
+        "複数のカタログ形式",
+        "実行時切替と永続化",
+        "複数形、RTL、フォールバック、生成キー"
+      ],
+      "tradeOffs": [
+        "Flutter 以外の実行時層が増える",
+        "安定版とプレリリースの互換は別確認"
+      ],
+      "recommendedWhen": [
+        "ARB ではなくアセットカタログ",
+        "複数パッケージから翻訳を集める"
+      ],
+      "avoidWhen": [
+        "SDK の gen_l10n だけでよい"
+      ],
+      "worksWellWith": [
+        "intl"
+      ]
+    }
+  }
+}

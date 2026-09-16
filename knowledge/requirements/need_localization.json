@@ -1,0 +1,87 @@
+{
+  "id": "need-localization",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/ui/internationalization",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Internationalizing Flutter apps",
+      "url": "https://docs.flutter.dev/ui/internationalization"
+    }
+  ],
+  "facts": [
+    "Flutter localizes Material and Cupertino widgets through flutter_localizations and app-owned message catalogs."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Localization",
+      "summary": "The UI must ship in more than one language or locale-aware formats.",
+      "description": "Selecting this reveals gen_l10n versus easy_localization, and intl for formatting. Skip it for a single-locale prototype.",
+      "advantages": [
+        "Locale strategy is an architecture input"
+      ],
+      "tradeOffs": [
+        "You must maintain translation resources"
+      ],
+      "recommendedWhen": [
+        "More than one language, or locale-aware dates and numbers"
+      ],
+      "avoidWhen": [
+        "A single-locale spike"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n",
+        "easy_localization",
+        "intl"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "本地化",
+      "summary": "界面需要多语言，或按地区格式化日期和数字。",
+      "description": "选中后会进入 gen_l10n、easy_localization 与 intl。单语言原型请不要选。",
+      "advantages": [
+        "语言策略会进入架构输入"
+      ],
+      "tradeOffs": [
+        "必须维护翻译资源"
+      ],
+      "recommendedWhen": [
+        "超过一种语言，或需要按地区格式化"
+      ],
+      "avoidWhen": [
+        "只有一种语言的试验"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n",
+        "easy_localization",
+        "intl"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "ローカライズ",
+      "summary": "複数言語、またはロケール付きの日付・数値表示が必要。",
+      "description": "選ぶと gen_l10n、easy_localization、intl の選択が出ます。単一ロケールの試作なら選ばないでください。",
+      "advantages": [
+        "ロケール方針が設計入力になる"
+      ],
+      "tradeOffs": [
+        "翻訳リソースを維持する"
+      ],
+      "recommendedWhen": [
+        "複数言語、またはロケール付きの書式"
+      ],
+      "avoidWhen": [
+        "単一ロケールのスパイク"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n",
+        "easy_localization",
+        "intl"
+      ]
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "flex-color-scheme",
+  "category": "theming",
+  "kind": "package",
+  "packageName": "flex_color_scheme",
+  "docsUrl": "https://pub.dev/packages/flex_color_scheme",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "flex_color_scheme on pub.dev",
+      "url": "https://pub.dev/packages/flex_color_scheme"
+    },
+    {
+      "title": "FlexColorScheme docs",
+      "url": "https://docs.flexcolorscheme.com/"
+    }
+  ],
+  "facts": [
+    "FlexThemeData.light and FlexThemeData.dark build Material ThemeData from predefined schemes or seed colors, with optional surface blends and component configuration.",
+    "Version 8 and later enable Material 3 by default, matching Flutter ThemeData."
+  ],
+  "copy": {
+    "en": {
+      "label": "Theming package",
+      "name": "flex_color_scheme",
+      "summary": "Higher-level light/dark ThemeData with seeded schemes and surface blends.",
+      "description": "Use FlexThemeData instead of assembling a large ThemeData by hand. It sits on Flutter's ThemeData and ColorScheme. Check Flutter SDK compatibility before taking a new major release.",
+      "advantages": [
+        "Coordinated light and dark ThemeData",
+        "Seed schemes, surface blends, predefined schemes",
+        "Less repetitive component-theme wiring"
+      ],
+      "tradeOffs": [
+        "Third-party layer on ThemeData",
+        "Simple apps may not need it",
+        "Major versions track newer Flutter"
+      ],
+      "recommendedWhen": [
+        "Extensive Material light/dark customization"
+      ],
+      "avoidWhen": [
+        "ThemeData and ColorScheme.fromSeed already cover the brand"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    },
+    "zh": {
+      "label": "主题包",
+      "name": "flex_color_scheme",
+      "summary": "更高层的亮/暗 ThemeData，带种子配色和表面混合。",
+      "description": "用 FlexThemeData 代替手写大量 ThemeData。它建立在 Flutter 的 ThemeData 与 ColorScheme 上。升大版本前要核对 Flutter SDK。",
+      "advantages": [
+        "成套的亮/暗 ThemeData",
+        "种子配色、表面混合、预置方案",
+        "少写重复的组件主题"
+      ],
+      "tradeOffs": [
+        "在 ThemeData 上再加一层",
+        "简单应用可能不需要",
+        "大版本会跟着较新的 Flutter"
+      ],
+      "recommendedWhen": [
+        "大量 Material 亮/暗定制"
+      ],
+      "avoidWhen": [
+        "ThemeData 和 ColorScheme.fromSeed 已经够用"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    },
+    "ja": {
+      "label": "テーマパッケージ",
+      "name": "flex_color_scheme",
+      "summary": "シード配色とサーフェスブレンド付きのライト/ダーク ThemeData。",
+      "description": "大きな ThemeData を手で組む代わりに FlexThemeData を使います。Flutter の ThemeData / ColorScheme の上に乗ります。メジャーアップ前に Flutter SDK を確認してください。",
+      "advantages": [
+        "揃ったライト/ダーク ThemeData",
+        "シード、サーフェスブレンド、プリセット",
+        "コンポーネントテーマの繰り返しが減る"
+      ],
+      "tradeOffs": [
+        "ThemeData の上に層が増える",
+        "単純なアプリには不要なことが多い",
+        "メジャー版は新しい Flutter に追従する"
+      ],
+      "recommendedWhen": [
+        "Material のライト/ダークを大きくカスタムする"
+      ],
+      "avoidWhen": [
+        "ThemeData と ColorScheme.fromSeed で足りる"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme"
+      ]
+    }
+  }
+}

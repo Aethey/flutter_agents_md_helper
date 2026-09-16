@@ -1,0 +1,87 @@
+{
+  "id": "need-theming",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://docs.flutter.dev/cookbook/design/themes",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Use themes to share colors and font styles",
+      "url": "https://docs.flutter.dev/cookbook/design/themes"
+    }
+  ],
+  "facts": [
+    "Material 3 ThemeData and ColorScheme are the built-in way to share colors, typography, and component styles."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Theming",
+      "summary": "The app needs a designed light/dark system, not one-off widget colors.",
+      "description": "Selecting this reveals ThemeData, flex_color_scheme, and dynamic_color. Skip it if default Material is enough.",
+      "advantages": [
+        "Color and type become an architecture input"
+      ],
+      "tradeOffs": [
+        "A design system must be maintained"
+      ],
+      "recommendedWhen": [
+        "Brand colors, dark mode, or platform accent colors"
+      ],
+      "avoidWhen": [
+        "A throwaway prototype with default Material"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme",
+        "flex_color_scheme",
+        "dynamic_color"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "主题",
+      "summary": "应用需要一套设计过的亮/暗主题，而不是散落的颜色。",
+      "description": "选中后会进入 ThemeData、flex_color_scheme 与 dynamic_color。默认 Material 就够用时请不要选。",
+      "advantages": [
+        "颜色和字体进入架构输入"
+      ],
+      "tradeOffs": [
+        "必须维护一套设计系统"
+      ],
+      "recommendedWhen": [
+        "品牌色、暗色模式或系统强调色"
+      ],
+      "avoidWhen": [
+        "用默认 Material 即可的一次性原型"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme",
+        "flex_color_scheme",
+        "dynamic_color"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "テーマ",
+      "summary": "散発的な色指定ではなく、ライト/ダークの設計が必要。",
+      "description": "選ぶと ThemeData、flex_color_scheme、dynamic_color が出ます。標準 Material で足りるなら選ばないでください。",
+      "advantages": [
+        "色とタイポが設計入力になる"
+      ],
+      "tradeOffs": [
+        "デザインシステムを維持する"
+      ],
+      "recommendedWhen": [
+        "ブランドカラー、ダークモード、システムのアクセント色"
+      ],
+      "avoidWhen": [
+        "標準 Material で足りる試作"
+      ],
+      "worksWellWith": [
+        "ThemeData + ColorScheme",
+        "flex_color_scheme",
+        "dynamic_color"
+      ]
+    }
+  }
+}

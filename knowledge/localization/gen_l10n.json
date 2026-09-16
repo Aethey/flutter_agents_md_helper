@@ -1,0 +1,103 @@
+{
+  "id": "gen-l10n",
+  "category": "localization",
+  "kind": "pattern",
+  "packageName": "flutter_localizations",
+  "impliedPackages": [
+    "intl"
+  ],
+  "docsUrl": "https://docs.flutter.dev/ui/internationalization",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Internationalizing Flutter apps",
+      "url": "https://docs.flutter.dev/ui/internationalization"
+    }
+  ],
+  "facts": [
+    "gen_l10n reads ARB files and l10n.yaml, then generates typed localization classes used with flutter_localizations."
+  ],
+  "copy": {
+    "en": {
+      "label": "SDK localization",
+      "name": "flutter_localizations + gen_l10n",
+      "summary": "Official ARB workflow with generated typed accessors.",
+      "description": "First-party path for MaterialApp and CupertinoApp. You maintain ARB resources; Flutter generates the Dart API. intl is used for placeholders, plurals, and formatting.",
+      "advantages": [
+        "Typed generated accessors",
+        "No third-party localization runtime",
+        "Material and Cupertino widgets localize with the same delegates"
+      ],
+      "tradeOffs": [
+        "ARB and l10n.yaml must be maintained",
+        "Translation process follows Flutter conventions"
+      ],
+      "recommendedWhen": [
+        "You want the Flutter SDK workflow",
+        "Typed localization APIs are required"
+      ],
+      "avoidWhen": [
+        "You need JSON/YAML loaders or a non-ARB catalog format"
+      ],
+      "worksWellWith": [
+        "intl",
+        "MaterialApp",
+        "CupertinoApp"
+      ]
+    },
+    "zh": {
+      "label": "SDK 本地化",
+      "name": "flutter_localizations + gen_l10n",
+      "summary": "官方 ARB 流程，生成带类型的访问器。",
+      "description": "MaterialApp / CupertinoApp 的官方路径。你维护 ARB；Flutter 生成 Dart API。占位符、复数和格式化会用到 intl。",
+      "advantages": [
+        "生成的访问器有类型",
+        "没有第三方本地化运行时",
+        "Material 与 Cupertino 共用同一套 delegates"
+      ],
+      "tradeOffs": [
+        "必须维护 ARB 和 l10n.yaml",
+        "翻译流程跟随 Flutter 约定"
+      ],
+      "recommendedWhen": [
+        "要用 Flutter SDK 工作流",
+        "需要带类型的本地化 API"
+      ],
+      "avoidWhen": [
+        "需要 JSON/YAML 加载器或非 ARB 目录"
+      ],
+      "worksWellWith": [
+        "intl",
+        "MaterialApp",
+        "CupertinoApp"
+      ]
+    },
+    "ja": {
+      "label": "SDK ローカライズ",
+      "name": "flutter_localizations + gen_l10n",
+      "summary": "公式 ARB ワークフロー。型付きアクセサを生成します。",
+      "description": "MaterialApp / CupertinoApp の公式経路です。ARB を保守し、Flutter が Dart API を生成します。プレースホルダ・複数形・書式には intl を使います。",
+      "advantages": [
+        "生成アクセサが型付き",
+        "サードパーティの実行時層が不要",
+        "Material と Cupertino が同じ delegate を使う"
+      ],
+      "tradeOffs": [
+        "ARB と l10n.yaml を維持する",
+        "翻訳フローは Flutter の慣習に従う"
+      ],
+      "recommendedWhen": [
+        "Flutter SDK の手順を使いたい",
+        "型付きローカライズ API が必要"
+      ],
+      "avoidWhen": [
+        "JSON/YAML ローダや ARB 以外のカタログが必要"
+      ],
+      "worksWellWith": [
+        "intl",
+        "MaterialApp",
+        "CupertinoApp"
+      ]
+    }
+  }
+}

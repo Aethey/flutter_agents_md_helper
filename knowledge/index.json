@@ -45,6 +45,18 @@
         {
           "id": "need-monitoring",
           "file": "need_monitoring.json"
+        },
+        {
+          "id": "need-localization",
+          "file": "need_localization.json"
+        },
+        {
+          "id": "need-permissions",
+          "file": "need_permissions.json"
+        },
+        {
+          "id": "need-theming",
+          "file": "need_theming.json"
         }
       ]
     },
@@ -244,6 +256,49 @@
         {
           "id": "sentry",
           "file": "sentry.json"
+        }
+      ]
+    },
+    "localization": {
+      "path": "localization",
+      "entries": [
+        {
+          "id": "gen-l10n",
+          "file": "gen_l10n.json"
+        },
+        {
+          "id": "easy-localization",
+          "file": "easy_localization.json"
+        },
+        {
+          "id": "intl",
+          "file": "intl.json"
+        }
+      ]
+    },
+    "permissions": {
+      "path": "permissions",
+      "entries": [
+        {
+          "id": "permission-handler",
+          "file": "permission_handler.json"
+        }
+      ]
+    },
+    "theming": {
+      "path": "theming",
+      "entries": [
+        {
+          "id": "flutter-theme-data",
+          "file": "flutter_theme_data.json"
+        },
+        {
+          "id": "flex-color-scheme",
+          "file": "flex_color_scheme.json"
+        },
+        {
+          "id": "dynamic-color",
+          "file": "dynamic_color.json"
         }
       ]
     }

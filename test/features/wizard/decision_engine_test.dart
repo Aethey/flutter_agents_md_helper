@@ -38,6 +38,18 @@ void main() {
     expect(shown.any((decision) => decision.id == 'networking'), isTrue);
   });
 
+  test('hides localization until it is an engineering need', () {
+    final hidden = engine.visibleDecisions(const {});
+    expect(hidden.any((decision) => decision.id == 'localization'), isFalse);
+
+    final shown = engine.visibleDecisions({
+      'engineering-needs': const ArchitectureSelection.multiple([
+        'need-localization',
+      ]),
+    });
+    expect(shown.any((decision) => decision.id == 'localization'), isTrue);
+  });
+
   test('lists visible options without recommending one', () {
     final decision = engine.bundle.flow.decisionById('state');
     final ranked = engine.rank(

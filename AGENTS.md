@@ -158,6 +158,9 @@ The current flow may include:
 - Models / Serialization
 - Persistence
 - Native Integration
+- Localization
+- Permissions
+- Theming
 - Testing
 - Static Analysis / Quality
 - Monitoring

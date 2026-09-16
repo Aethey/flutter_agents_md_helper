@@ -1,0 +1,101 @@
+{
+  "id": "flutter-theme-data",
+  "category": "theming",
+  "kind": "pattern",
+  "docsUrl": "https://docs.flutter.dev/cookbook/design/themes",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "Use themes to share colors and font styles",
+      "url": "https://docs.flutter.dev/cookbook/design/themes"
+    },
+    {
+      "title": "Material 3 is the default",
+      "url": "https://docs.flutter.dev/release/breaking-changes/material-3-default"
+    }
+  ],
+  "facts": [
+    "Material 3 is the default Material style. ThemeData, ColorScheme, TextTheme, ThemeExtension, and component themes are built into Flutter.",
+    "ColorScheme.fromSeed can generate coordinated light or dark schemes."
+  ],
+  "copy": {
+    "en": {
+      "label": "Built-in Material theming",
+      "name": "ThemeData + ColorScheme",
+      "summary": "Official app-wide colors, type, and component themes. No extra package.",
+      "description": "Right default. Light and dark ThemeData, ColorScheme.fromSeed, and ThemeExtension cover most branded apps. Dynamic system colors need extra integration.",
+      "advantages": [
+        "No extra dependency",
+        "Material 3 is the current default",
+        "Seeded schemes and component themes"
+      ],
+      "tradeOffs": [
+        "Large design systems need a lot of ThemeData wiring",
+        "Platform dynamic color is not included"
+      ],
+      "recommendedWhen": [
+        "Material widgets",
+        "You can express the brand with ThemeData"
+      ],
+      "avoidWhen": [
+        "You want a higher-level scheme builder such as flex_color_scheme"
+      ],
+      "worksWellWith": [
+        "dynamic_color",
+        "flex_color_scheme"
+      ]
+    },
+    "zh": {
+      "label": "内置 Material 主题",
+      "name": "ThemeData + ColorScheme",
+      "summary": "官方的全局颜色、字体和组件主题。不额外加包。",
+      "description": "合理默认。亮/暗 ThemeData、ColorScheme.fromSeed 和 ThemeExtension 能覆盖多数品牌应用。系统动态色需要额外集成。",
+      "advantages": [
+        "没有额外依赖",
+        "当前默认是 Material 3",
+        "种子配色与组件主题"
+      ],
+      "tradeOffs": [
+        "大型设计系统要写很多 ThemeData",
+        "不包含系统动态色"
+      ],
+      "recommendedWhen": [
+        "使用 Material 组件",
+        "品牌能用 ThemeData 表达"
+      ],
+      "avoidWhen": [
+        "想用 flex_color_scheme 这种更高层的配色构建"
+      ],
+      "worksWellWith": [
+        "dynamic_color",
+        "flex_color_scheme"
+      ]
+    },
+    "ja": {
+      "label": "組み込み Material テーマ",
+      "name": "ThemeData + ColorScheme",
+      "summary": "公式のアプリ全体の色・書体・コンポーネントテーマ。追加パッケージなし。",
+      "description": "既定として妥当です。ライト/ダーク ThemeData、ColorScheme.fromSeed、ThemeExtension で多くのブランドを表現できます。システムのダイナミックカラーは別途です。",
+      "advantages": [
+        "追加依存なし",
+        "現行の既定は Material 3",
+        "シード配色とコンポーネントテーマ"
+      ],
+      "tradeOffs": [
+        "大きなデザインシステムは ThemeData の記述が増える",
+        "ダイナミックカラーは含まれない"
+      ],
+      "recommendedWhen": [
+        "Material ウィジェットを使う",
+        "ブランドを ThemeData で表せる"
+      ],
+      "avoidWhen": [
+        "flex_color_scheme のような上位の配色構築が欲しい"
+      ],
+      "worksWellWith": [
+        "dynamic_color",
+        "flex_color_scheme"
+      ]
+    }
+  }
+}

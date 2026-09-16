@@ -222,6 +222,8 @@ AppGlyph glyphFromName(String name) {
     'models' => AppGlyph.models,
     'native' => AppGlyph.native,
     'monitor' => AppGlyph.monitor,
+    'language' => AppGlyph.language,
+    'theme' => AppGlyph.theme,
     _ => AppGlyph.structure,
   };
 }

@@ -117,6 +117,42 @@
       ]
     },
     {
+      "id": "localization",
+      "icon": "language",
+      "title": {
+        "en": "Localization",
+        "zh": "本地化",
+        "ja": "ローカライズ"
+      },
+      "decisionIds": [
+        "localization"
+      ]
+    },
+    {
+      "id": "permissions",
+      "icon": "native",
+      "title": {
+        "en": "Permissions",
+        "zh": "权限",
+        "ja": "権限"
+      },
+      "decisionIds": [
+        "permissions"
+      ]
+    },
+    {
+      "id": "theming",
+      "icon": "theme",
+      "title": {
+        "en": "Theming",
+        "zh": "主题",
+        "ja": "テーマ"
+      },
+      "decisionIds": [
+        "theming"
+      ]
+    },
+    {
       "id": "testing",
       "icon": "monitor",
       "title": {
@@ -594,6 +630,105 @@
             "en": "Real users will run this build.",
             "zh": "真实用户会运行该构建。",
             "ja": "実ユーザーがこのビルドを使うため。"
+          }
+        },
+        {
+          "id": "need-localization",
+          "technologyId": "need-localization",
+          "name": {
+            "en": "Localization",
+            "zh": "本地化",
+            "ja": "ローカライズ"
+          },
+          "summary": {
+            "en": "More than one language, or locale-aware formats.",
+            "zh": "多语言，或按地区格式化。",
+            "ja": "複数言語、またはロケール付きの書式。"
+          },
+          "tags": {
+            "en": [
+              "i18n",
+              "l10n"
+            ],
+            "zh": [
+              "i18n",
+              "l10n"
+            ],
+            "ja": [
+              "i18n",
+              "l10n"
+            ]
+          },
+          "reason": {
+            "en": "Copy or formats must change with locale.",
+            "zh": "文案或格式必须随地区变化。",
+            "ja": "文言や書式がロケールで変わるため。"
+          }
+        },
+        {
+          "id": "need-permissions",
+          "technologyId": "need-permissions",
+          "name": {
+            "en": "Runtime permissions",
+            "zh": "运行时权限",
+            "ja": "実行時権限"
+          },
+          "summary": {
+            "en": "The OS must grant camera, location, or similar access.",
+            "zh": "系统必须授予相机、位置等访问权。",
+            "ja": "カメラや位置など、OS の許可が必要。"
+          },
+          "tags": {
+            "en": [
+              "Privacy",
+              "OS"
+            ],
+            "zh": [
+              "隐私",
+              "系统"
+            ],
+            "ja": [
+              "プライバシー",
+              "OS"
+            ]
+          },
+          "reason": {
+            "en": "Protected resources are part of the product.",
+            "zh": "受保护资源是产品的一部分。",
+            "ja": "保護リソースが製品に含まれるため。"
+          }
+        },
+        {
+          "id": "need-theming",
+          "technologyId": "need-theming",
+          "name": {
+            "en": "Theming",
+            "zh": "主题",
+            "ja": "テーマ"
+          },
+          "summary": {
+            "en": "Brand colors, dark mode, or system accent colors.",
+            "zh": "品牌色、暗色模式或系统强调色。",
+            "ja": "ブランドカラー、ダークモード、アクセント色。"
+          },
+          "tags": {
+            "en": [
+              "Design",
+              "Material"
+            ],
+            "zh": [
+              "设计",
+              "Material"
+            ],
+            "ja": [
+              "デザイン",
+              "Material"
+            ]
+          },
+          "reason": {
+            "en": "Default Material colors are not the product design.",
+            "zh": "默认 Material 颜色不是产品设计。",
+            "ja": "標準 Material の色が製品デザインではないため。"
           }
         }
       ]
@@ -2500,6 +2635,289 @@
         "en": "You marked native integration as an engineering need.",
         "zh": "你把原生集成标成了工程需求。",
         "ja": "ネイティブ連携を要件に選んだため。"
+      }
+    },
+    {
+      "id": "localization",
+      "groupId": "localization",
+      "icon": "language",
+      "selection": "single",
+      "crumb": {
+        "en": "UI / localization",
+        "zh": "界面 / 本地化",
+        "ja": "UI / ローカライズ"
+      },
+      "category": {
+        "en": "Localization",
+        "zh": "本地化",
+        "ja": "ローカライズ"
+      },
+      "question": {
+        "en": "How should strings and locales be managed?",
+        "zh": "文案和语言应如何管理？",
+        "ja": "文言とロケールはどう管理しますか？"
+      },
+      "blurb": {
+        "en": "gen_l10n is the SDK ARB path. easy_localization is for asset catalogs. intl is formatting, not a full catalog runtime.",
+        "zh": "gen_l10n 是 SDK 的 ARB 路径。easy_localization 用于资源目录。intl 是格式化，不是完整的目录运行时。",
+        "ja": "gen_l10n は SDK の ARB 経路です。easy_localization はアセットカタログ向け。intl は書式用で、完全なカタログ実行時ではありません。"
+      },
+      "options": [
+        {
+          "id": "gen-l10n",
+          "technologyId": "gen-l10n",
+          "name": {
+            "en": "flutter_localizations + gen_l10n",
+            "zh": "flutter_localizations + gen_l10n",
+            "ja": "flutter_localizations + gen_l10n"
+          },
+          "summary": {
+            "en": "Official ARB files and typed generated accessors.",
+            "zh": "官方 ARB 与带类型的生成访问器。",
+            "ja": "公式 ARB と型付き生成アクセサ。"
+          },
+          "tags": {
+            "en": ["SDK", "ARB"],
+            "zh": ["SDK", "ARB"],
+            "ja": ["SDK", "ARB"]
+          },
+          "reason": {
+            "en": "Stay on Flutter's localization pipeline.",
+            "zh": "留在 Flutter 的本地化流水线上。",
+            "ja": "Flutter のローカライズ手順に合わせるため。"
+          },
+          "implies": ["intl"],
+          "fallbackRecommended": true
+        },
+        {
+          "id": "easy-localization",
+          "technologyId": "easy-localization",
+          "name": {
+            "en": "easy_localization",
+            "zh": "easy_localization",
+            "ja": "easy_localization"
+          },
+          "summary": {
+            "en": "JSON, CSV, YAML, or XML catalogs and runtime locale switching.",
+            "zh": "JSON、CSV、YAML 或 XML 目录，运行时切换语言。",
+            "ja": "JSON / CSV / YAML / XML カタログと実行時切替。"
+          },
+          "tags": {
+            "en": ["Assets", "Runtime"],
+            "zh": ["资源", "运行时"],
+            "ja": ["アセット", "実行時"]
+          },
+          "reason": {
+            "en": "Catalogs are not ARB, or several packages ship translations.",
+            "zh": "目录不是 ARB，或多个包要带翻译。",
+            "ja": "ARB ではないカタログ、または複数パッケージから翻訳を集めるため。"
+          }
+        },
+        {
+          "id": "intl",
+          "technologyId": "intl",
+          "name": {
+            "en": "intl",
+            "zh": "intl",
+            "ja": "intl"
+          },
+          "summary": {
+            "en": "Locale-aware dates, numbers, and messages. Not a full catalog workflow.",
+            "zh": "按地区格式化日期、数字和消息。不是完整的目录流程。",
+            "ja": "ロケール付きの日付・数値・メッセージ。完全なカタログ手順ではない。"
+          },
+          "tags": {
+            "en": ["Format", "dart.dev"],
+            "zh": ["格式化", "dart.dev"],
+            "ja": ["書式", "dart.dev"]
+          },
+          "reason": {
+            "en": "Formatting is the need; UI catalogs are handled elsewhere or not yet.",
+            "zh": "需要的是格式化；界面目录另有安排或尚未开始。",
+            "ja": "必要なのは書式で、UI カタログは別途またはまだないため。"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-localization"
+      },
+      "shownBecause": {
+        "en": "You marked localization as an engineering need.",
+        "zh": "你把本地化标成了工程需求。",
+        "ja": "ローカライズを要件に選んだため。"
+      }
+    },
+    {
+      "id": "permissions",
+      "groupId": "permissions",
+      "icon": "native",
+      "selection": "single",
+      "crumb": {
+        "en": "Platform / permissions",
+        "zh": "平台 / 权限",
+        "ja": "プラットフォーム / 権限"
+      },
+      "category": {
+        "en": "Permissions",
+        "zh": "权限",
+        "ja": "権限"
+      },
+      "question": {
+        "en": "How should OS permissions be requested?",
+        "zh": "应如何申请系统权限？",
+        "ja": "OS の権限はどう要求しますか？"
+      },
+      "blurb": {
+        "en": "permission_handler is a Dart API. Native manifests and usage strings are still required.",
+        "zh": "permission_handler 是 Dart API。原生 manifest 和用途说明仍然需要。",
+        "ja": "permission_handler は Dart API です。ネイティブの宣言と用途説明は別途必要です。"
+      },
+      "options": [
+        {
+          "id": "permission-handler",
+          "technologyId": "permission-handler",
+          "name": {
+            "en": "permission_handler",
+            "zh": "permission_handler",
+            "ja": "permission_handler"
+          },
+          "summary": {
+            "en": "Cross-platform permission checks and requests.",
+            "zh": "跨平台检查并申请权限。",
+            "ja": "横断的な権限の確認と要求。"
+          },
+          "tags": {
+            "en": ["Plugin", "Privacy"],
+            "zh": ["插件", "隐私"],
+            "ja": ["プラグイン", "プライバシー"]
+          },
+          "reason": {
+            "en": "Common protected resources should share one Dart API.",
+            "zh": "常见受保护资源应共用一套 Dart API。",
+            "ja": "よくある保護リソースを一つの Dart API に揃えるため。"
+          },
+          "fallbackRecommended": true
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-permissions"
+      },
+      "shownBecause": {
+        "en": "You marked runtime permissions as an engineering need.",
+        "zh": "你把运行时权限标成了工程需求。",
+        "ja": "実行時権限を要件に選んだため。"
+      }
+    },
+    {
+      "id": "theming",
+      "groupId": "theming",
+      "icon": "theme",
+      "selection": "multiple",
+      "crumb": {
+        "en": "UI / theming",
+        "zh": "界面 / 主题",
+        "ja": "UI / テーマ"
+      },
+      "category": {
+        "en": "Theming",
+        "zh": "主题",
+        "ja": "テーマ"
+      },
+      "question": {
+        "en": "How should app-wide colors and type be defined?",
+        "zh": "应用的全局颜色和字体应如何定义？",
+        "ja": "アプリ全体の色と書体はどう定義しますか？"
+      },
+      "blurb": {
+        "en": "ThemeData is the base. flex_color_scheme builds ThemeData. dynamic_color follows platform accents and needs a fallback.",
+        "zh": "ThemeData 是基础。flex_color_scheme 用来构建 ThemeData。dynamic_color 跟随系统强调色，需要回退。",
+        "ja": "ThemeData が土台です。flex_color_scheme は ThemeData を組み立てます。dynamic_color はシステムのアクセントに合わせ、フォールバックが必要です。"
+      },
+      "options": [
+        {
+          "id": "flutter-theme-data",
+          "technologyId": "flutter-theme-data",
+          "name": {
+            "en": "ThemeData + ColorScheme",
+            "zh": "ThemeData + ColorScheme",
+            "ja": "ThemeData + ColorScheme"
+          },
+          "summary": {
+            "en": "Built-in Material 3 themes. No extra package.",
+            "zh": "内置 Material 3 主题。不额外加包。",
+            "ja": "組み込み Material 3 テーマ。追加パッケージなし。"
+          },
+          "tags": {
+            "en": ["SDK", "Material 3"],
+            "zh": ["SDK", "Material 3"],
+            "ja": ["SDK", "Material 3"]
+          },
+          "reason": {
+            "en": "Brand colors fit ThemeData and ColorScheme.fromSeed.",
+            "zh": "品牌色可以用 ThemeData 和 ColorScheme.fromSeed 表达。",
+            "ja": "ブランド色を ThemeData と ColorScheme.fromSeed で表せるため。"
+          },
+          "fallbackRecommended": true
+        },
+        {
+          "id": "flex-color-scheme",
+          "technologyId": "flex-color-scheme",
+          "name": {
+            "en": "flex_color_scheme",
+            "zh": "flex_color_scheme",
+            "ja": "flex_color_scheme"
+          },
+          "summary": {
+            "en": "FlexThemeData for seeded schemes and surface blends.",
+            "zh": "用 FlexThemeData 做种子配色和表面混合。",
+            "ja": "シード配色とサーフェスブレンドの FlexThemeData。"
+          },
+          "tags": {
+            "en": ["Material", "Schemes"],
+            "zh": ["Material", "配色"],
+            "ja": ["Material", "配色"]
+          },
+          "reason": {
+            "en": "Light and dark ThemeData would be repetitive by hand.",
+            "zh": "手写亮/暗 ThemeData 会重复。",
+            "ja": "ライト/ダーク ThemeData を手で揃えると繰り返しになるため。"
+          }
+        },
+        {
+          "id": "dynamic-color",
+          "technologyId": "dynamic-color",
+          "name": {
+            "en": "dynamic_color",
+            "zh": "dynamic_color",
+            "ja": "dynamic_color"
+          },
+          "summary": {
+            "en": "Follow supported platform accent colors, with a fallback theme.",
+            "zh": "跟随系统强调色，并保留回退主题。",
+            "ja": "対応プラットフォームのアクセント色に合わせ、フォールバックを残す。"
+          },
+          "tags": {
+            "en": ["Accent", "Material"],
+            "zh": ["强调色", "Material"],
+            "ja": ["アクセント", "Material"]
+          },
+          "reason": {
+            "en": "The product should follow device or desktop accent colors.",
+            "zh": "产品应跟随设备或桌面强调色。",
+            "ja": "端末やデスクトップのアクセント色に合わせたいため。"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "decision": "engineering-needs",
+        "contains": "need-theming"
+      },
+      "shownBecause": {
+        "en": "You marked theming as an engineering need.",
+        "zh": "你把主题标成了工程需求。",
+        "ja": "テーマを要件に選んだため。"
       }
     },
     {

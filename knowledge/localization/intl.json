@@ -1,0 +1,94 @@
+{
+  "id": "intl",
+  "category": "localization",
+  "kind": "package",
+  "packageName": "intl",
+  "docsUrl": "https://pub.dev/packages/intl",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "intl on pub.dev",
+      "url": "https://pub.dev/packages/intl"
+    }
+  ],
+  "facts": [
+    "intl formats and parses locale-aware dates, numbers, currencies, and messages. It is not a complete Flutter localization workflow."
+  ],
+  "copy": {
+    "en": {
+      "label": "Formatting package",
+      "name": "intl",
+      "summary": "Locale-aware dates, numbers, currency, and messages.",
+      "description": "Published by dart.dev and used by gen_l10n. You still choose how UI strings are stored. Pick this when formatting is the need, not a full catalog runtime.",
+      "advantages": [
+        "Date, number, and currency formatting",
+        "Used by Flutter gen_l10n",
+        "Bidirectional-text helpers"
+      ],
+      "tradeOffs": [
+        "Not a full Flutter localization workflow",
+        "You still choose how strings are stored"
+      ],
+      "recommendedWhen": [
+        "Locale-aware formatting",
+        "Alongside gen_l10n"
+      ],
+      "avoidWhen": [
+        "You expected it to replace ARB or asset catalogs"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n"
+      ]
+    },
+    "zh": {
+      "label": "格式化包",
+      "name": "intl",
+      "summary": "按地区格式化日期、数字、货币和消息。",
+      "description": "由 dart.dev 发布，gen_l10n 会用到。界面文案仍要另选存储方式。需要格式化而不是完整目录运行时时选它。",
+      "advantages": [
+        "日期、数字、货币格式化",
+        "gen_l10n 会用到",
+        "双向文本辅助"
+      ],
+      "tradeOffs": [
+        "不是完整的 Flutter 本地化流程",
+        "文案如何存放仍要另选"
+      ],
+      "recommendedWhen": [
+        "需要按地区格式化",
+        "与 gen_l10n 一起用"
+      ],
+      "avoidWhen": [
+        "指望它替代 ARB 或资源目录"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n"
+      ]
+    },
+    "ja": {
+      "label": "書式パッケージ",
+      "name": "intl",
+      "summary": "ロケール付きの日付・数値・通貨・メッセージ。",
+      "description": "dart.dev 発行で、gen_l10n が使います。UI 文字列の置き場所は別に決めます。カタログ実行時ではなく書式が必要ならこれを選びます。",
+      "advantages": [
+        "日付・数値・通貨の書式",
+        "gen_l10n が利用",
+        "双方向テキスト補助"
+      ],
+      "tradeOffs": [
+        "Flutter の完全なローカライズ手順ではない",
+        "文字列の置き場所は別に決める"
+      ],
+      "recommendedWhen": [
+        "ロケール付きの書式",
+        "gen_l10n と併用"
+      ],
+      "avoidWhen": [
+        "ARB やアセットカタログの代替だと思っている"
+      ],
+      "worksWellWith": [
+        "flutter_localizations + gen_l10n"
+      ]
+    }
+  }
+}

@@ -51,3 +51,6 @@ flutter:
     - knowledge/testing/
     - knowledge/analysis/
     - knowledge/monitoring/
+    - knowledge/localization/
+    - knowledge/permissions/
+    - knowledge/theming/

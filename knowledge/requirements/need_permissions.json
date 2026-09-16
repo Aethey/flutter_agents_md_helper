@@ -1,0 +1,81 @@
+{
+  "id": "need-permissions",
+  "category": "requirements",
+  "kind": "requirement",
+  "docsUrl": "https://pub.dev/packages/permission_handler",
+  "verifiedAt": "2026-09-16",
+  "sources": [
+    {
+      "title": "permission_handler on pub.dev",
+      "url": "https://pub.dev/packages/permission_handler"
+    }
+  ],
+  "facts": [
+    "Camera, microphone, location, and similar protected resources are granted by the operating system, not by Dart alone."
+  ],
+  "copy": {
+    "en": {
+      "label": "Engineering need",
+      "name": "Runtime permissions",
+      "summary": "The app must request OS-protected resources such as camera or location.",
+      "description": "Selecting this reveals permission_handler. Skip it if you only use APIs that need no extra OS permission.",
+      "advantages": [
+        "Permission UX is designed instead of bolted on"
+      ],
+      "tradeOffs": [
+        "Android manifests and iOS usage strings are still required"
+      ],
+      "recommendedWhen": [
+        "Camera, mic, location, photos, or notifications"
+      ],
+      "avoidWhen": [
+        "No protected-resource APIs"
+      ],
+      "worksWellWith": [
+        "permission_handler"
+      ]
+    },
+    "zh": {
+      "label": "工程需求",
+      "name": "运行时权限",
+      "summary": "应用必须申请相机、位置等系统保护资源。",
+      "description": "选中后会进入 permission_handler。若不需要额外系统权限，请不要选。",
+      "advantages": [
+        "权限体验会被设计，而不是事后补"
+      ],
+      "tradeOffs": [
+        "仍需配置 Android manifest 与 iOS 用途说明"
+      ],
+      "recommendedWhen": [
+        "相机、麦克风、位置、相册或通知"
+      ],
+      "avoidWhen": [
+        "没有受保护的系统资源"
+      ],
+      "worksWellWith": [
+        "permission_handler"
+      ]
+    },
+    "ja": {
+      "label": "エンジニアリング要件",
+      "name": "実行時権限",
+      "summary": "カメラや位置情報など、OS が保護するリソースを要求する。",
+      "description": "選ぶと permission_handler が出ます。追加の OS 権限が不要なら選ばないでください。",
+      "advantages": [
+        "権限 UX を後付けせず設計できる"
+      ],
+      "tradeOffs": [
+        "Android manifest と iOS の用途説明は別途必要"
+      ],
+      "recommendedWhen": [
+        "カメラ、マイク、位置、写真、通知"
+      ],
+      "avoidWhen": [
+        "保護リソース API を使わない"
+      ],
+      "worksWellWith": [
+        "permission_handler"
+      ]
+    }
+  }
+}

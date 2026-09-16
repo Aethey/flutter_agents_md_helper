@@ -33,7 +33,7 @@ Future<KnowledgeBundle> knowledgeBundle(Ref ref) {
 @Riverpod(keepAlive: true)
 class ThemeModeController extends _$ThemeModeController {
   @override
-  ThemeMode build() => ThemeMode.dark;
+  ThemeMode build() => ThemeMode.light;
 
   void toggle() {
     state = state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
