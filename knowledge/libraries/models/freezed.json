@@ -1,0 +1,9 @@
+{
+  "id":"freezed","name":"Freezed","category":"models","summary":"A Dart and Flutter code generator for immutable data classes and sealed or union-style models with generated equality, copyWith, and related utilities.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/freezed"},{"type":"github","url":"https://github.com/rrousselGit/freezed"}],"latestVersion":"4.0.1",
+  "advantages":["Generates immutable-model boilerplate such as equality and copyWith","Useful for sealed or union-style state modeling","Can integrate with json_serializable"],
+  "tradeoffs":["Requires generated files and build tooling","Freezed 4.0.1 currently requires Dart 3.13, so projects on older Dart versions need a compatible release"],
+  "recommendedFor":["Projects with many immutable domain or UI-state models","Projects that benefit from sealed classes and exhaustive state modeling","Codebases already using build_runner-based generation"],
+  "worksWellWith":["freezed_annotation","json_serializable","build_runner","Riverpod"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and repository documentation are sufficient."},"verifiedAt":"2026-09-16"
+}

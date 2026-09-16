@@ -1,0 +1,9 @@
+{
+  "id":"shared_preferences","name":"shared_preferences","category":"persistence","summary":"Flutter plugin for persisting a relatively small set of primitive key-value data across supported platforms.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/cookbook/persistence/key-value"},{"type":"pub_dev","url":"https://pub.dev/packages/shared_preferences"}],"latestVersion":"2.5.5",
+  "advantages":["Simple API for primitive key-value data","Official flutter.dev package","Cross-platform support"],
+  "tradeoffs":["Not designed for large or relational datasets","Flutter documentation notes that persistence across app restarts is not guaranteed","Should not be treated as secure secret storage"],
+  "recommendedFor":["Small non-sensitive preferences and settings","Simple primitive key-value persistence","Feature flags or lightweight local configuration"],
+  "worksWellWith":["Flutter"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter cookbook and current pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

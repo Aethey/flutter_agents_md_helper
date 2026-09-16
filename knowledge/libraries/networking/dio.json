@@ -1,0 +1,9 @@
+{
+  "id":"dio","name":"Dio","category":"networking","summary":"A feature-rich HTTP client for Dart and Flutter with interceptors, cancellation, adapters, transformers, and extensive request configuration.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/dio"},{"type":"github","url":"https://github.com/cfug/dio"}],"latestVersion":"5.11.1",
+  "advantages":["Interceptors and centralized request/response handling","Request cancellation and progress support","Extensible adapters and transformers","Well suited to structured API-client layers"],
+  "tradeoffs":["Larger API surface than the basic http package","Global or interceptor-heavy designs need clear networking boundaries"],
+  "recommendedFor":["Applications with non-trivial networking layers","Projects requiring interceptors, request cancellation, progress, or custom adapters","Projects using generated REST clients such as retrofit.dart"],
+  "worksWellWith":["retrofit","retrofit_generator","json_serializable"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current package documentation and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}
