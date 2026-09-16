@@ -1,0 +1,9 @@
+{
+  "id":"set_state","name":"setState","category":"state_management","summary":"Flutter's built-in State API for widget-local ephemeral state.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/data-and-backend/state-mgmt/options"}],"latestVersion":null,
+  "advantages":["Built into Flutter with no package dependency","Straightforward for local ephemeral state","Minimal abstraction"],
+  "tradeoffs":["Does not provide an application-wide state architecture","Shared or asynchronous state can become difficult to organize if handled only with setState"],
+  "recommendedFor":["Ephemeral widget-local UI state","Small widgets whose state does not need to be shared across distant parts of the app"],
+  "worksWellWith":["StatefulWidget","ValueNotifier"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter official state-management guidance explicitly positions setState as a low-level option for widget-specific ephemeral state."},"verifiedAt":"2026-09-16"
+}
