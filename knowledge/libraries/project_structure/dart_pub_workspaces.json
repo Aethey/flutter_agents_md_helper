@@ -1,0 +1,14 @@
+{
+  "id": "dart_pub_workspaces",
+  "name": "Dart pub workspaces",
+  "category": "project_structure",
+  "summary": "Built-in Dart pub support for managing multiple packages in one repository with a shared dependency resolution.",
+  "sources": [{"type":"dart_docs","url":"https://dart.dev/tools/pub/workspaces"}],
+  "latestVersion": null,
+  "advantages": ["Built into the Dart toolchain","Uses a shared dependency resolution across workspace packages","Can reduce analyzer memory usage for large repositories"],
+  "tradeoffs": ["A single shared dependency resolution can surface dependency conflicts across packages","Does not replace higher-level monorepo scripting, release, and orchestration features"],
+  "recommendedFor": ["Monorepos containing multiple Dart or Flutter packages","Teams that want one shared package resolution across workspace members","Repositories that want built-in workspace support without an additional orchestration tool"],
+  "worksWellWith": ["Melos","Dart pub"],
+  "verification": {"status":"verified","context7Required":false,"reason":"Dart official workspace documentation is sufficient for this first-pass entry."},
+  "verifiedAt": "2026-09-16"
+}
