@@ -1,0 +1,9 @@
+{
+  "id":"build_runner","name":"build_runner","category":"tooling","summary":"The Dart build system commonly used to run source generators such as Freezed, json_serializable, Riverpod generators, and Retrofit generators.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/build_runner"},{"type":"official","url":"https://dart.dev/tools/build_runner"}],"latestVersion":"2.16.1",
+  "advantages":["Provides a common execution model for Dart source generators","Supports one-off build and watch workflows"],
+  "tradeoffs":["Generator stacks can introduce build-time and analyzer-version compatibility constraints","Generated-output conflicts require disciplined workflow and CI checks"],
+  "recommendedFor":["Projects using source generation","Projects combining multiple Dart build-system generators"],
+  "worksWellWith":["Freezed","json_serializable","riverpod_generator","retrofit_generator"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current Dart documentation and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

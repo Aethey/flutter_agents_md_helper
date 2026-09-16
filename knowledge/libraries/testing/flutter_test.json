@@ -1,0 +1,9 @@
+{
+  "id":"flutter_test","name":"flutter_test","category":"testing","summary":"Flutter SDK testing support for widget tests and Flutter-specific test utilities.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/cookbook/testing/widget/introduction"}],"latestVersion":null,
+  "advantages":["Ships with the Flutter SDK","Provides WidgetTester, finders, widget matchers, and testWidgets","Fast feedback compared with full integration tests"],
+  "tradeoffs":["Does not validate the complete application on a real target device","Native platform UI interaction requires different or additional testing approaches"],
+  "recommendedFor":["Widget behavior tests","Flutter unit tests needing Flutter bindings or matchers","Testing presentation logic and widgets without full-device integration testing"],
+  "worksWellWith":["test","WidgetTester"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter official widget-testing documentation is sufficient."},"verifiedAt":"2026-09-16"
+}

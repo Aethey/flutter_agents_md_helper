@@ -1,0 +1,9 @@
+{
+  "id":"firebase_analytics","name":"firebase_analytics","category":"analytics","summary":"FlutterFire plugin for Google Analytics for Firebase, providing app-usage and engagement measurement.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/firebase_analytics"},{"type":"official","url":"https://firebase.google.com/docs/analytics/get-started?platform=flutter"}],"latestVersion":"12.6.0",
+  "advantages":["Integrated with the Firebase ecosystem","Supports common product analytics and event-measurement workflows"],
+  "tradeoffs":["Requires an analytics event taxonomy and privacy or consent design","Platform support and measurement behavior should be checked against target platforms"],
+  "recommendedFor":["Flutter apps already using Firebase","Product teams that need app usage and engagement analytics"],
+  "worksWellWith":["firebase_core","firebase_crashlytics"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current Firebase documentation and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

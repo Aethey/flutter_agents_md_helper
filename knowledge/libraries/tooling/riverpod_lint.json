@@ -1,0 +1,9 @@
+{
+  "id":"riverpod_lint","name":"riverpod_lint","category":"tooling","summary":"A developer-tool lint package for Riverpod that detects common Riverpod issues and offers Riverpod-specific diagnostics and assists.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/riverpod_lint"},{"type":"official","url":"https://riverpod.dev/docs/introduction/getting_started"}],"latestVersion":"3.1.9",
+  "advantages":["Detects common Riverpod-specific mistakes","Adds framework-aware diagnostics beyond generic Flutter lints"],
+  "tradeoffs":["Introduces analyzer/plugin compatibility constraints","pub.dev currently reports 3.1.9 with a Dart 3.13 dev minimum, so Dart 3.12 projects need a compatible earlier release"],
+  "recommendedFor":["Riverpod projects that want framework-specific static checks","Teams using Riverpod code generation and provider conventions"],
+  "worksWellWith":["flutter_riverpod","riverpod_generator","custom_lint"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata clearly exposes the latest release and SDK constraint."},"verifiedAt":"2026-09-16"
+}
