@@ -1,0 +1,9 @@
+{
+  "id":"flutter_riverpod","name":"flutter_riverpod","category":"state_management","summary":"A reactive caching and data-binding framework for Flutter with provider-based dependency management and first-class asynchronous state handling.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/flutter_riverpod"},{"type":"official","url":"https://riverpod.dev/"}],"latestVersion":"3.4.3",
+  "advantages":["First-class Future and Stream-oriented state patterns","Providers can be composed and accessed outside the widget tree","Strong testability and dependency-overriding patterns","Optional code generation reduces repetitive declarations"],
+  "tradeoffs":["Introduces Riverpod-specific lifecycle and provider concepts","Generator-based usage adds build tooling and generated files"],
+  "recommendedFor":["Applications with substantial asynchronous or shared state","Projects that want dependency access without relying on BuildContext","Projects that value provider composition, caching and testability"],
+  "worksWellWith":["riverpod_annotation","riverpod_generator","riverpod_lint","Freezed"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current Riverpod documentation and pub.dev metadata are sufficient; flutter_riverpod 3.4.3 is the current stable package version found."},"verifiedAt":"2026-09-16"
+}
