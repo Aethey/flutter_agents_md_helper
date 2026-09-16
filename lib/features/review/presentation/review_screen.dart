@@ -20,6 +20,7 @@ class ReviewScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bundleAsync = ref.watch(knowledgeBundleProvider);
     return bundleAsync.when(
+      skipLoadingOnReload: true,
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (error, _) => Scaffold(body: Center(child: Text('$error'))),
@@ -120,14 +121,18 @@ class _ReviewStage extends ConsumerWidget {
               children: [
                 AppButton(
                   label: l10n.generate,
-                  onPressed: () {
+                  onPressed: () async {
+                    final ready = await ref.read(knowledgeBundleProvider.future);
+                    if (!context.mounted) {
+                      return;
+                    }
                     final markdown = const ArchitectureMarkdownGenerator()
                         .generate(
-                          bundle: bundle,
+                          bundle: ready,
                           state: architecture,
                           languageCode: languageCode,
                         );
-                    showExportDialog(context, markdown: markdown);
+                    await showExportDialog(context, markdown: markdown);
                   },
                 ),
                 AppButton(

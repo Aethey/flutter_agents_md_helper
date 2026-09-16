@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'
+    show ProviderListenableSelect;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../shared/models/architecture_selection.dart';
@@ -26,8 +28,26 @@ SessionStore sessionStore(Ref ref) {
 }
 
 @Riverpod(keepAlive: true)
-Future<KnowledgeBundle> knowledgeBundle(Ref ref) {
-  return ref.watch(knowledgeRepositoryProvider).load();
+Future<KnowledgeBundle> knowledgeCatalog(Ref ref) {
+  return ref.watch(knowledgeRepositoryProvider).loadCatalog();
+}
+
+@Riverpod(keepAlive: true)
+Future<KnowledgeBundle> knowledgeBundle(Ref ref) async {
+  final loadScope = ref.watch(
+    wizardControllerProvider.select(
+      (state) =>
+          (answers: state.answers, currentDecisionId: state.currentDecisionId),
+    ),
+  );
+  final architecture = ArchitectureState(
+    answers: loadScope.answers,
+    currentDecisionId: loadScope.currentDecisionId,
+  );
+  final catalog = await ref.watch(knowledgeCatalogProvider.future);
+  final ids = WizardNavigation(DecisionEngine(catalog))
+      .requiredTechnologyIds(architecture);
+  return ref.read(knowledgeRepositoryProvider).ensureTechnologies(catalog, ids);
 }
 
 @Riverpod(keepAlive: true)

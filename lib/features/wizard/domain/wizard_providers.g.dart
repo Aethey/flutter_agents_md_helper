@@ -98,6 +98,45 @@ final class SessionStoreProvider
 
 String _$sessionStoreHash() => r'dae54e7ff0b56d59da50a798bb49bd9c18e96716';
 
+@ProviderFor(knowledgeCatalog)
+const knowledgeCatalogProvider = KnowledgeCatalogProvider._();
+
+final class KnowledgeCatalogProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<KnowledgeBundle>,
+          KnowledgeBundle,
+          FutureOr<KnowledgeBundle>
+        >
+    with $FutureModifier<KnowledgeBundle>, $FutureProvider<KnowledgeBundle> {
+  const KnowledgeCatalogProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'knowledgeCatalogProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$knowledgeCatalogHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<KnowledgeBundle> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<KnowledgeBundle> create(Ref ref) {
+    return knowledgeCatalog(ref);
+  }
+}
+
+String _$knowledgeCatalogHash() => r'5e9b59f9832db807d86a6c885a9be79c7861bd70';
+
 @ProviderFor(knowledgeBundle)
 const knowledgeBundleProvider = KnowledgeBundleProvider._();
 
@@ -135,7 +174,7 @@ final class KnowledgeBundleProvider
   }
 }
 
-String _$knowledgeBundleHash() => r'e4334760263b009bd94d941158a8db7454be97b6';
+String _$knowledgeBundleHash() => r'5ede73072e6e131122316ab788df9cf2e1773c86';
 
 @ProviderFor(ThemeModeController)
 const themeModeControllerProvider = ThemeModeControllerProvider._();
@@ -170,7 +209,7 @@ final class ThemeModeControllerProvider
 }
 
 String _$themeModeControllerHash() =>
-    r'07d7c0d3556cef39a4359dbee4a0ffbba93ce233';
+    r'645793c4002540e9872b1028ced439939bfe9492';
 
 abstract class _$ThemeModeController extends $Notifier<ThemeMode> {
   ThemeMode build();
@@ -223,7 +262,7 @@ final class LocaleControllerProvider
   }
 }
 
-String _$localeControllerHash() => r'1944543f0c0b27551c103958ae0c511bb32552c9';
+String _$localeControllerHash() => r'20f7fb276f4e5383646a7426be6cad3a38ca6380';
 
 abstract class _$LocaleController extends $Notifier<Locale> {
   Locale build();
@@ -276,7 +315,7 @@ final class WizardControllerProvider
   }
 }
 
-String _$wizardControllerHash() => r'eefd0c8175b132886ea508395fd60767a80a2090';
+String _$wizardControllerHash() => r'783e506e7cd77b1e71a33686f7e1855a4b1e2544';
 
 abstract class _$WizardController extends $Notifier<ArchitectureState> {
   ArchitectureState build();

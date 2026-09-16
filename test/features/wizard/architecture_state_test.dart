@@ -56,4 +56,59 @@ void main() {
       expect(afterBack.answers['project-target']?.singleId, 'mobile');
     },
   );
+
+  test('required technology ids cover the current step, then answers', () {
+    const empty = ArchitectureState();
+    expect(nav.requiredTechnologyIds(empty), {'mobile', 'web', 'desktop'});
+
+    final afterTarget = nav
+        .commit(empty, const ArchitectureSelection.multiple(['mobile', 'web']))
+        .state;
+    expect(nav.requiredTechnologyIds(afterTarget), {
+      'mobile',
+      'web',
+      'scale-small',
+      'scale-medium',
+      'scale-large',
+    });
+  });
+
+  test('next technology ids can be prefetched without blocking this step', () {
+    const empty = ArchitectureState();
+    expect(nav.nextTechnologyIds(empty), {
+      'scale-small',
+      'scale-medium',
+      'scale-large',
+    });
+
+    final afterTarget = nav
+        .commit(empty, const ArchitectureSelection.multiple(['mobile']))
+        .state;
+    expect(nav.nextTechnologyIds(afterTarget), {
+      'need-backend',
+      'need-persistence',
+      'need-native',
+      'need-monitoring',
+      'need-localization',
+      'need-permissions',
+      'need-theming',
+    });
+  });
+
+  test('required technology ids omit conditionally hidden options', () {
+    const state = ArchitectureState(
+      currentDecisionId: 'api-client',
+      answers: {
+        'engineering-needs': ArchitectureSelection.multiple(['need-backend']),
+        'networking': ArchitectureSelection.single('http'),
+      },
+    );
+
+    expect(nav.requiredTechnologyIds(state), {
+      'need-backend',
+      'http',
+      'manual-api',
+      'openapi',
+    });
+  });
 }

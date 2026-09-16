@@ -20,4 +20,13 @@ class KnowledgeBundle {
     }
     return technology;
   }
+
+  bool hasTechnologies(Iterable<String> ids) {
+    for (final id in ids) {
+      if (!technologies.containsKey(id)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

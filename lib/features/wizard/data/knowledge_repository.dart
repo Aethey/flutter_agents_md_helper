@@ -14,8 +14,10 @@ class KnowledgeRepository {
   KnowledgeRepository(this._loader);
 
   final KnowledgeLoader _loader;
+  final Map<String, Technology> _technologies = {};
+  final Map<String, Future<Technology>> _inFlight = {};
 
-  Future<KnowledgeBundle> load() async {
+  Future<KnowledgeBundle> loadCatalog() async {
     final index = KnowledgeIndex.fromJson(
       jsonDecode(await _loader.loadString('knowledge/index.json'))
           as Map<String, dynamic>,
@@ -24,23 +26,66 @@ class KnowledgeRepository {
       jsonDecode(await _loader.loadString('knowledge/${index.flow}'))
           as Map<String, dynamic>,
     );
-    final technologyIds = <String>{
-      for (final decision in flow.decisions)
-        for (final option in decision.options) option.technologyId,
-    };
-    final technologies = <String, Technology>{};
-    for (final id in technologyIds) {
-      final path = index.fileFor(id);
-      final technology = Technology.fromJson(
-        jsonDecode(await _loader.loadString(path)) as Map<String, dynamic>,
-      );
-      technologies[id] = technology;
+    return KnowledgeBundle(index: index, flow: flow, technologies: const {});
+  }
+
+  Future<KnowledgeBundle> ensureTechnologies(
+    KnowledgeBundle bundle,
+    Iterable<String> ids,
+  ) async {
+    final unique = ids.toSet();
+    if (unique.isNotEmpty) {
+      await Future.wait([
+        for (final id in unique) _technology(bundle.index, id),
+      ]);
     }
     return KnowledgeBundle(
-      index: index,
-      flow: flow,
-      technologies: technologies,
+      index: bundle.index,
+      flow: bundle.flow,
+      technologies: Map<String, Technology>.unmodifiable(_technologies),
     );
+  }
+
+  Future<KnowledgeBundle> load() async {
+    final catalog = await loadCatalog();
+    final technologyIds = {
+      for (final decision in catalog.flow.decisions)
+        for (final option in decision.options) option.technologyId,
+    };
+    return ensureTechnologies(catalog, technologyIds);
+  }
+
+  void clearCache() {
+    _technologies.clear();
+    _inFlight.clear();
+  }
+
+  Future<Technology> _technology(KnowledgeIndex index, String id) {
+    final cached = _technologies[id];
+    if (cached != null) {
+      return Future<Technology>.value(cached);
+    }
+    final existing = _inFlight[id];
+    if (existing != null) {
+      return existing;
+    }
+    final request = _loadTechnology(index, id);
+    _inFlight[id] = request;
+    request.whenComplete(() {
+      if (identical(_inFlight[id], request)) {
+        _inFlight.remove(id);
+      }
+    }).ignore();
+    return request;
+  }
+
+  Future<Technology> _loadTechnology(KnowledgeIndex index, String id) async {
+    final technology = Technology.fromJson(
+      jsonDecode(await _loader.loadString(index.fileFor(id)))
+          as Map<String, dynamic>,
+    );
+    _technologies[id] = technology;
+    return technology;
   }
 }
 

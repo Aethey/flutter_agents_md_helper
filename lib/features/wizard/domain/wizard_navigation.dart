@@ -111,6 +111,41 @@ class WizardNavigation {
 
   ArchitectureState reset() => const ArchitectureState();
 
+  Set<String> requiredTechnologyIds(ArchitectureState state) {
+    final current = currentDecision(state);
+    final ids = {
+      for (final option in engine.visibleOptions(current, state.answers))
+        option.technologyId,
+    };
+    for (final decision in engine.bundle.flow.decisions) {
+      final answer = state.answers[decision.id];
+      if (answer == null) {
+        continue;
+      }
+      for (final option in decision.options) {
+        if (answer.optionIds.contains(option.id)) {
+          ids.add(option.technologyId);
+        }
+      }
+    }
+    return ids;
+  }
+
+  Set<String> nextTechnologyIds(ArchitectureState state) {
+    final decisions = visible(state);
+    final index = currentIndex(state);
+    if (index >= decisions.length - 1) {
+      return const {};
+    }
+    return {
+      for (final option in engine.visibleOptions(
+        decisions[index + 1],
+        state.answers,
+      ))
+        option.technologyId,
+    };
+  }
+
   ({ArchitectureState state, bool openReview}) _advance(
     ArchitectureState state, {
     required String fromId,

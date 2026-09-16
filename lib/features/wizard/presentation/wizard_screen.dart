@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_theme.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/knowledge_bundle.dart';
+import '../domain/decision_engine.dart';
+import '../domain/wizard_navigation.dart';
 import '../domain/wizard_providers.dart';
 import 'widgets/architecture_panel.dart';
 import 'widgets/decision_panel.dart';
@@ -23,18 +27,54 @@ class _WizardScreenState extends ConsumerState<WizardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final architecture = ref.watch(wizardControllerProvider);
     final bundleAsync = ref.watch(knowledgeBundleProvider);
+    ref.listen(knowledgeBundleProvider, (_, next) {
+      next.whenData((bundle) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) {
+            return;
+          }
+          unawaited(_prefetchNext(bundle));
+        });
+      });
+    });
     return bundleAsync.when(
+      skipLoadingOnReload: true,
       loading: () => const _StatusScaffold(child: _LoadingBody()),
       error: (error, _) => _StatusScaffold(child: _ErrorBody(error: error)),
-      data: (bundle) => _ReadyWizard(
-        bundle: bundle,
-        mobileIndex: _mobileIndex,
-        insightOpen: _insightOpen,
-        onMobileIndex: (index) => setState(() => _mobileIndex = index),
-        onInsightOpen: (open) => setState(() => _insightOpen = open),
-      ),
+      data: (bundle) {
+        final ids = WizardNavigation(DecisionEngine(bundle))
+            .requiredTechnologyIds(architecture);
+        if (!bundle.hasTechnologies(ids)) {
+          return const _StatusScaffold(child: _LoadingBody());
+        }
+        return _ReadyWizard(
+          bundle: bundle,
+          mobileIndex: _mobileIndex,
+          insightOpen: _insightOpen,
+          onMobileIndex: (index) => setState(() => _mobileIndex = index),
+          onInsightOpen: (open) => setState(() => _insightOpen = open),
+        );
+      },
     );
+  }
+
+  Future<void> _prefetchNext(KnowledgeBundle bundle) async {
+    final state = ref.read(wizardControllerProvider);
+    final ids = WizardNavigation(DecisionEngine(bundle))
+        .nextTechnologyIds(state);
+    if (ids.isEmpty) {
+      return;
+    }
+    try {
+      await ref
+          .read(knowledgeRepositoryProvider)
+          .ensureTechnologies(bundle, ids);
+    } on Object {
+      // Prefetching is opportunistic. A real navigation retries and surfaces
+      // the error through knowledgeBundleProvider.
+    }
   }
 }
 
@@ -201,7 +241,11 @@ class _ErrorBody extends ConsumerWidget {
           Text('$error', textAlign: TextAlign.center),
           const SizedBox(height: 16),
           FilledButton(
-            onPressed: () => ref.invalidate(knowledgeBundleProvider),
+            onPressed: () {
+              ref.read(knowledgeRepositoryProvider).clearCache();
+              ref.invalidate(knowledgeCatalogProvider);
+              ref.invalidate(knowledgeBundleProvider);
+            },
             child: Text(l10n.retry),
           ),
         ],
