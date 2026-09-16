@@ -1,41 +1,18 @@
 {
-  "version": 1,
-  "updatedAt": "2026-09-16",
-  "categories": {
-    "routing": {
-      "description": "Flutter navigation and routing solutions, including built-in framework APIs and routing code generators.",
-      "items": [
-        {
-          "id": "navigator",
-          "path": "libraries/routing/navigator.json",
-          "verifiedAt": "2026-09-16",
-          "context7Required": false
-        },
-        {
-          "id": "go_router",
-          "path": "libraries/routing/go_router.json",
-          "verifiedAt": "2026-09-16",
-          "context7Required": false
-        },
-        {
-          "id": "go_router_builder",
-          "path": "libraries/routing/go_router_builder.json",
-          "verifiedAt": "2026-09-16",
-          "context7Required": false
-        },
-        {
-          "id": "auto_route",
-          "path": "libraries/routing/auto_route.json",
-          "verifiedAt": "2026-09-16",
-          "context7Required": false
-        },
-        {
-          "id": "auto_route_generator",
-          "path": "libraries/routing/auto_route_generator.json",
-          "verifiedAt": "2026-09-16",
-          "context7Required": false
-        }
-      ]
-    }
+  "version":2,
+  "updatedAt":"2026-09-16",
+  "categories":{
+    "routing":{"description":"Flutter navigation and routing solutions, including built-in framework APIs and routing code generators.","items":[{"id":"navigator","path":"libraries/routing/navigator.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"go_router","path":"libraries/routing/go_router.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"go_router_builder","path":"libraries/routing/go_router_builder.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"auto_route","path":"libraries/routing/auto_route.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"auto_route_generator","path":"libraries/routing/auto_route_generator.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "project_structure":{"description":"Repository and package-organization choices for Flutter and Dart projects.","items":[{"id":"dart_pub_workspaces","path":"libraries/project_structure/dart_pub_workspaces.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"melos","path":"libraries/project_structure/melos.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "state_management":{"description":"Built-in and package-based state-management approaches for Flutter applications.","items":[{"id":"set_state","path":"libraries/state_management/set_state.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"provider","path":"libraries/state_management/provider.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"flutter_riverpod","path":"libraries/state_management/flutter_riverpod.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"riverpod_generator","path":"libraries/state_management/riverpod_generator.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"flutter_bloc","path":"libraries/state_management/flutter_bloc.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "networking":{"description":"HTTP and REST client libraries and generators.","items":[{"id":"http","path":"libraries/networking/http.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"dio","path":"libraries/networking/dio.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"retrofit","path":"libraries/networking/retrofit.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"retrofit_generator","path":"libraries/networking/retrofit_generator.json","verifiedAt":"2026-09-16","context7Required":true}]},
+    "models":{"description":"Immutable-model and serialization code-generation tools.","items":[{"id":"freezed","path":"libraries/models/freezed.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"json_serializable","path":"libraries/models/json_serializable.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "persistence":{"description":"Local key-value, secure, and relational persistence solutions.","items":[{"id":"shared_preferences","path":"libraries/persistence/shared_preferences.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"flutter_secure_storage","path":"libraries/persistence/flutter_secure_storage.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"drift","path":"libraries/persistence/drift.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "native_bridge":{"description":"Flutter-to-native communication APIs and code generators.","items":[{"id":"platform_channels","path":"libraries/native_bridge/platform_channels.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"pigeon","path":"libraries/native_bridge/pigeon.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "tooling":{"description":"Code-generation and static-analysis tooling.","items":[{"id":"build_runner","path":"libraries/tooling/build_runner.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"flutter_lints","path":"libraries/tooling/flutter_lints.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"riverpod_lint","path":"libraries/tooling/riverpod_lint.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "testing":{"description":"Flutter testing tools and test levels.","items":[{"id":"flutter_test","path":"libraries/testing/flutter_test.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"integration_test","path":"libraries/testing/integration_test.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "monitoring":{"description":"Crash and error monitoring integrations.","items":[{"id":"firebase_crashlytics","path":"libraries/monitoring/firebase_crashlytics.json","verifiedAt":"2026-09-16","context7Required":false},{"id":"sentry_flutter","path":"libraries/monitoring/sentry_flutter.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "analytics":{"description":"Product analytics integrations.","items":[{"id":"firebase_analytics","path":"libraries/analytics/firebase_analytics.json","verifiedAt":"2026-09-16","context7Required":false}]},
+    "decision_flow":{"description":"UI decision-flow definitions that connect project requirements to relevant knowledge entries.","items":[{"id":"flutter_default","path":"flow/flutter_decision_flow.json","verifiedAt":"2026-09-16","context7Required":false}]}
   }
 }
