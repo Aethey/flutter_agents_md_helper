@@ -1,0 +1,41 @@
+{
+  "id": "auto_route_generator",
+  "name": "auto_route_generator",
+  "category": "routing",
+  "summary": "The code generator used by auto_route to generate routing classes and navigation infrastructure from annotated route configuration.",
+  "sources": [
+    {
+      "type": "pub_dev",
+      "url": "https://pub.dev/packages/auto_route_generator"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/Milad-Akarie/auto_route_library"
+    }
+  ],
+  "latestVersion": "10.6.0",
+  "advantages": [
+    "Generates the strongly-typed routing infrastructure used by auto_route",
+    "Works with build_runner",
+    "Also supports LeanBuilder in current releases for incremental generation workflows"
+  ],
+  "tradeoffs": [
+    "Adds generated source files and a code-generation step",
+    "Should only be introduced when the project adopts auto_route's generated workflow"
+  ],
+  "recommendedFor": [
+    "Projects using auto_route with generated routes",
+    "Teams that prefer generated type-safe navigation APIs"
+  ],
+  "worksWellWith": [
+    "auto_route",
+    "build_runner",
+    "lean_builder"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "The current pub.dev package page and auto_route documentation provide the required generator and builder information."
+  },
+  "verifiedAt": "2026-09-16"
+}

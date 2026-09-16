@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-16",
+  "categories": {
+    "routing": {
+      "description": "Flutter navigation and routing solutions, including built-in framework APIs and routing code generators.",
+      "items": [
+        {
+          "id": "navigator",
+          "path": "libraries/routing/navigator.json",
+          "verifiedAt": "2026-09-16",
+          "context7Required": false
+        },
+        {
+          "id": "go_router",
+          "path": "libraries/routing/go_router.json",
+          "verifiedAt": "2026-09-16",
+          "context7Required": false
+        },
+        {
+          "id": "go_router_builder",
+          "path": "libraries/routing/go_router_builder.json",
+          "verifiedAt": "2026-09-16",
+          "context7Required": false
+        },
+        {
+          "id": "auto_route",
+          "path": "libraries/routing/auto_route.json",
+          "verifiedAt": "2026-09-16",
+          "context7Required": false
+        },
+        {
+          "id": "auto_route_generator",
+          "path": "libraries/routing/auto_route_generator.json",
+          "verifiedAt": "2026-09-16",
+          "context7Required": false
+        }
+      ]
+    }
+  }
+}
