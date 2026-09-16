@@ -1,0 +1,37 @@
+{
+  "id": "permission_handler",
+  "name": "permission_handler",
+  "category": "permissions",
+  "summary": "Flutter plugin that provides a cross-platform API for checking and requesting application permissions while delegating the actual permission behavior to each operating system.",
+  "sources": [
+    {"type": "pub_dev", "url": "https://pub.dev/packages/permission_handler"},
+    {"type": "github", "url": "https://github.com/baseflow/flutter-permission-handler"},
+    {"type": "official", "url": "https://developer.android.com/guide/topics/permissions/overview"},
+    {"type": "official", "url": "https://developer.apple.com/documentation/bundleresources/protected-resources"}
+  ],
+  "latestVersion": "13.0.2",
+  "advantages": [
+    "Provides one Dart-facing API for common permission status checks and requests across supported platforms",
+    "Supports Android and iOS permission handling through platform implementations",
+    "Reduces the need to implement generic permission-request plumbing through custom platform channels"
+  ],
+  "tradeoffs": [
+    "Native platform configuration is still required, including Android manifest declarations and iOS usage-description keys where applicable",
+    "Permission semantics and available states differ by operating system and OS version",
+    "Applications must still design when and why permissions are requested; the package does not replace platform privacy requirements"
+  ],
+  "recommendedFor": [
+    "Applications that request camera, microphone, location, photos, contacts, Bluetooth, notification, or other protected-resource permissions",
+    "Projects that need a shared Flutter API while still respecting Android and Apple permission models"
+  ],
+  "worksWellWith": [
+    "Android permission declarations",
+    "iOS protected-resource UsageDescription keys"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "The package metadata, official repository, and Android/Apple platform documentation provide consistent current behavior and constraints."
+  },
+  "verifiedAt": "2026-09-16"
+}

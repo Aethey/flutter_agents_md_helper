@@ -1,0 +1,30 @@
+{
+  "id": "dynamic_color",
+  "name": "dynamic_color",
+  "category": "theming",
+  "summary": "Flutter package published by material.io that obtains platform dynamic/accent colors and exposes light and dark ColorScheme values, with support for color harmonization.",
+  "sources": [
+    {"type": "pub_dev", "url": "https://pub.dev/packages/dynamic_color"}
+  ],
+  "latestVersion": "2.1.0",
+  "advantages": [
+    "Can derive Material color schemes from supported platform-provided dynamic or accent colors",
+    "Provides light and dark dynamic ColorScheme values through DynamicColorBuilder",
+    "Supports color and color-scheme harmonization"
+  ],
+  "tradeoffs": [
+    "Platform support is not uniform; current documented support includes Android S+, Linux, macOS, and Windows rather than every Flutter platform",
+    "Dynamic color behavior depends on platform capabilities and should have a deterministic fallback theme"
+  ],
+  "recommendedFor": [
+    "Material applications that want to follow supported device or desktop accent/dynamic colors",
+    "Projects that want Material dynamic-color harmonization while retaining fallback ThemeData"
+  ],
+  "worksWellWith": ["ThemeData + ColorScheme", "dynamic_color_testing"],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current pub.dev package metadata and changelog clearly define version 2.1.0 and supported platforms."
+  },
+  "verifiedAt": "2026-09-16"
+}

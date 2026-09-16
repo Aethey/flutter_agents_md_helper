@@ -1,0 +1,31 @@
+{
+  "id": "intl",
+  "name": "intl",
+  "category": "localization",
+  "summary": "Dart internationalization package for localized messages, date and number formatting/parsing, bidirectional text, and related locale-aware functionality.",
+  "sources": [
+    {"type": "pub_dev", "url": "https://pub.dev/packages/intl"},
+    {"type": "dart_docs", "url": "https://pub.dev/documentation/intl/latest/"}
+  ],
+  "latestVersion": "0.20.3",
+  "advantages": [
+    "Provides locale-aware date, number, currency, and message formatting",
+    "Published by dart.dev and used by Flutter localization workflows",
+    "Supports bidirectional-text and internationalization utilities"
+  ],
+  "tradeoffs": [
+    "It is an internationalization utility package rather than a complete Flutter localization workflow",
+    "Applications still need to choose how localized resources are stored and generated"
+  ],
+  "recommendedFor": [
+    "Projects that need locale-aware date, number, or currency formatting",
+    "Localization workflows that use Flutter gen_l10n or other message-generation systems"
+  ],
+  "worksWellWith": ["flutter_localizations + gen_l10n"],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current pub.dev metadata and Flutter internationalization documentation are sufficient."
+  },
+  "verifiedAt": "2026-09-16"
+}
