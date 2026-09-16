@@ -1,0 +1,9 @@
+{
+  "id":"provider","name":"provider","category":"state_management","summary":"A wrapper around InheritedWidget that simplifies exposing and consuming values through the Flutter widget tree.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/provider"},{"type":"flutter_docs","url":"https://docs.flutter.dev/data-and-backend/state-mgmt/options"}],"latestVersion":"6.1.5+1",
+  "advantages":["Mature and widely used","Lower conceptual overhead than more feature-heavy state-management frameworks","Reduces boilerplate compared with direct InheritedWidget usage"],
+  "tradeoffs":["State and dependency access remain tied to BuildContext/widget-tree structure","Async-heavy applications may want stronger async/caching primitives or stricter state-transition conventions"],
+  "recommendedFor":["Small to medium Flutter apps that want a lightweight InheritedWidget-based abstraction","Teams that prefer widget-tree-scoped dependency access"],
+  "worksWellWith":["ChangeNotifier","InheritedWidget"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and Flutter state-management guidance are sufficient."},"verifiedAt":"2026-09-16"
+}
