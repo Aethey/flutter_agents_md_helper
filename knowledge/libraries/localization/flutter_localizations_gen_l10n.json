@@ -1,0 +1,32 @@
+{
+  "id": "flutter_localizations_gen_l10n",
+  "name": "flutter_localizations + gen_l10n",
+  "category": "localization",
+  "summary": "Flutter SDK localization workflow using flutter_localizations, ARB resource files, l10n.yaml, and the gen_l10n code generator to produce typed localization APIs.",
+  "sources": [
+    {"type": "flutter_docs", "url": "https://docs.flutter.dev/ui/internationalization"}
+  ],
+  "latestVersion": null,
+  "advantages": [
+    "First-party Flutter localization workflow integrated with MaterialApp and CupertinoApp",
+    "Generates typed localization accessors from ARB files",
+    "Supports locale-specific messages, placeholders, plurals, selects, numbers, currencies, and dates",
+    "Does not require a third-party localization runtime abstraction"
+  ],
+  "tradeoffs": [
+    "Requires maintaining ARB resources and localization configuration",
+    "Translation workflow is centered on Flutter's ARB and generated-code conventions"
+  ],
+  "recommendedFor": [
+    "Applications that need Flutter SDK-native localization",
+    "Projects that want generated typed localization accessors",
+    "Applications with locale-aware Material or Cupertino widgets"
+  ],
+  "worksWellWith": ["intl", "MaterialApp", "CupertinoApp"],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Flutter's current internationalization documentation defines this workflow directly."
+  },
+  "verifiedAt": "2026-09-16"
+}

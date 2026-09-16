@@ -1,0 +1,9 @@
+{
+  "id":"pigeon","name":"Pigeon","category":"native_bridge","summary":"Flutter's code generator for structured, type-safe communication between Dart and host-platform code over platform channels.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/platform-integration/platform-channels"},{"type":"pub_dev","url":"https://pub.dev/packages/pigeon"}],"latestVersion":"29.0.1",
+  "advantages":["Generates structured type-safe host/client messaging code","Eliminates manual string matching for method names and message types","Supports messages in both directions"],
+  "tradeoffs":["Adds a generator workflow and generated native/Dart code","Supported targets and generated APIs must be kept aligned with the package version"],
+  "recommendedFor":["Larger Flutter-to-native interfaces","SDK or plugin development where Dart/native contracts should be generated","Projects that want to avoid handwritten method-name and payload matching"],
+  "worksWellWith":["Flutter platform channels"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter official documentation and current pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

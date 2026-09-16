@@ -1,0 +1,46 @@
+{
+  "id": "auto_route",
+  "name": "auto_route",
+  "category": "routing",
+  "summary": "A declarative Flutter routing package focused on generated routing, strongly-typed arguments, deep linking, route guards, nested navigation, and tab navigation.",
+  "sources": [
+    {
+      "type": "pub_dev",
+      "url": "https://pub.dev/packages/auto_route"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/Milad-Akarie/auto_route_library"
+    }
+  ],
+  "latestVersion": "11.1.0",
+  "advantages": [
+    "Strongly-typed argument passing with generated routes",
+    "Built-in support for deep linking and route guards",
+    "Supports nested navigation and tab navigation",
+    "Code generation reduces manual argument extraction and route boilerplate",
+    "Can also be used without code generation when a project prefers inline named route definitions"
+  ],
+  "tradeoffs": [
+    "The primary generated workflow introduces a code-generation step",
+    "Generated routing adds configuration and build-system complexity compared with simple Navigator usage",
+    "It is maintained outside the Flutter team, so teams must evaluate third-party package adoption and upgrade cadence"
+  ],
+  "recommendedFor": [
+    "Applications that prefer generated, strongly-typed routing APIs",
+    "Applications requiring deep links or guarded routes",
+    "Applications with nested or tab-based navigation",
+    "Teams comfortable with code generation as part of the development workflow"
+  ],
+  "worksWellWith": [
+    "auto_route_generator",
+    "build_runner",
+    "lean_builder"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current pub.dev documentation and the official GitHub repository clearly document the generated routing model and supported scenarios."
+  },
+  "verifiedAt": "2026-09-16"
+}

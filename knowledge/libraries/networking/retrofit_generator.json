@@ -1,0 +1,9 @@
+{
+  "id":"retrofit_generator","name":"retrofit_generator","category":"networking","summary":"The source generator that creates Dio-backed implementations for retrofit.dart REST client declarations.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/retrofit_generator"},{"type":"github","url":"https://github.com/trevorwang/retrofit.dart"}],"latestVersion":"10.2.11",
+  "advantages":["Automates implementation of annotated REST clients","Works with build_runner and source_gen workflows"],
+  "tradeoffs":["Requires code generation and analyzer/build-tool compatibility","The current changelog contains a 10.3.0 section while pub.dev still identifies 10.2.11 as the latest published stable version"],
+  "recommendedFor":["Projects using retrofit.dart annotations","Teams that want generated typed Dio client implementations"],
+  "worksWellWith":["retrofit","dio","build_runner"],
+  "verification":{"status":"needs_review","context7Required":true,"reason":"pub.dev reports 10.2.11 as latest stable while the changelog already contains a 10.3.0 section; re-check release status before updating."},"verifiedAt":"2026-09-16"
+}

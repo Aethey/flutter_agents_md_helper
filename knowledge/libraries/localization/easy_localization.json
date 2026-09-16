@@ -1,0 +1,33 @@
+{
+  "id": "easy_localization",
+  "name": "easy_localization",
+  "category": "localization",
+  "summary": "Third-party Flutter localization package that manages locale changes and translation resources and supports JSON, CSV, YAML, XML, plural/gender rules, RTL, fallback locales, and generated localization keys.",
+  "sources": [
+    {"type": "pub_dev", "url": "https://pub.dev/packages/easy_localization"},
+    {"type": "github", "url": "https://github.com/aissat/easy_localization"}
+  ],
+  "latestVersion": "3.0.8",
+  "advantages": [
+    "Supports several translation-resource formats including JSON, CSV, YAML, and XML",
+    "Provides runtime locale switching and persisted locale handling",
+    "Supports plural, gender, nesting, RTL locales, fallback locales, and generated keys",
+    "Supports loading localization resources from multiple packages/modules"
+  ],
+  "tradeoffs": [
+    "Introduces a third-party localization runtime and APIs in addition to Flutter's built-in localization system",
+    "The latest stable release is 3.0.8 while a 4.0.0 development release also exists, so prerelease compatibility must be checked separately"
+  ],
+  "recommendedFor": [
+    "Projects that prefer asset-based translation files and runtime locale management",
+    "Projects that need translation formats or loader behavior beyond the standard ARB workflow",
+    "Multi-package applications that want to aggregate translation assets from multiple packages"
+  ],
+  "worksWellWith": ["intl"],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current pub.dev documentation and the package's official GitHub repository describe the stable feature set consistently."
+  },
+  "verifiedAt": "2026-09-16"
+}

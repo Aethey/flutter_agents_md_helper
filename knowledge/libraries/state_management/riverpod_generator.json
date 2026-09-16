@@ -1,0 +1,9 @@
+{
+  "id":"riverpod_generator","name":"riverpod_generator","category":"state_management","summary":"The Riverpod code generator that turns annotated declarations into generated providers and related boilerplate.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/riverpod_generator"},{"type":"official","url":"https://riverpod.dev/docs/concepts/about_code_generation"}],"latestVersion":"4.0.9",
+  "advantages":["Reduces repetitive provider declarations","Supports annotation-driven provider generation","Keeps generated provider APIs aligned with Riverpod"],
+  "tradeoffs":["Requires a code-generation step and generated files","Version compatibility tracks Dart/analyzer changes closely"],
+  "recommendedFor":["Riverpod projects that accept code generation","Projects that want annotation-driven providers and less provider boilerplate"],
+  "worksWellWith":["flutter_riverpod","riverpod_annotation","build_runner","riverpod_lint"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and Riverpod documentation are sufficient; 4.0.9 is the current stable version found."},"verifiedAt":"2026-09-16"
+}

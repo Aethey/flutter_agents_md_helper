@@ -1,0 +1,9 @@
+{
+  "id":"json_serializable","name":"json_serializable","category":"models","summary":"A Dart build-system generator that creates typed toJson and fromJson code from annotated model classes.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/json_serializable"},{"type":"github","url":"https://github.com/google/json_serializable.dart"}],"latestVersion":"6.14.1",
+  "advantages":["Removes repetitive serialization code","Keeps JSON field mapping explicit through annotations","Works with typed Dart models and common code-generation stacks"],
+  "tradeoffs":["Requires generation tooling","Schema or API changes still require model maintenance and regeneration"],
+  "recommendedFor":["Applications that exchange substantial JSON data","Projects that want generated serialization instead of handwritten map conversion","Typed API and data layers"],
+  "worksWellWith":["json_annotation","build_runner","Freezed","retrofit"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and package documentation are sufficient."},"verifiedAt":"2026-09-16"
+}

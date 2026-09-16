@@ -1,0 +1,9 @@
+{
+  "id":"flutter_lints","name":"flutter_lints","category":"tooling","summary":"The Flutter team's recommended lint set for Flutter apps, packages, and plugins.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/flutter_lints"}],"latestVersion":"6.0.0",
+  "advantages":["Official flutter.dev lint package","Provides a maintained baseline for common Flutter coding practices"],
+  "tradeoffs":["A baseline lint set does not enforce project-specific architecture or stricter type-analysis settings by itself"],
+  "recommendedFor":["Nearly all Flutter applications and packages as a baseline static-analysis rule set"],
+  "worksWellWith":["dart analyze","analysis_options.yaml"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata is sufficient."},"verifiedAt":"2026-09-16"
+}

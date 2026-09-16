@@ -1,0 +1,43 @@
+{
+  "id": "go_router_builder",
+  "name": "go_router_builder",
+  "category": "routing",
+  "summary": "The official code generator for go_router strongly-typed route helpers. It converts route definitions into generated navigation helpers so required parameters and parameter types can be checked statically.",
+  "sources": [
+    {
+      "type": "pub_dev",
+      "url": "https://pub.dev/packages/go_router_builder"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/flutter/packages/tree/main/packages/go_router_builder"
+    }
+  ],
+  "latestVersion": "4.5.0",
+  "advantages": [
+    "Generates strongly-typed route helpers for go_router",
+    "Moves missing or incorrectly typed route-parameter errors toward static analysis and compile time",
+    "Reduces hand-written go, push, and location boilerplate",
+    "Can detect duplicate route paths during generation"
+  ],
+  "tradeoffs": [
+    "Introduces a code-generation step",
+    "Requires generated .g.dart files and a build system such as build_runner",
+    "Adds value primarily when the project already uses go_router"
+  ],
+  "recommendedFor": [
+    "go_router projects that want type-safe route parameters",
+    "Projects that want to avoid hand-written route strings and navigation boilerplate",
+    "Projects already using Dart code generation"
+  ],
+  "worksWellWith": [
+    "go_router",
+    "build_runner"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current pub.dev documentation explicitly documents the strongly-typed routing goal, generated helpers, and build requirements."
+  },
+  "verifiedAt": "2026-09-16"
+}

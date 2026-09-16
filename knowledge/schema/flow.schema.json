@@ -1,0 +1,12 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "title":"Flutter Decision Flow",
+  "type":"object",
+  "required":["id","name","version","updatedAt","principles","stages"],
+  "properties":{
+    "id":{"type":"string"},"name":{"type":"string"},"version":{"type":"integer","minimum":1},
+    "updatedAt":{"type":"string","pattern":"^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "principles":{"type":"array","items":{"type":"string"}},
+    "stages":{"type":"array","items":{"type":"object","required":["id","title","required","questions"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"required":{"type":"boolean"},"derived":{"type":"boolean"},"questions":{"type":"array","items":{"type":"object"}}}}}
+  }
+}

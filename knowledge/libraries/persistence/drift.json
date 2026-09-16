@@ -1,0 +1,9 @@
+{
+  "id":"drift","name":"Drift","category":"persistence","summary":"A reactive relational persistence library for Dart and Flutter built around SQLite-style relational data and typed queries.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/drift"},{"type":"official","url":"https://drift.simonbinder.eu/"}],"latestVersion":"2.35.0",
+  "advantages":["Typed relational query APIs","Reactive query streams","Supports Dart and Flutter across multiple platforms"],
+  "tradeoffs":["More schema and migration complexity than key-value storage","Requires deliberate database lifecycle and migration design"],
+  "recommendedFor":["Structured relational local data","Offline-capable applications that benefit from typed queries and reactive streams","Projects that need more than primitive key-value persistence"],
+  "worksWellWith":["sqlite3","build_runner","drift_dev"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current official Drift documentation and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

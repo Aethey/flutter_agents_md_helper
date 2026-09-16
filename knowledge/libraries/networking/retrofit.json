@@ -1,0 +1,9 @@
+{
+  "id":"retrofit","name":"retrofit","category":"networking","summary":"An annotation-based REST client abstraction for Dart and Flutter that generates Dio-backed API client implementations.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/retrofit"},{"type":"github","url":"https://github.com/trevorwang/retrofit.dart"}],"latestVersion":"4.10.0",
+  "advantages":["Reduces repetitive request construction","Keeps REST endpoint definitions declarative and typed","Generated implementation is backed by Dio"],
+  "tradeoffs":["Adds annotations and a generation workflow","Generated clients do not replace API-domain boundaries and error modeling"],
+  "recommendedFor":["Dio-based REST APIs with many typed endpoints","Teams that prefer declarative endpoint interfaces and generated client implementations"],
+  "worksWellWith":["dio","retrofit_generator","json_serializable","Freezed"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and official repository documentation are sufficient."},"verifiedAt":"2026-09-16"
+}

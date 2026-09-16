@@ -1,0 +1,32 @@
+{
+  "id": "flex_color_scheme",
+  "name": "flex_color_scheme",
+  "category": "theming",
+  "summary": "Third-party Flutter theming package for building Material-based light and dark ThemeData with seeded color schemes, surface blending, component configuration, and predefined theme schemes.",
+  "sources": [
+    {"type": "pub_dev", "url": "https://pub.dev/packages/flex_color_scheme"},
+    {"type": "official", "url": "https://docs.flexcolorscheme.com/"}
+  ],
+  "latestVersion": "9.0.0",
+  "advantages": [
+    "Builds coordinated light and dark ThemeData with extensive Material color and component configuration",
+    "Provides seed-based schemes, surface blending, predefined schemes, and higher-level theming controls",
+    "Can reduce repetitive manual ThemeData configuration for applications with substantial Material theming requirements"
+  ],
+  "tradeoffs": [
+    "Introduces a third-party theming abstraction on top of Flutter's built-in ThemeData and ColorScheme",
+    "Version 9.0.0 is a new major release and requires the newer Flutter/material_ui ecosystem; compatibility must be checked against the project's Flutter version",
+    "Projects with simple themes may not need the additional abstraction"
+  ],
+  "recommendedFor": [
+    "Material applications with extensive light/dark theme customization",
+    "Projects that want higher-level ColorScheme and component-theme configuration than raw ThemeData alone"
+  ],
+  "worksWellWith": ["ThemeData + ColorScheme"],
+  "verification": {
+    "status": "needs_review",
+    "context7Required": true,
+    "reason": "Version 9.0.0 is a newly published major release with Flutter 3.47+/material_ui changes, so version-sensitive details should receive an additional documentation check before being treated as long-lived guidance."
+  },
+  "verifiedAt": "2026-09-16"
+}

@@ -1,0 +1,9 @@
+{
+  "id":"platform_channels","name":"Flutter platform channels","category":"native_bridge","summary":"Flutter's built-in message-passing APIs for invoking platform-specific Android, iOS, macOS, Windows, and Linux code from Dart.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/platform-integration/platform-channels"}],"latestVersion":null,
+  "advantages":["Built into Flutter","Direct and flexible access to platform-specific APIs","Suitable for one-off or custom native integrations"],
+  "tradeoffs":["Method names and payload contracts can become stringly typed when handwritten","Large interfaces require manual synchronization between Dart and native code"],
+  "recommendedFor":["Small or custom Flutter-to-native integrations","Projects that need direct control over message-channel APIs","Cases where generated bridge code is unnecessary"],
+  "worksWellWith":["MethodChannel","EventChannel","Pigeon"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter official platform-channel documentation is sufficient."},"verifiedAt":"2026-09-16"
+}

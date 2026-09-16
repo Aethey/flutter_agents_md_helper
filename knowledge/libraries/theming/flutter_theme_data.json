@@ -1,0 +1,34 @@
+{
+  "id": "flutter_theme_data",
+  "name": "ThemeData + ColorScheme",
+  "category": "theming",
+  "summary": "Flutter's built-in Material theming system for defining application-wide colors, typography, component themes, light/dark themes, and Material 3 color schemes.",
+  "sources": [
+    {"type": "flutter_docs", "url": "https://docs.flutter.dev/cookbook/design/themes"},
+    {"type": "flutter_docs", "url": "https://docs.flutter.dev/release/breaking-changes/material-3-default"},
+    {"type": "flutter_docs", "url": "https://docs.flutter.dev/release/breaking-changes/material-3-migration"}
+  ],
+  "latestVersion": null,
+  "advantages": [
+    "Built into Flutter and does not require an additional theming dependency",
+    "Provides application-wide ThemeData, ColorScheme, TextTheme, and component-specific themes",
+    "Material 3 is the default Material style in current Flutter",
+    "ColorScheme.fromSeed can generate coordinated light or dark Material color schemes"
+  ],
+  "tradeoffs": [
+    "Large custom design systems can require substantial manual ThemeData and component-theme configuration",
+    "Platform-provided dynamic colors require additional platform integration or a package such as dynamic_color"
+  ],
+  "recommendedFor": [
+    "Applications using Flutter Material widgets",
+    "Projects that want direct control over app-wide light/dark themes, typography, and component styling",
+    "Design systems that can be expressed through ThemeData, ColorScheme, ThemeExtension, and component themes"
+  ],
+  "worksWellWith": ["dynamic_color", "flex_color_scheme"],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current Flutter theming and Material 3 documentation defines the built-in theming model directly."
+  },
+  "verifiedAt": "2026-09-16"
+}

@@ -1,0 +1,9 @@
+{
+  "id":"sentry_flutter","name":"sentry_flutter","category":"monitoring","summary":"The Sentry SDK for Flutter, providing error monitoring and observability across supported Flutter targets.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/sentry_flutter"},{"type":"official","url":"https://docs.sentry.io/platforms/dart/guides/flutter/"}],"latestVersion":"9.30.0",
+  "advantages":["Supports a broad set of Flutter targets","Can align mobile error monitoring with an organization-wide Sentry setup"],
+  "tradeoffs":["Adds an external observability service and SDK configuration","Feature set and platform integrations should be checked against project monitoring requirements"],
+  "recommendedFor":["Apps that want cross-platform error monitoring beyond a Firebase-only stack","Teams already using Sentry across backend, web, or mobile systems"],
+  "worksWellWith":["Sentry","Flutter"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current Sentry documentation and pub.dev metadata are sufficient; 10.0.0 remains prerelease."},"verifiedAt":"2026-09-16"
+}

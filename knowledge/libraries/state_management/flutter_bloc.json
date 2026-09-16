@@ -1,0 +1,9 @@
+{
+  "id":"flutter_bloc","name":"flutter_bloc","category":"state_management","summary":"Flutter widgets and integrations for the BLoC/Cubit state-management pattern, separating presentation from explicit business-logic state transitions.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/flutter_bloc"},{"type":"official","url":"https://bloclibrary.dev/"}],"latestVersion":"9.1.1",
+  "advantages":["Clear separation between UI and business logic","Predictable state flow and strong testing conventions","Large ecosystem and extensive documentation"],
+  "tradeoffs":["Can introduce more ceremony than local or lightweight state solutions","Event/state modeling can be verbose when the problem is simple"],
+  "recommendedFor":["Teams that value explicit state-transition boundaries","Applications already standardized on BLoC or Cubit","Large teams that want a consistent state-transition convention"],
+  "worksWellWith":["bloc","equatable","hydrated_bloc"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current bloclibrary.dev guidance and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}

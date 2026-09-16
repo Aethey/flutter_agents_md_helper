@@ -1,0 +1,9 @@
+{
+  "id":"integration_test","name":"integration_test","category":"testing","summary":"Flutter SDK integration-testing support for exercising a complete Flutter application on a target device or emulator.",
+  "sources":[{"type":"flutter_docs","url":"https://docs.flutter.dev/testing/integration-tests"},{"type":"flutter_docs","url":"https://docs.flutter.dev/cookbook/testing/integration/introduction"}],"latestVersion":null,
+  "advantages":["Tests behavior of the complete Flutter application","Can run on devices or emulators and use flutter_test APIs"],
+  "tradeoffs":["Slower and more expensive to run than unit or widget tests","Flutter documentation notes that integration_test cannot interact with native platform UI"],
+  "recommendedFor":["Critical end-to-end user flows","Testing multiple app components together on a target device","Performance-sensitive or release-confidence scenarios"],
+  "worksWellWith":["flutter_test","Firebase Test Lab"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Flutter official integration-testing documentation is sufficient."},"verifiedAt":"2026-09-16"
+}

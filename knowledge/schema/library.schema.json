@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Flutter Knowledge Library Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "summary",
+    "sources",
+    "latestVersion",
+    "recommendedFor",
+    "worksWellWith",
+    "verification",
+    "verifiedAt"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "category": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "url"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["flutter_docs", "dart_docs", "official", "pub_dev", "github", "context7", "other"]
+          },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "latestVersion": { "type": ["string", "null"] },
+    "advantages": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "tradeoffs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "recommendedFor": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "worksWellWith": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "context7Required", "reason"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["verified", "needs_review", "source_conflict", "outdated"]
+        },
+        "context7Required": { "type": "boolean" },
+        "reason": { "type": ["string", "null"] }
+      }
+    },
+    "verifiedAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

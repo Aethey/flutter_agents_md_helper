@@ -1,0 +1,14 @@
+{
+  "id": "melos",
+  "name": "Melos",
+  "category": "project_structure",
+  "summary": "A Dart and Flutter monorepo management tool for repositories containing multiple packages.",
+  "sources": [{"type":"pub_dev","url":"https://pub.dev/packages/melos"},{"type":"official","url":"https://melos.invertase.dev/"}],
+  "latestVersion": "8.7.0",
+  "advantages": ["Provides workspace-wide scripts and package filtering","Supports monorepo workflows and automated versioning","Complements Dart pub workspaces with higher-level orchestration"],
+  "tradeoffs": ["Adds another development tool and configuration layer","Can be unnecessary for a single-package app or a very small workspace"],
+  "recommendedFor": ["Multi-package Flutter or Dart repositories","Teams that need workspace-wide scripts, package filtering, bootstrapping, or release automation","Large repositories that need orchestration beyond pub workspaces"],
+  "worksWellWith": ["Dart pub workspaces","Flutter","GitHub Actions"],
+  "verification": {"status":"verified","context7Required":false,"reason":"Current pub.dev metadata and official Melos documentation are sufficient."},
+  "verifiedAt": "2026-09-16"
+}

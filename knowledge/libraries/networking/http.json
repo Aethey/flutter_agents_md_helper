@@ -1,0 +1,9 @@
+{
+  "id":"http","name":"http","category":"networking","summary":"The Dart team's composable, multi-platform, Future-based HTTP client API.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/http"}],"latestVersion":"1.6.0",
+  "advantages":["Official dart.dev publisher","Small and composable API","Runs across Dart and Flutter platforms"],
+  "tradeoffs":["Does not provide Dio-style interceptors, cancellation, or transformer features out of the box","Complex API clients may require additional architecture and boilerplate"],
+  "recommendedFor":["Simple REST or HTTP integrations","Packages that want a small broadly supported HTTP abstraction","Projects that do not require interceptor-heavy networking features"],
+  "worksWellWith":["json_serializable"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current pub.dev metadata is sufficient."},"verifiedAt":"2026-09-16"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "go_router",
+  "name": "go_router",
+  "category": "routing",
+  "summary": "A Flutter-team-maintained declarative router built on the Router API, providing URL-based navigation, deep links, redirects, nested routes, and multiple Navigator support.",
+  "sources": [
+    {
+      "type": "flutter_docs",
+      "url": "https://docs.flutter.dev/ui/navigation"
+    },
+    {
+      "type": "pub_dev",
+      "url": "https://pub.dev/packages/go_router"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/flutter/packages/tree/main/packages/go_router"
+    }
+  ],
+  "latestVersion": "18.0.1",
+  "advantages": [
+    "Declarative URL-based routing on top of Flutter Router API",
+    "Built-in support for deep links, path parameters, query parameters, and redirection",
+    "Supports nested navigation and multiple Navigators through ShellRoute",
+    "Integrates well with Flutter Web URL and browser-history requirements",
+    "Published by flutter.dev and explicitly referenced by Flutter navigation documentation"
+  ],
+  "tradeoffs": [
+    "Adds a routing abstraction that may be unnecessary for small applications without complex navigation or deep-link requirements",
+    "Advanced nested navigation and multiple Navigator setups still require careful route-tree design",
+    "The package is feature-complete, so the Flutter team's current focus is stability and bug fixes rather than major new feature development"
+  ],
+  "recommendedFor": [
+    "Applications requiring deep links or direct URLs to screens",
+    "Flutter Web applications that need browser URL synchronization",
+    "Applications requiring authentication or state-based redirects",
+    "Applications using nested navigation, persistent shells, or multiple Navigators"
+  ],
+  "worksWellWith": [
+    "go_router_builder",
+    "Flutter Router API",
+    "Riverpod"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Current Flutter documentation and the current pub.dev package documentation provide consistent guidance."
+  },
+  "verifiedAt": "2026-09-16"
+}

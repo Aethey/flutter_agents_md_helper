@@ -1,0 +1,49 @@
+{
+  "id": "navigator",
+  "name": "Flutter Navigator / Router",
+  "category": "routing",
+  "summary": "Flutter's built-in navigation system. Navigator provides stack-based imperative navigation, while Router supports declarative routing, deep-link handling, and browser history integration without requiring a third-party routing package.",
+  "sources": [
+    {
+      "type": "flutter_docs",
+      "url": "https://docs.flutter.dev/ui/navigation"
+    },
+    {
+      "type": "official",
+      "url": "https://api.flutter.dev/flutter/widgets/Navigator-class.html"
+    },
+    {
+      "type": "official",
+      "url": "https://api.flutter.dev/flutter/widgets/Router-class.html"
+    }
+  ],
+  "latestVersion": null,
+  "advantages": [
+    "Built into Flutter with no additional routing package",
+    "Navigator provides straightforward stack-based push and pop navigation",
+    "Router can handle deep links and synchronize navigation with browser history",
+    "Provides full control over RouteInformationParser, RouterDelegate, Navigator pages, and route stacks"
+  ],
+  "tradeoffs": [
+    "Direct Router API configuration is more involved than using a higher-level routing package",
+    "Flutter does not recommend named routes for most applications because of limitations around customizable deep-link behavior and browser forward navigation",
+    "Complex multi-Navigator or URL-driven applications require more manual routing infrastructure when no routing package is used"
+  ],
+  "recommendedFor": [
+    "Small applications without complex deep-link requirements using Navigator",
+    "Applications that need full low-level control over routing behavior",
+    "Teams that intentionally want to avoid an additional routing dependency"
+  ],
+  "worksWellWith": [
+    "MaterialPageRoute",
+    "Navigator.pages",
+    "RouteInformationParser",
+    "RouterDelegate"
+  ],
+  "verification": {
+    "status": "verified",
+    "context7Required": false,
+    "reason": "Flutter official navigation documentation directly covers the relevant capabilities and limitations."
+  },
+  "verifiedAt": "2026-09-16"
+}

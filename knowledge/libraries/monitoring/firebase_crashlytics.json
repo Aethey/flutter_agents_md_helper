@@ -1,0 +1,9 @@
+{
+  "id":"firebase_crashlytics","name":"firebase_crashlytics","category":"monitoring","summary":"FlutterFire plugin for reporting uncaught errors and crash information to Firebase Crashlytics.",
+  "sources":[{"type":"pub_dev","url":"https://pub.dev/packages/firebase_crashlytics"},{"type":"official","url":"https://firebase.google.com/docs/crashlytics/get-started?platform=flutter"}],"latestVersion":"5.4.0",
+  "advantages":["Integrated with Firebase tooling and console","Focused crash and uncaught-error reporting"],
+  "tradeoffs":["Platform availability differs from some cross-platform monitoring SDKs","Requires Firebase project configuration"],
+  "recommendedFor":["Flutter apps already using Firebase","Teams that want crash and error reporting integrated into the Firebase console"],
+  "worksWellWith":["firebase_core","firebase_analytics"],
+  "verification":{"status":"verified","context7Required":false,"reason":"Current Firebase documentation and pub.dev metadata are sufficient."},"verifiedAt":"2026-09-16"
+}
