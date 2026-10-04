@@ -17,7 +17,7 @@
       "url": "https://github.com/flutter/packages/tree/main/packages/go_router"
     }
   ],
-  "latestVersion": "18.0.1",
+  "latestVersion": "18.0.2",
   "advantages": [
     "Declarative URL-based routing on top of Flutter Router API",
     "Built-in support for deep links, path parameters, query parameters, and redirection",
@@ -46,5 +46,5 @@
     "context7Required": false,
     "reason": "Current Flutter documentation and the current pub.dev package documentation provide consistent guidance."
   },
-  "verifiedAt": "2026-09-16"
+  "verifiedAt": "2026-10-05"
 }
